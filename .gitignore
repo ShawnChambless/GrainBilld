@@ -1,6 +1,11 @@
+.sass-cache
+config.codekit
+.codekit-cache
+.DS_Store
 # Logs
 logs
 *.log
+
 
 # Runtime data
 pids
