@@ -1,1 +1,12 @@
 h1 Database Editor
+
+
+form(ng-submit='addGrainToDb(grain)')
+    input(type='text' ng-model='grain.name' placeholder='Grain Name...')
+    input(type='text' ng-model='grain.type' placeholder='Grain Type...')
+    input(type='text' ng-model='grain.origin' placeholder='Grain Origin...')
+    input(type='text' ng-model='grain.color' placeholder='Grain Color')
+    input(type='text' ng-model='grain.description' placeholder='Grain Description')
+
+h3(ng-repeat='item in grains')
+    {{item.name}} {{item.type}} {{item.origin}} {{item.color}} {{item.description}} <br />
