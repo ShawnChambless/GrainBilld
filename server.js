@@ -10,12 +10,12 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public/app/views'));
 
-app.get('/', function(req, res) {
-    console.log('Got it')
-});
-app.post('/database', function(req, res) {
-    
-});
+// app.get('/', function(req, res) {
+//     console.log('Got it')
+// });
+// app.post('/database', function(req, res) {
+//
+// });
 
 
 app.listen(port, function() {
