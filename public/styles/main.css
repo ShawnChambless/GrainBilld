@@ -1,10 +1,22 @@
+@import "http://fonts.googleapis.com/css?family=Quicksand:300|Lobster|Varela+Round";
 html, body {
   height: 100%;
   margin: 0;
   padding: 0; }
 
 body {
-  font-family: sans-serif; }
+  font-family: Quicksand, sans-serif;
+  color: #444; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+.title {
+  font-size: 3.5em;
+  font-family: Lobster;
+  padding: 0 50px;
+  color: #3090C7; }
 
 h1 {
   font-weight: 200;
@@ -13,3 +25,27 @@ h1 {
 input {
   font-size: 1.03em;
   margin: 20px; }
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px; }
+
+header {
+  font-size: 1.5em; }
+
+.moduleTitle {
+  font-size: 2em;
+  font-weight: 500;
+  padding: 0 0 10px 0;
+  color: #C76730; }
+
+.ingredientModule {
+  width: 30%;
+  margin: 0 1%; }
+  .ingredientModule input {
+    margin: 1% 0; }
+
+.batchModule {
+  text-align: left;
+  width: 60%; }
