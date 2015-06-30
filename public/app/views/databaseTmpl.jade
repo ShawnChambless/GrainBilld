@@ -1,12 +1,55 @@
 h1 Database Editor
 
-
-form(ng-submit='addGrainToDb(grain)')
+h1 Grains
+form
     input(type='text' ng-model='grain.name' placeholder='Grain Name...')
     input(type='text' ng-model='grain.type' placeholder='Grain Type...')
     input(type='text' ng-model='grain.origin' placeholder='Grain Origin...')
-    input(type='text' ng-model='grain.color' placeholder='Grain Color')
-    input(type='text' ng-model='grain.description' placeholder='Grain Description')
-
+    input(type='text' ng-model='grain.alphaAmylase' placeholder='Alpha Amalyse...')
+    input(type='text' ng-model='grain.diastaticPower' placeholder='Diastatic Power...')
+    input(type='text' ng-model='grain.lovibond', placeholder='Lovibond...')
+    input(type='text' ng-model='grain.extractPercent' placeholder='Extract Percentage...')
+    input(type='text' ng-model='grain.solubleProtein' placeholder='Soluble Protein...')
+    input(type='text' ng-model='grain.totalProtein' placeholder='Total Protein...')
+    input(type='text' ng-model='grain.usage' placeholder='Usage Percentage...')
+    input(type='text' ng-model='grain.moisture' placeholder='Moisture Percentage...')
+    input(type='text' ng-model='grain.description' placeholder='Grain Description...')
+    button(ng-click='addGrainToDb(grain)') Add!
+    
+h1 Hops
+form(ng-submit='addHopsToDb(hops)')
+    input(type='text' ng-model='hops.name' placeholder='Name...')
+    input(type='text' ng-model='hops.origin' placeholder='Origin...')
+    input(type='text' ng-model='hops.type' placeholder='Type...(flavor, bittering, etc.)')
+    input(type='text' ng-model='hops.form' placeholder='Form...(pellet, leaf, etc)')
+    input(type='text' ng-model='hops.alphaAcid' placeholder='Alpha Acid...')
+    input(type='text' ng-model='hops.cohumulone' placeholder='Cohumulone...')
+    input(type='text' ng-model='hops.betaAcid' placeholder='Beta Acid...')
+    input(type='text' ng-model='hops.totalOil' placeholder='Total Oil...')
+    input(type='text' ng-model='hops.myrcene' placeholder='Myrcene...')
+    input(type='text' ng-model='hops.humulene' placeholder='Humulene...')
+    input(type='text' ng-model='hops.humuleneCaryophyllene' placeholder='Humulene Caryophyllene')
+    
+h1 Yeast
+form(ng-submit='addYeastToDb(yeast)')
+    input(type='text' ng-model='yeast.name' placeholder='Name...')
+    input(type='text' ng-model='yeast.format' placeholder='Format...(liquid, dry)')
+    input(type='text' ng-model='yeast.type' placeholder='Type(ale, lager, etc)')
+    input(type='text' ng-model='yeast.origin' placeholder='Origin')
+    input(type='text' ng-model='yeast.minimumTemperature' placeholder='Minimum temperature...')
+    input(type='text' ng-model='yeast.maximumTemperature' placeholder='Maximum temperature...')
+    input(type='text' ng-model='yeast.flocculation' placeholder='Flocculation...')
+    input(type='text' ng-model='yeast.minimumAttenuation' placeholder='Minimum attenuation...')
+    input(type='text' ng-model='yeast.maximumAttenuation' placeholder='Maximum attenuation...')
+     
+h1 Grains in Database
 h3(ng-repeat='item in grains')
-    {{item.name}} {{item.type}} {{item.origin}} {{item.color}} {{item.description}} <br />
+    {{item.name}} {{item.type}} {{item.origin}} {{item.alphaAmylase}} {{item.diastaticPower}} {{item.lovibond}} {{item.extractPercent}} {{item.solubleProtein}} {{item.totalProtein}} {{item.usage}} {{item.moisture}} {{item.description}} {{item.description}} <br />
+
+h1 Hops in Database
+h3(ng-repeat='item in hops')
+    {{item.name}} {{item.origin}} {{item.type}} {{item.form}} {{item.alphaAcid}} {{item.cohumulone}} {{item.betaAcid}} {{item.totalOil}} {{item.myrcene}} {{item.humulene}} {{item.humuleneCaryophyllene}}
+
+h1 Yeast in Database
+h3(ng-repeat='item in yeast')
+    {{item.name}} {{item.format}} {{item.type}} {{item.origin}} {{item.minimumTemperature}} {{item.maximumTemperature}} {{item.flocculation}} {{item.minimumAttenuation}} {{item.maximumAttenuation}}
