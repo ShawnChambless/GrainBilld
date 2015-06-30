@@ -6,5 +6,9 @@ app.config(function($routeProvider) {
             templateUrl: 'public/app/views/databaseTmpl.html',
             controller: 'databaseCtrl'
         })
+        .when('/NewBatch', {
+            templateUrl: 'public/app/views/mainTmpl.html',
+            controller: 'mainCtrl'
+        })
         .otherwise('/database')
 });
