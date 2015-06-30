@@ -4,11 +4,13 @@
     <title>Personal Project</title>
     <link href="public/styles/main.css" rel="stylesheet">
   </head>
-  <body ng-app="personalProject">
+  <body ng-app="personalProject"><a href="/#/NewBatch"> 
+      <div ng-controller="mainCtrl" class="title">Brew a Batch{{pageTitle}}</div></a>
     <ng-view></ng-view>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="public/app/app.js"></script>
     <script src="public/app/controllers/databaseCtrl.js"></script>
+    <script src="public/app/controllers/mainCtrl.js"></script>
   </body>
 </html>

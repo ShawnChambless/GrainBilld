@@ -4,7 +4,8 @@ html
         title Personal Project
         link(href='public/styles/main.css' rel='stylesheet')
     body(ng-app='personalProject')
-        
+        a(href='/#/NewBatch') 
+            .title(ng-controller='mainCtrl') Brew a Batch{{pageTitle}}
         
         ng-view
         
@@ -12,3 +13,4 @@ html
         script(src='bower_components/angular-route/angular-route.js')
         script(src='public/app/app.js')
         script(src='public/app/controllers/databaseCtrl.js')
+        script(src='public/app/controllers/mainCtrl.js')
