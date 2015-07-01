@@ -29,7 +29,7 @@ form(ng-submit='addHopsToDb(hops)')
     input(type='text' ng-model='hops.myrcene' placeholder='Myrcene...')
     input(type='text' ng-model='hops.humulene' placeholder='Humulene...')
     input(type='text' ng-model='hops.humuleneCaryophyllene' placeholder='Humulene Caryophyllene')
-    
+    button(ng-click='addHopsToDb(hops)')
 h1 Yeast
 form(ng-submit='addYeastToDb(yeast)')
     input(type='text' ng-model='yeast.name' placeholder='Name...')
