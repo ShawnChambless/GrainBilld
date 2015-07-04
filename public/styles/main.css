@@ -5,6 +5,7 @@ html, body {
   padding: 0; }
 
 body {
+  -webkit-font-smoothing: antialiased;
   font-family: Quicksand, sans-serif;
   color: #444; }
 
@@ -25,6 +26,14 @@ h1 {
 input {
   font-size: 1.03em;
   margin: 20px; }
+
+.itemName {
+  font-family: Helvetica;
+  font-weight: 600; }
+
+.item {
+  font-family: Helvetica;
+  font-weight: 400; }
 
 .container {
   display: flex;
