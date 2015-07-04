@@ -9,7 +9,7 @@ module.exports = {
         });
     },
 
-    addHops: function(req, res) {
+    getHops: function(req, res) {
         Hops.find(req.query)
         .exec(function(err, resp) {
             if(err) return res.sendStatus(500);
