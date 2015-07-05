@@ -1,8 +1,8 @@
 h1 Database Editor
 
-h1 Grains
-form
-    input(type='text' ng-model='grain.name' placeholder='Grain Name...')
+h1(ng-click='toggleGrain()') Add Grain
+form(ng-submit='addGrainToDb(grain)' ng-show='showGrain')
+    input(type='text' autofocus ng-model='grain.name' placeholder='Grain Name...')
     input(type='text' ng-model='grain.type' placeholder='Grain Type...')
     input(type='text' ng-model='grain.origin' placeholder='Grain Origin...')
     input(type='text' ng-model='grain.alphaAmylase' placeholder='Alpha Amalyse...')
@@ -14,10 +14,10 @@ form
     input(type='text' ng-model='grain.usage' placeholder='Usage Percentage...')
     input(type='text' ng-model='grain.moisture' placeholder='Moisture Percentage...')
     input(type='text' ng-model='grain.description' placeholder='Grain Description...')
-    button(ng-click='addGrainToDb(grain)') Add!
+    input(type='submit' value='Add Grain')
     
-h1 Hops
-form(ng-submit='addHopsToDb(hops)')
+h1(ng-click='toggleHops()') Add Hops
+form(ng-submit='addHopsToDb(hops)' ng-show='showHops')
     input(type='text' ng-model='hops.name' placeholder='Name...')
     input(type='text' ng-model='hops.origin' placeholder='Origin...')
     input(type='text' ng-model='hops.type' placeholder='Type...(flavor, bittering, etc.)')
@@ -29,9 +29,9 @@ form(ng-submit='addHopsToDb(hops)')
     input(type='text' ng-model='hops.myrcene' placeholder='Myrcene...')
     input(type='text' ng-model='hops.humulene' placeholder='Humulene...')
     input(type='text' ng-model='hops.humuleneCaryophyllene' placeholder='Humulene Caryophyllene')
-    
-h1 Yeast
-form(ng-submit='addYeastToDb(yeast)')
+    input(type='submit' value='Add Hops')
+h1(ng-click='toggleYeast') Add Yeast
+form(ng-submit='addYeastToDb(yeast)' ng-show='showYeast')
     input(type='text' ng-model='yeast.name' placeholder='Name...')
     input(type='text' ng-model='yeast.format' placeholder='Format...(liquid, dry)')
     input(type='text' ng-model='yeast.type' placeholder='Type(ale, lager, etc)')
@@ -41,15 +41,43 @@ form(ng-submit='addYeastToDb(yeast)')
     input(type='text' ng-model='yeast.flocculation' placeholder='Flocculation...')
     input(type='text' ng-model='yeast.minimumAttenuation' placeholder='Minimum attenuation...')
     input(type='text' ng-model='yeast.maximumAttenuation' placeholder='Maximum attenuation...')
-     
-h1 Grains in Database
-h3(ng-repeat='item in grains')
-    {{item.name}} {{item.type}} {{item.origin}} {{item.alphaAmylase}} {{item.diastaticPower}} {{item.lovibond}} {{item.extractPercent}} {{item.solubleProtein}} {{item.totalProtein}} {{item.usage}} {{item.moisture}} {{item.description}} {{item.description}} <br />
+    input(type='submit' value='Add Yeast')
+h1(ng-click = 'toggleGrainInDb()') Grain in Database
+.databaseContainer
+
+    h3(ng-repeat='item in grains' ng-show='showGrainInDb')
+        span.itemName {{item.name}}:<br /> 
+        span.item Malt type: 
+        {{item.type}} malt<br />
+        span.item Origin: 
+        {{item.origin}}<br /> 
+        span.item Alpha Amaylase: 
+        {{item.alphaAmylase}}<br /> 
+        span.item Diastatic Power: 
+        {{item.diastaticPower}}<br /> 
+        span.item Lovibond: 
+        {{item.lovibond}}L<br /> 
+        span.item Extract %: 
+        {{item.extractPercent}}%<br /> 
+        span.item Soluble Protein: 
+        {{item.solubleProtein}}<br /> 
+        span.item Total Protein: 
+        {{item.totalProtein}}<br /> 
+        span.item Usage %: 
+        {{item.usage}}%<br /> 
+        span.item Moisture %: 
+        {{item.moisture}}%<br /> 
+        span.itemDescription(ng-click='toggleShowDescription()') Description: 
+        span.description(ng-show='showDescription') {{item.description}} <br />
 
 h1 Hops in Database
-h3(ng-repeat='item in hops')
-    {{item.name}} {{item.origin}} {{item.type}} {{item.form}} {{item.alphaAcid}} {{item.cohumulone}} {{item.betaAcid}} {{item.totalOil}} {{item.myrcene}} {{item.humulene}} {{item.humuleneCaryophyllene}}
+.databaseContainer
+
+    h3(ng-repeat='item in hops')
+        {{item.name}} {{item.origin}} {{item.type}} {{item.form}} {{item.alphaAcid}} {{item.cohumulone}} {{item.betaAcid}} {{item.totalOil}} {{item.myrcene}} {{item.humulene}} {{item.humuleneCaryophyllene}}
 
 h1 Yeast in Database
-h3(ng-repeat='item in yeast')
-    {{item.name}} {{item.format}} {{item.type}} {{item.origin}} {{item.minimumTemperature}} {{item.maximumTemperature}} {{item.flocculation}} {{item.minimumAttenuation}} {{item.maximumAttenuation}}
+.databaseContainer
+
+    h3(ng-repeat='item in yeast')
+        {{item.name}} {{item.format}} {{item.type}} {{item.origin}} {{item.minimumTemperature}} {{item.maximumTemperature}} {{item.flocculation}} {{item.minimumAttenuation}} {{item.maximumAttenuation}}

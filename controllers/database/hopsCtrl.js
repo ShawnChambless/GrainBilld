@@ -1,16 +1,16 @@
-var Grain = require('../../models/database/databaseModel');
+var Hops = require('../../models/database/hopsModel');
 
 module.exports = {
-    addGrain: function(req, res) {
-        newGrain = new Grain(req.body);
-        newGrain.save(function(err, resp) {
+    addHops: function(req, res) {
+        newHops = new Hops(req.body);
+        newHops.save(function(err, resp) {
             if(err) return res.sendStatus(500);
                 return res.send(resp);
         });
     },
 
-    getGrain: function(req, res) {
-        Grain.find(req.query)
+    getHops: function(req, res) {
+        Hops.find(req.query)
         .exec(function(err, resp) {
             if(err) return res.sendStatus(500);
                 return res.send(resp);

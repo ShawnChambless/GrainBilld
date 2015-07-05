@@ -15,4 +15,4 @@ var grainSchema = new mongoose.Schema({
     description: {type: String}
 });
 
-module.export = mongoose.model('grainSchema', grainSchema)
+module.exports = mongoose.model('grain', grainSchema);
