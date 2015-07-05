@@ -11,7 +11,7 @@ app.controller('databaseCtrl', function($scope, $http, $q) {
     $scope.toggleShowDescription = function() {
         $scope.showDescription = !$scope.showDescription;
     }
-
+    // Shows current list of grains in Database.
     $scope.getGrain = function() {
         var dfd = $q.defer();
         $http({
@@ -22,7 +22,19 @@ app.controller('databaseCtrl', function($scope, $http, $q) {
             $scope.grains = resp.data;
         });
     }();
+    // Shows current list of hops in Database.
+    $scope.getHops = function() {
+        var dfd = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8081/database/ingredients/hops'
+        }).then(function(resp) {
+            dfd.resolve(resp);
+            $scope.hops = resp.data;
+        });
+    }();
 
+    // Fairly self explanatory
     $scope.toggleGrain = function() {
         $scope.showGrain = !$scope.showGrain;
         $scope.showHops = false;
@@ -64,6 +76,7 @@ app.controller('databaseCtrl', function($scope, $http, $q) {
             $scope.grain = '';
         });
     };
+    
     $scope.addHopsToDb = function(hops) {
         return $http({
             method: 'POST',
