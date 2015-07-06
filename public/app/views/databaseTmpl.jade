@@ -1,3 +1,7 @@
+a(ng-href='/#/database')    
+    .title(ng-controller='mainCtrl') Grain Billd{{pageTitle}}
+a(ng-href='/#/NewBatch')
+    h3 New Batch
 h1 Database Editor
 
 h1(ng-click='toggleGrain()') Add Grain
@@ -36,16 +40,17 @@ form(ng-submit='addHopsToDb(addHops)' ng-show='showHops')
     input(type='text' ng-model='addHops.description' placeholder='Description...')
     input(type='submit' value='Add Hops')
 h1(ng-click='toggleYeast()') Add Yeast
-form(ng-submit='addYeastToDb(yeast)' ng-show='showYeast')
-    input(type='text' ng-model='yeast.name' placeholder='Name...' autofocus)
-    input(type='text' ng-model='yeast.format' placeholder='Format...(liquid, dry)')
-    input(type='text' ng-model='yeast.type' placeholder='Type(ale, lager, etc)')
-    input(type='text' ng-model='yeast.origin' placeholder='Origin')
-    input(type='text' ng-model='yeast.minimumTemperature' placeholder='Minimum temperature...')
-    input(type='text' ng-model='yeast.maximumTemperature' placeholder='Maximum temperature...')
-    input(type='text' ng-model='yeast.flocculation' placeholder='Flocculation...')
-    input(type='text' ng-model='yeast.minimumAttenuation' placeholder='Minimum attenuation...')
-    input(type='text' ng-model='yeast.maximumAttenuation' placeholder='Maximum attenuation...')
+form(ng-submit='addYeastToDb(addYeast)' ng-show='showYeast')
+    input(type='text' ng-model='addYeast.name' placeholder='Name...' autofocus)
+    input(type='text' ng-model='addYeast.brand' placeholder='Brand...')
+    input(type='text' ng-model='addYeast.format' placeholder='Format...(liquid, dry)')
+    input(type='text' ng-model='addYeast.yeastType' placeholder='Type(ale, lager, etc)')
+    input(type='text' ng-model='addYeast.origin' placeholder='Origin')
+    input(type='text' ng-model='addYeast.minimumTemperature' placeholder='Minimum temperature...')
+    input(type='text' ng-model='addYeast.maximumTemperature' placeholder='Maximum temperature...')
+    input(type='text' ng-model='addYeast.flocculation' placeholder='Flocculation...')
+    input(type='text' ng-model='addYeast.minimumAttenuation' placeholder='Minimum attenuation...')
+    input(type='text' ng-model='addYeast.maximumAttenuation' placeholder='Maximum attenuation...')
     input(type='submit' value='Add Yeast')
 h1(ng-click = 'toggleGrainInDb()') Grain in Database
 .databaseContainer
@@ -114,4 +119,16 @@ h1(ng-click='toggleYeastInDb()') Yeast in Database
 .databaseContainer
 
     h3(ng-repeat='item in yeast' ng-show='showYeastInDb')
-        {{item.name}} {{item.format}} {{item.type}} {{item.origin}} {{item.minimumTemperature}} {{item.maximumTemperature}} {{item.flocculation}} {{item.minimumAttenuation}} {{item.maximumAttenuation}}
+        span.itemName 
+        {{item.name}}:<br />
+        span.item Format: 
+        {{item.format}}<br />
+        span.item Type: 
+        {{item.type}}<br />
+        span.item Origin: 
+        {{item.origin}}<br /> 
+        span.item Minimum Temp: {{item.minimumTemperature}}°F<br />
+        span.item Maximum Temp: {{item.maximumTemperature}}°F<br />
+        span.item Flocculation: {{item.flocculation}}%<br />
+        span.item Minimum Attenuation: {{item.minimumAttenuation}}%<br />
+        span.item Maximum Attenuation: {{item.maximumAttenuation}}%<br />

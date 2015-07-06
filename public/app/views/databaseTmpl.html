@@ -1,4 +1,6 @@
-
+<a ng-href="/#/database">   
+  <div ng-controller="mainCtrl" class="title">Grain Billd{{pageTitle}}</div></a><a ng-href="/#/NewBatch">
+  <h3>New Batch</h3></a>
 <h1>Database Editor</h1>
 <h1 ng-click="toggleGrain()">Add Grain</h1>
 <form ng-submit="addGrainToDb(grain)" ng-show="showGrain">
@@ -37,16 +39,17 @@
   <input type="submit" value="Add Hops"/>
 </form>
 <h1 ng-click="toggleYeast()">Add Yeast</h1>
-<form ng-submit="addYeastToDb(yeast)" ng-show="showYeast">
-  <input type="text" ng-model="yeast.name" placeholder="Name..." autofocus="autofocus"/>
-  <input type="text" ng-model="yeast.format" placeholder="Format...(liquid, dry)"/>
-  <input type="text" ng-model="yeast.type" placeholder="Type(ale, lager, etc)"/>
-  <input type="text" ng-model="yeast.origin" placeholder="Origin"/>
-  <input type="text" ng-model="yeast.minimumTemperature" placeholder="Minimum temperature..."/>
-  <input type="text" ng-model="yeast.maximumTemperature" placeholder="Maximum temperature..."/>
-  <input type="text" ng-model="yeast.flocculation" placeholder="Flocculation..."/>
-  <input type="text" ng-model="yeast.minimumAttenuation" placeholder="Minimum attenuation..."/>
-  <input type="text" ng-model="yeast.maximumAttenuation" placeholder="Maximum attenuation..."/>
+<form ng-submit="addYeastToDb(addYeast)" ng-show="showYeast">
+  <input type="text" ng-model="addYeast.name" placeholder="Name..." autofocus="autofocus"/>
+  <input type="text" ng-model="addYeast.brand" placeholder="Brand..."/>
+  <input type="text" ng-model="addYeast.format" placeholder="Format...(liquid, dry)"/>
+  <input type="text" ng-model="addYeast.yeastType" placeholder="Type(ale, lager, etc)"/>
+  <input type="text" ng-model="addYeast.origin" placeholder="Origin"/>
+  <input type="text" ng-model="addYeast.minimumTemperature" placeholder="Minimum temperature..."/>
+  <input type="text" ng-model="addYeast.maximumTemperature" placeholder="Maximum temperature..."/>
+  <input type="text" ng-model="addYeast.flocculation" placeholder="Flocculation..."/>
+  <input type="text" ng-model="addYeast.minimumAttenuation" placeholder="Minimum attenuation..."/>
+  <input type="text" ng-model="addYeast.maximumAttenuation" placeholder="Maximum attenuation..."/>
   <input type="submit" value="Add Yeast"/>
 </form>
 <h1 ng-click="toggleGrainInDb()">Grain in Database</h1>
@@ -59,5 +62,5 @@
 </div>
 <h1 ng-click="toggleYeastInDb()">Yeast in Database</h1>
 <div class="databaseContainer">
-  <h3 ng-repeat="item in yeast" ng-show="showYeastInDb">{{item.name}} {{item.format}} {{item.type}} {{item.origin}} {{item.minimumTemperature}} {{item.maximumTemperature}} {{item.flocculation}} {{item.minimumAttenuation}} {{item.maximumAttenuation}}</h3>
+  <h3 ng-repeat="item in yeast" ng-show="showYeastInDb"><span class="itemName"> </span>{{item.name}}:<br /><span class="item">Format: </span>{{item.format}}<br /><span class="item">Type: </span>{{item.type}}<br /><span class="item">Origin: </span>{{item.origin}}<br /> <span class="item">Minimum Temp: {{item.minimumTemperature}}°F<br /></span><span class="item">Maximum Temp: {{item.maximumTemperature}}°F<br /></span><span class="item">Flocculation: {{item.flocculation}}%<br /></span><span class="item">Minimum Attenuation: {{item.minimumAttenuation}}%<br /></span><span class="item">Maximum Attenuation: {{item.maximumAttenuation}}%<br /></span></h3>
 </div>
