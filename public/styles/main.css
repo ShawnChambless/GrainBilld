@@ -44,6 +44,7 @@ h3 {
 h1 {
   font-weight: 200;
   margin: 20px;
+  width: 300px;
   cursor: pointer; }
 
 input {
