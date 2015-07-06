@@ -1,4 +1,4 @@
-var app = angular.module('personalProject', ['ngRoute'])
+var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute']);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -11,4 +11,7 @@ app.config(function($routeProvider) {
             controller: 'mainCtrl'
         })
         .otherwise('/database')
+});
+app.config(function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.latencyThreshold = 10;
 });
