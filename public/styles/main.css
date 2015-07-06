@@ -126,8 +126,6 @@ header {
           transition: all 0.45s ease;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d; }
-  .grainBox .front, .grainBox .back, .hopsBox .front, .hopsBox .back, .yeastBox .front, .yeastBox .back, .waterBox .front, .waterBox .back {
-    background: #E4D96F; }
 
 .front, .back {
   position: absolute;
@@ -137,6 +135,9 @@ header {
   height: 100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden; }
+
+.grainBox .front, .grainBox .back {
+  background: #E4D96F; }
 
 .hopsBox .front, .hopsBox .back {
   background: #A4C639; }
