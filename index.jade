@@ -2,6 +2,8 @@ doctype html
 html
     head
         title Personal Project
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' rel='stylesheet')
+        link(href='public/styles/modernizr.css' rel='stylesheet')
         link(href='public/styles/main.css' rel='stylesheet')
     body(ng-app='personalProject')
         a(href='/#/NewBatch') 
@@ -14,3 +16,5 @@ html
         script(src='public/app/app.js')
         script(src='public/app/controllers/databaseCtrl.js')
         script(src='public/app/controllers/mainCtrl.js')
+        script(src='bower_components/jquery/dist/jquery.js')
+        script(src='public/app/functionality.js')
