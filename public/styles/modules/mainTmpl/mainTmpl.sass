@@ -17,7 +17,61 @@ header
     margin: 0 1%
     input
         margin: 1% 0
+.ingredient
+    display: flex
+    align-items: flex-start
+    margin: 5% 0
+    input
+        height: 25px
+        width: 120px
+.grainBoxContainer, .hopsBoxContainer, .yeastBoxContainer, .waterBoxContainer
+    height: 125px
+    width: 125px
+    perspective: 3000
+    margin: 0 3% 0 0
+.grainBox, .hopsBox, .yeastBox, .waterBox
+    position: relative
+    color: #fff
+    font-weight: 500
+    font-size: 2em
+    height: 100%
+    width: 100%
+    text-align: center
+    line-height: 125px
+    cursor: pointer
+    user-select: none
+    transition: all .45s ease
+    transform-style: preserve-3d
+    .front, .back
+        background: #E4D96F
+.front, .back
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    backface-visibility: hidden
 
+.hopsBox
+    .front, .back
+        background: #A4C639
+
+.yeastBox
+    .front, .back
+        background: #bada55
+.waterBox
+    .front, .back
+        background: blue
+.back
+    transform: rotateX(180deg)
+.grainBox.open, .hopsBox.open, .yeastBox.open, .waterBox.open
+    transform: rotateX(180deg)
+input.grain, input.hops, input.yeast, input.water
+    display: none
+.hidden
+    display: none
+.absolute
+    position: absolute
 .batchModule
     text-align: left
     width: 60%

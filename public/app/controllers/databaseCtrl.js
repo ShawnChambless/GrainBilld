@@ -3,15 +3,16 @@ var app = angular.module('personalProject');
 app.controller('databaseCtrl', function($scope, $http, $q) {
 
     $scope.showGrain = false;
-    $scope.showHops = false;
+    $scope.showHops = true;
     $scope.showYeast = false;
-    $scope.showGrainInDb = true;
+    $scope.showGrainInDb = false;
+    $scope.showHopsInDb = true;
     $scope.showDescription = false;
 
     $scope.toggleShowDescription = function() {
         $scope.showDescription = !$scope.showDescription;
     }
-
+    // Shows current list of grains in Database.
     $scope.getGrain = function() {
         var dfd = $q.defer();
         $http({
@@ -22,7 +23,19 @@ app.controller('databaseCtrl', function($scope, $http, $q) {
             $scope.grains = resp.data;
         });
     }();
+    // Shows current list of hops in Database.
+    $scope.getHops = function() {
+        var dfd = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8081/database/ingredients/hops'
+        }).then(function(resp) {
+            dfd.resolve(resp);
+            $scope.hops = resp.data;
+        });
+    }();
 
+    // Fairly self explanatory
     $scope.toggleGrain = function() {
         $scope.showGrain = !$scope.showGrain;
         $scope.showHops = false;
@@ -64,13 +77,15 @@ app.controller('databaseCtrl', function($scope, $http, $q) {
             $scope.grain = '';
         });
     };
+
     $scope.addHopsToDb = function(hops) {
         return $http({
             method: 'POST',
             url: 'http://localhost:8081/database/ingredients/hops',
             data: hops
-        }, function(resp) {
+        }).then(function(resp) {
             console.log(resp);
+            $scope.addHops = '';
         });
     };
 });
