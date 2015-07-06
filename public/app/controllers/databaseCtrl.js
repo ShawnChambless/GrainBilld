@@ -3,9 +3,10 @@ var app = angular.module('personalProject');
 app.controller('databaseCtrl', function($scope, $http, $q) {
 
     $scope.showGrain = false;
-    $scope.showHops = false;
+    $scope.showHops = true;
     $scope.showYeast = false;
-    $scope.showGrainInDb = true;
+    $scope.showGrainInDb = false;
+    $scope.showHopsInDb = true;
     $scope.showDescription = false;
 
     $scope.toggleShowDescription = function() {
@@ -76,14 +77,15 @@ app.controller('databaseCtrl', function($scope, $http, $q) {
             $scope.grain = '';
         });
     };
-    
+
     $scope.addHopsToDb = function(hops) {
         return $http({
             method: 'POST',
             url: 'http://localhost:8081/database/ingredients/hops',
             data: hops
-        }, function(resp) {
+        }).then(function(resp) {
             console.log(resp);
+            $scope.addHops = '';
         });
     };
 });

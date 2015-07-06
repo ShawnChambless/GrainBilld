@@ -1,20 +1,32 @@
 .container
-
     .ingredientModule
         .moduleTitle Ingredients
         <hr>
         .ingredient
-            header Grains
-            input(type='text' placeholder='Enter grain...')
+            .grainBoxContainer
+                .grainBox
+                    .front Grain
+                    .back Mmmm graaaiin
+            input.grain(type='text' placeholder='Enter grain...')
         
         .ingredient
-            header Hops
-            input(type='text' placeholder='Enter hops...')
+            .hopsBoxContainer
+                .hopsBox 
+                    .front Hops
+                    .back Ooooh hooops
+            input.hops(type='text' placeholder='Enter hops...')
         .ingredient
-            header Yeast
-            input(type='text' placeholder='Enter yeast...')
+            .yeastBoxContainer
+                .yeastBox   
+                    .front Yeast
+                    .back YUM
+            input.yeast(type='text' placeholder='Enter yeast...')
         .ingredient
-            header Boil Details
+            .waterBoxContainer
+                .waterBox
+                    .front Water
+                    .back Gulp!
+            input.water(type='text' placeholder='Desired batch size...')
     
     .batchModule
         .moduleTitle Batch Details
