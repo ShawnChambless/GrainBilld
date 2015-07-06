@@ -18,34 +18,26 @@ app.controller('mainCtrl', function($scope, $location) {
 
       $(".grainBox").on("click", function() {
           $(".grainBox").toggleClass("open");
-          $('input.grain').toggle('fast');
-          $('.hopsBoxContainer').slideToggle('fast');
-          $('.yeastBoxContainer').slideToggle('fast');
-          $('.waterBoxContainer').slideToggle('fast');
+          $('input.grain').toggle(150);
+          $('.hopsBox .front, .yeastBox .front, .waterBox .front').fadeToggle(650);
       });
 
       $('.hopsBox').on('click', function() {
           $('.hopsBox').toggleClass('open');
-          $('input.hops').toggle('fast');
-          $('.grainBoxContainer').slideToggle('fast');
-          $('.yeastBoxContainer').slideToggle('fast');
-          $('.waterBoxContainer').slideToggle('fast');
+          $('input.hops').toggle(150);
+          $('.grainBox .front, .yeastBox .front, .waterBox .front').fadeToggle(650);
       });
 
       $('.yeastBox').on('click', function() {
           $('.yeastBox').toggleClass('open');
-          $('input.yeast').toggle('fast');
-          $('.hopsBoxContainer').slideToggle('fast');
-          $('.grainBoxContainer').slideToggle('fast');
-          $('.waterBoxContainer').slideToggle('fast');
+          $('input.yeast').toggle(150);
+          $('.hopsBox .front, .grainBox .front, .waterBox .front').fadeToggle(650);
       });
 
       $('.waterBox').on('click', function() {
           $('.waterBox').toggleClass('open');
-          $('input.water').toggle('fast');
-          $('.hopsBoxContainer').slideToggle('fast');
-          $('.yeastBoxContainer').slideToggle('fast');
-          $('.grainBoxContainer').slideToggle('fast');
+          $('input.water').toggle(150);
+          $('.hopsBox .front, .yeastBox .front, .grainBox .front').fadeToggle(650);
       });
 
     });
