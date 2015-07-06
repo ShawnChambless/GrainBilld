@@ -3,10 +3,10 @@ var app = angular.module('personalProject');
 app.controller('databaseCtrl', function($scope, $http, $q) {
 
     $scope.showGrain = false;
-    $scope.showHops = true;
+    $scope.showHops = false;
     $scope.showYeast = false;
     $scope.showGrainInDb = false;
-    $scope.showHopsInDb = true;
+    $scope.showHopsInDb = false;
     $scope.showDescription = false;
 
     $scope.toggleShowDescription = function() {
