@@ -75,10 +75,9 @@ h1(ng-click = 'toggleGrainInDb()') Grain in Database
         span.itemDescription(ng-click='toggleShowDescription()') Description: 
         span.description(ng-show='showDescription') {{item.description}} <br />
 
-h1 Hops in Database
+h1(ng-click='toggleHopsInDb()') Hops in Database
 .databaseContainer
-
-    h3(ng-repeat='item in hops')
+    h3(ng-repeat='item in hops' ng-show='showHopsInDb')
         span.itemName {{item.name}}:<br />
         span.item Origin: 
         {{item.origin}}<br />
@@ -111,8 +110,8 @@ h1 Hops in Database
         span.item Parentage: 
         {{item.parentage}}<br />
 
-h1 Yeast in Database
+h1(ng-click='toggleYeastInDb()') Yeast in Database
 .databaseContainer
 
-    h3(ng-repeat='item in yeast')
+    h3(ng-repeat='item in yeast' ng-show='showYeastInDb')
         {{item.name}} {{item.format}} {{item.type}} {{item.origin}} {{item.minimumTemperature}} {{item.maximumTemperature}} {{item.flocculation}} {{item.minimumAttenuation}} {{item.maximumAttenuation}}
