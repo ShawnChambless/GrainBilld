@@ -6,34 +6,29 @@ a(ng-href='/#/NewBatch')
     
         .moduleTitle Ingredients
         <hr>
-        .ingredient
-            .grainBoxContainer
-                .grainBox
-                    .front Grain
-                    .back Graaains
-            //- input.grain(type='text' ng-model='grainSearchText' ng-change='grainSearch(grainSearchText)' placeholder='Enter grain...')
-            //- 
-            angucomplete-alt(id="members" placeholder="Search members" pause="400" selected-object="testObj" remote-url="http://localhost:8081/database/ingredients/grain?type=" remote-url-data-field="results" title-field="firstName,surname" description-field="email" image-field="profilePic" input-class="form-control form-control-small")/
-            //- .selectedGrains(ng-repeat='grain in selectGrains | filter:grainSearchText')
-            //-     {{grain.name}}
-        .ingredient
-            .hopsBoxContainer
-                .hopsBox 
-                    .front Hops
-                    .back Ooooh hooops
-            input.hops(type='text' placeholder='Enter hops...')
-        .ingredient
-            .yeastBoxContainer
-                .yeastBox   
-                    .front Yeast
-                    .back YUM
-            input.yeast(type='text' placeholder='Enter yeast...')
-        .ingredient
-            .waterBoxContainer
-                .waterBox
-                    .front Water
-                    .back Gulp!
-            input.water(type='text' placeholder='Desired batch size...')
+        .ingredient.grain
+            .grainBox
+                .boxImage 
+            form
+                input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
+                input.grain(type='text' placeholder='Pounds of Grain')
+                .grainSearchResults(ng-repeat='item in grains | filter:grainSearchText')
+        .ingredient.hops
+            .hopsBox 
+                .boxImage 
+            form
+                input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
+                .hopsSearchResults(ng-repeat='item in grains | filter:grainSearchText')
+        .ingredient.yeast
+            .yeastBox
+                .boxImage 
+            form
+                input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
+        .ingredient.water
+            .waterBox
+                .boxImage water
+            form
+                input.water(type='text' placeholder='Desired batch size...')
     
     .batchModule
         .moduleTitle Batch Details
