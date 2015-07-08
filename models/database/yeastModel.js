@@ -8,9 +8,10 @@ var yeastSchema = new mongoose.Schema({
     origin: {type: String},
     minimumTemperature: {type: Number},
     maximumTemperature: {type: Number},
-    flocculation: {type: Number},
+    flocculation: {type: String},
     minimumAttenuation: {type: Number},
-    maximumAttenuation: {type: Number}
+    maximumAttenuation: {type: Number},
+    description: {type: String}
 });
 
 module.exports = mongoose.model('yeast', yeastSchema);
