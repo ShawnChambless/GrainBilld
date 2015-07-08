@@ -50,6 +50,7 @@
   <input type="text" ng-model="addYeast.flocculation" placeholder="Flocculation..."/>
   <input type="text" ng-model="addYeast.minimumAttenuation" placeholder="Minimum attenuation..."/>
   <input type="text" ng-model="addYeast.maximumAttenuation" placeholder="Maximum attenuation..."/>
+  <input type="text" ng-model="addYeast.description" placeholder="Description..."/>
   <input type="submit" value="Add Yeast"/>
 </form>
 <h1 ng-click="toggleGrainInDb()">Grain in Database</h1>
@@ -62,5 +63,5 @@
 </div>
 <h1 ng-click="toggleYeastInDb()">Yeast in Database</h1>
 <div class="databaseContainer">
-  <h3 ng-repeat="item in yeast" ng-show="showYeastInDb"><span class="itemName"> </span>{{item.name}}:<br /><span class="item">Format: </span>{{item.format}}<br /><span class="item">Type: </span>{{item.type}}<br /><span class="item">Origin: </span>{{item.origin}}<br /> <span class="item">Minimum Temp: {{item.minimumTemperature}}°F<br /></span><span class="item">Maximum Temp: {{item.maximumTemperature}}°F<br /></span><span class="item">Flocculation: {{item.flocculation}}%<br /></span><span class="item">Minimum Attenuation: {{item.minimumAttenuation}}%<br /></span><span class="item">Maximum Attenuation: {{item.maximumAttenuation}}%<br /></span></h3>
+  <h3 ng-repeat="item in yeast" ng-show="showYeastInDb"><span class="itemName"> </span>{{item.name}}:<br /><span class="item">Format: </span>{{item.format}}<br /><span class="item">Type: </span>{{item.type}}<br /><span class="item">Origin: </span>{{item.origin}}<br /> <span class="item">Minimum Temp: </span>{{item.minimumTemperature}}°F<br /><span class="item">Maximum Temp: </span>{{item.maximumTemperature}}°F<br /><span class="item">Flocculation: </span>{{item.flocculation}}%<br /><span class="item">Minimum Attenuation: </span>{{item.minimumAttenuation}}%<br /><span class="item">Maximum Attenuation: </span>{{item.maximumAttenuation}}%<br /><span class="item">Description: </span>{{item.description}}<br /></h3>
 </div>

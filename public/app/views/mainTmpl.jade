@@ -1,16 +1,21 @@
 a(ng-href='/#/NewBatch')    
     .title Grain Billd{{pageTitle}}
 .container
+
     .ingredientModule
+    
         .moduleTitle Ingredients
         <hr>
         .ingredient
             .grainBoxContainer
                 .grainBox
                     .front Grain
-                    .back Mmmm graaaiin
-            input.grain(type='text' placeholder='Enter grain...')
-        
+                    .back Graaains
+            //- input.grain(type='text' ng-model='grainSearchText' ng-change='grainSearch(grainSearchText)' placeholder='Enter grain...')
+            //- 
+            angucomplete-alt(id="members" placeholder="Search members" pause="400" selected-object="testObj" remote-url="http://localhost:8081/database/ingredients/grain?type=" remote-url-data-field="results" title-field="firstName,surname" description-field="email" image-field="profilePic" input-class="form-control form-control-small")/
+            //- .selectedGrains(ng-repeat='grain in selectGrains | filter:grainSearchText')
+            //-     {{grain.name}}
         .ingredient
             .hopsBoxContainer
                 .hopsBox 

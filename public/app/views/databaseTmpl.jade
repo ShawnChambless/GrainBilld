@@ -51,6 +51,7 @@ form(ng-submit='addYeastToDb(addYeast)' ng-show='showYeast')
     input(type='text' ng-model='addYeast.flocculation' placeholder='Flocculation...')
     input(type='text' ng-model='addYeast.minimumAttenuation' placeholder='Minimum attenuation...')
     input(type='text' ng-model='addYeast.maximumAttenuation' placeholder='Maximum attenuation...')
+    input(type='text' ng-model='addYeast.description' placeholder='Description...')
     input(type='submit' value='Add Yeast')
 h1(ng-click = 'toggleGrainInDb()') Grain in Database
 .databaseContainer
@@ -127,8 +128,15 @@ h1(ng-click='toggleYeastInDb()') Yeast in Database
         {{item.type}}<br />
         span.item Origin: 
         {{item.origin}}<br /> 
-        span.item Minimum Temp: {{item.minimumTemperature}}°F<br />
-        span.item Maximum Temp: {{item.maximumTemperature}}°F<br />
-        span.item Flocculation: {{item.flocculation}}%<br />
-        span.item Minimum Attenuation: {{item.minimumAttenuation}}%<br />
-        span.item Maximum Attenuation: {{item.maximumAttenuation}}%<br />
+        span.item Minimum Temp: 
+        {{item.minimumTemperature}}°F<br />
+        span.item Maximum Temp: 
+        {{item.maximumTemperature}}°F<br />
+        span.item Flocculation: 
+        {{item.flocculation}}%<br />
+        span.item Minimum Attenuation: 
+        {{item.minimumAttenuation}}%<br />
+        span.item Maximum Attenuation: 
+        {{item.maximumAttenuation}}%<br />
+        span.item Description: 
+        {{item.description}}<br />
