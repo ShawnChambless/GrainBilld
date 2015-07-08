@@ -1,6 +1,6 @@
 var app = angular.module('personalProject');
 
-app.controller('mainCtrl', function($scope, $location) {
+app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
 
     $scope.pageTitle = $location.url()
     $scope.showGrainInputs = false;
@@ -11,7 +11,6 @@ app.controller('mainCtrl', function($scope, $location) {
     $scope.toggleShowGrainInputs = function() {
         $scope.showGrainInputs = !$scope.showGrainInputs;
     }
-
 
     //jQuery functions
     $(function() {
@@ -41,5 +40,11 @@ app.controller('mainCtrl', function($scope, $location) {
       });
 
     });
+
+    // $scope.grainSearch = function(grainSearchText) {
+    //     mainService.grainSearch(grainSearchText).then(function(resp) {
+    //         $scope.selectGrains = resp.data;
+    //     });
+    // };
 
 });
