@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/public/app/views/databaseTmpl.html'));
 
+    // Back end end-points
+
     app.get('/database/ingredients/grain', grainCtrl.getGrain);
     app.post('/database/ingredients/grain', grainCtrl.addGrain);
 
@@ -20,6 +22,12 @@ app.use(express.static(__dirname + '/public/app/views/databaseTmpl.html'));
 
     app.get('/database/ingredients/yeast', yeastCtrl.getYeast);
     app.post('/database/ingredients/yeast', yeastCtrl.addYeast);
+
+    //Front end end-points
+
+    // app.get('/front/ingredients/grain', function(req, res) {
+    //     res.send(req.body);
+    // });
 
 app.listen(port, function() {
     console.log('Listening on', port);
