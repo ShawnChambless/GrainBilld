@@ -10,7 +10,7 @@ app.config(function($routeProvider) {
             templateUrl: 'public/app/views/mainTmpl.html',
             controller: 'mainCtrl'
         })
-        .otherwise('/database')
+        .otherwise('/NewBatch')
 });
 app.config(function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.latencyThreshold = 10;
