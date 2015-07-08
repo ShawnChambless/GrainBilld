@@ -104,8 +104,8 @@ header {
 .grainBoxContainer, .hopsBoxContainer, .yeastBoxContainer, .waterBoxContainer {
   height: 125px;
   width: 125px;
-  -webkit-perspective: 3000;
-          perspective: 3000;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
   margin: 0 3% 0 0; }
 
 .grainBox, .hopsBox, .yeastBox, .waterBox {
@@ -133,6 +133,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden; }
 
