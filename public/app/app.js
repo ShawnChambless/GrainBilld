@@ -1,4 +1,4 @@
-var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute']);
+var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt']);
 
 app.config(function($routeProvider) {
     $routeProvider
