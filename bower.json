@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "homepage": "https://github.com/ShawnChambless/personal-project",
   "authors": [
-    "Shawn Chambless <shawn.chambless@gmail.com>"
+    "Shawn Chambless <smcweb3@gmail.com>"
   ],
   "main": "index.html",
   "license": "MIT",
@@ -17,7 +17,8 @@
   "dependencies": {
     "angucomplete-alt": "~1.0.4",
     "angular-loading-bar": "~0.8.0",
-    "angular-route": "~1.4.1",
-    "jquery": "~2.1.4"
+    "angular-route": "~1.4.2",
+    "jquery": "~2.1.4",
+    "angular": "~1.4.2"
   }
 }
