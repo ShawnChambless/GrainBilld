@@ -16,8 +16,6 @@ header
 .ingredientModule
     width: 60%
     margin: 0 1%
-    input
-        margin: 1% 0
 .ingredient
     display: flex
     flex-direction: column
@@ -30,10 +28,10 @@ header
         height: 20px
         width: 200px
         font-size: 19px
-        margin: 10% 0 0 0
-.grain, .yeast, .water
-    input:first-child
-        margin: 80% 0 0 0
+        margin: 10% 0 0 95%
+// .grain, .yeast, .water
+//     input:first-child
+//         margin: 80% 0 0 0
 .grainBox, .hopsBox, .yeastBox, .waterBox
     margin: 0 3% 0 0
     color: #fff
@@ -71,21 +69,22 @@ header
         background: url(../assets/waterSmall.png) top center no-repeat
             size: contain
 
-.boxImage.open
+.boxImage.clickedGrain
     transform: rotateY(360deg)
 form
     width: 100%
-.grainSearchResults
-    margin: 10px 0 0 0
+.grainSearchResults, .hopsSearchResults, .yeastSearchResults
+    margin: 10px 0 0 95%
     width: 100%
-    .grainName
-        display: flex
-        justify-content: space-between
-        flex-wrap: wrap
+    // .grainName, .hopsName, .yeastName
+    //     display: flex
+    //     justify-content: space-between
+    //     flex-wrap: wrap
 form.grain, form.hops, form.yeast
     transition: all ease .3s
 form.grain.ng-hide, form.hops.ng-hide, form.yeast.ng-hide
     margin-left: -100%
+    opacity: .1
 .absolute
     position: absolute
 .batchModule

@@ -3,33 +3,37 @@
 <div class="container">
   <div class="ingredientModule">
     <div class="moduleTitle">Ingredients</div><hr>
-    <div ng-click="showGrainFunction()" class="ingredient grain">
+    <div class="ingredient grain">
       <div class="grainBox">
-        <div class="boxImage"></div>
+        <div ng-click="showGrainFunction()" ng-class="clickedGrain" class="boxImage"></div>
       </div>
-      <form ng-show="showGrainBox" class="grain">
+      <form ng-show="showGrainBox" ng-model="clickedGrain" class="grain">
         <input type="text" ng-model="grainSearchText" placeholder="Search grains..." class="grain"/>
         <input type="text" placeholder="Pounds of Grain" class="grain"/>
         <div ng-repeat="item in grainsInDb | filter:grainSearchText" class="grainSearchResults">{{item.name}}</div>
       </form>
     </div>
-    <div ng-click="showHopsFunction()" class="ingredient hops">
+    <div class="ingredient hops">
       <div class="hopsBox">
-        <div class="boxImage"> </div>
+        <div ng-click="showHopsFunction()" class="boxImage"></div>
       </div>
       <form ng-show="showHopsBox" class="hops">
         <input type="text" ng-model="hopsSearchText" placeholder="Enter hops..." class="hops"/>
-        <div ng-repeat="item in grains | filter:grainSearchText" class="hopsSearchResults"></div>
+        <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">{{item.name}}</div>
       </form>
     </div>
-    <div ng-click="showYeastFunction()" class="ingredient yeast">
+    <div class="ingredient yeast">
       <div class="yeastBox">
-        <div class="boxImage"> </div>
+        <div ng-click="showYeastFunction()" class="boxImage"> </div>
       </div>
       <form ng-show="showYeastBox" class="yeast">
         <input type="text" ng-model="yeastSearchText" placeholder="Enter yeast..." class="yeast"/>
+        <div ng-repeat="item in yeastInDb | filter:yeastSearchText" class="yeastSearchResults">{{item.name}}</div>
       </form>
     </div>
+  </div>
+  <div class="batchModule">
+    <div class="moduleTitle">Batch Details</div><hr>
     <div class="ingredient water">
       <div class="waterBox">
         <div class="boxImage"></div>
@@ -38,9 +42,6 @@
         <input type="text" placeholder="Desired batch size..." class="water"/>
       </form>
     </div>
-  </div>
-  <div class="batchModule">
-    <div class="moduleTitle">Batch Details</div><hr>
     <header>Ingredients</header>
     <header>Boil</header>
   </div>

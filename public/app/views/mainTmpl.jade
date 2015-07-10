@@ -4,34 +4,38 @@ a(ng-href='/#/NewBatch')
     .ingredientModule
         .moduleTitle Ingredients
         <hr>
-        .ingredient.grain(ng-click='showGrainFunction()')
+        .ingredient.grain
             .grainBox
-                .boxImage
-            form.grain(ng-show='showGrainBox')
+                .boxImage(ng-click='showGrainFunction()' ng-class='clickedGrain')
+            form.grain(ng-show='showGrainBox' ng-model='clickedGrain')
                 input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
                 input.grain(type='text' placeholder='Pounds of Grain')
                 .grainSearchResults(ng-repeat='item in grainsInDb | filter:grainSearchText')
                      {{item.name}}
-        .ingredient.hops(ng-click='showHopsFunction()')
+        .ingredient.hops
             .hopsBox
-                .boxImage 
+                .boxImage(ng-click='showHopsFunction()')
             form.hops(ng-show='showHopsBox')
                 input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
-                .hopsSearchResults(ng-repeat='item in grains | filter:grainSearchText')
-        .ingredient.yeast(ng-click='showYeastFunction()')
+                .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
+                    {{item.name}}
+        .ingredient.yeast
             .yeastBox
-                .boxImage 
+                .boxImage(ng-click='showYeastFunction()') 
             form.yeast(ng-show='showYeastBox')
                 input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
+                .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
+                    {{item.name}}
+        
+    
+    .batchModule
+        .moduleTitle Batch Details
+        <hr>
         .ingredient.water
             .waterBox
                 .boxImage
             form
                 input.water(type='text' placeholder='Desired batch size...')
-    
-    .batchModule
-        .moduleTitle Batch Details
-        <hr>
         header Ingredients
         header Boil
         
