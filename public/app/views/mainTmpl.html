@@ -2,47 +2,46 @@
   <div class="title">Grain Billd{{pageTitle}}</div></a>
 <div class="container">
   <div class="ingredientModule">
-    <div class="moduleTitle">Ingredients</div><hr>
     <div class="ingredient grain">
       <div class="grainBox">
-        <div ng-click="showGrainFunction()" ng-class="clickedGrain" class="boxImage"></div>
+        <div ng-click="showGrainFunction()" ng-hide="showGrainBox" class="boxImage"></div>
       </div>
       <form ng-show="showGrainBox" ng-model="clickedGrain" class="grain">
+        <label for="input.grain" class="grain">Add Grain!</label>
+        <button ng-click="showGrainFunction()">Hide</button>
         <input type="text" ng-model="grainSearchText" placeholder="Search grains..." class="grain"/>
         <input type="text" placeholder="Pounds of Grain" class="grain"/>
-        <div ng-repeat="item in grainsInDb | filter:grainSearchText" class="grainSearchResults">{{item.name}}</div>
+        <button ng-click="addIngredientToRecipe()">Add to recipe</button>
+        <div ng-repeat="item in grainsInDb | filter:grainSearchText" class="grainSearchResults">
+          <div class="grainName">{{item.name}} <hr /></div>
+        </div>
       </form>
     </div>
     <div class="ingredient hops">
       <div class="hopsBox">
-        <div ng-click="showHopsFunction()" class="boxImage"></div>
+        <div ng-click="showHopsFunction()" ng-hide="showHopsBox" class="boxImage"></div>
       </div>
       <form ng-show="showHopsBox" class="hops">
+        <label for="input.hops" class="hops">Add Hops!</label>
+        <button ng-click="showHopsFunction()">Hide</button>
         <input type="text" ng-model="hopsSearchText" placeholder="Enter hops..." class="hops"/>
-        <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">{{item.name}}</div>
+        <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">
+          <div class="hopsName">{{item.name}} <hr /></div>
+        </div>
       </form>
     </div>
     <div class="ingredient yeast">
       <div class="yeastBox">
-        <div ng-click="showYeastFunction()" class="boxImage"> </div>
+        <div ng-click="showYeastFunction()" ng-hide="showYeastBox" class="boxImage"> </div>
       </div>
       <form ng-show="showYeastBox" class="yeast">
+        <label for="input.yeast" class="yeast">Add Yeast!</label>
+        <button ng-click="showYeastFunction()">Hide</button>
         <input type="text" ng-model="yeastSearchText" placeholder="Enter yeast..." class="yeast"/>
-        <div ng-repeat="item in yeastInDb | filter:yeastSearchText" class="yeastSearchResults">{{item.name}}</div>
+        <div ng-repeat="item in yeastInDb | filter:yeastSearchText" class="yeastSearchResults">
+          <div class="yeastName">{{item.name}} <hr /></div>
+        </div>
       </form>
     </div>
-  </div>
-  <div class="batchModule">
-    <div class="moduleTitle">Batch Details</div><hr>
-    <div class="ingredient water">
-      <div class="waterBox">
-        <div class="boxImage"></div>
-      </div>
-      <form>
-        <input type="text" placeholder="Desired batch size..." class="water"/>
-      </form>
-    </div>
-    <header>Ingredients</header>
-    <header>Boil</header>
   </div>
 </div>

@@ -2,40 +2,34 @@ a(ng-href='/#/NewBatch')
     .title Grain Billd{{pageTitle}}
 .container
     .ingredientModule
-        .moduleTitle Ingredients
-        <hr>
         .ingredient.grain
             .grainBox
-                .boxImage(ng-click='showGrainFunction()' ng-class='clickedGrain')
+                .boxImage(ng-click='showGrainFunction()' ng-hide='showGrainBox')
             form.grain(ng-show='showGrainBox' ng-model='clickedGrain')
+                label.grain(for='input.grain') Add Grain!
+                button(ng-click='showGrainFunction()') Hide
                 input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
                 input.grain(type='text' placeholder='Pounds of Grain')
+                button(ng-click='addIngredientToRecipe()') Add to recipe
                 .grainSearchResults(ng-repeat='item in grainsInDb | filter:grainSearchText')
-                     {{item.name}}
+                    .grainName {{item.name}} <hr />
+                        
         .ingredient.hops
             .hopsBox
-                .boxImage(ng-click='showHopsFunction()')
+                .boxImage(ng-click='showHopsFunction()' ng-hide='showHopsBox')
             form.hops(ng-show='showHopsBox')
+                label.hops(for='input.hops') Add Hops!
+                button(ng-click='showHopsFunction()') Hide
                 input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
                 .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
-                    {{item.name}}
+                    .hopsName {{item.name}} <hr />
         .ingredient.yeast
             .yeastBox
-                .boxImage(ng-click='showYeastFunction()') 
+                .boxImage(ng-click='showYeastFunction()' ng-hide='showYeastBox') 
             form.yeast(ng-show='showYeastBox')
+                label.yeast(for='input.yeast') Add Yeast!
+                button(ng-click='showYeastFunction()') Hide
                 input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
                 .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
-                    {{item.name}}
-        
-    
-    .batchModule
-        .moduleTitle Batch Details
-        <hr>
-        .ingredient.water
-            .waterBox
-                .boxImage
-            form
-                input.water(type='text' placeholder='Desired batch size...')
-        header Ingredients
-        header Boil
+                    .yeastName {{item.name}} <hr />
         
