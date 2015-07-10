@@ -1,35 +1,53 @@
 a(ng-href='/#/NewBatch')    
     .title Grain Billd{{pageTitle}}
-.container
-    .ingredientModule
-        .ingredient.grain
-            .grainBox
-                .boxImage(ng-click='showGrainFunction()' ng-hide='showGrainBox')
+.containerContainer
+    .container
+        .ingredientModule
+            .moduleTitle Add Ingredients
+            .ingredient.grain
+                .grainBox
+                    .boxImage(ng-click='showGrainFunction()' ng-hide='showGrainBox')
+                            
+            .ingredient.hops
+                .hopsBox
+                    .boxImage(ng-click='showHopsFunction()' ng-hide='showHopsBox')
+                
+            .ingredient.yeast
+                .yeastBox
+                    .boxImage(ng-click='showYeastFunction()' ng-hide='showYeastBox') 
+                
+        .searchResults  
             form.grain(ng-show='showGrainBox' ng-model='clickedGrain')
-                label.grain(for='input.grain') Add Grain!
+                label.grain(for='input.grain') Add Grain! <br />
                 button(ng-click='showGrainFunction()') Hide
                 input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
-                input.grain(type='text' placeholder='Pounds of Grain')
-                button(ng-click='addIngredientToRecipe()') Add to recipe
+                input.grain(type='text' ng-model='grainWeight' placeholder='Pounds of Grain')
+                button(ng-click='addGrainToRecipe(grainSearchText, grainWeight)') Add to recipe
                 .grainSearchResults(ng-repeat='item in grainsInDb | filter:grainSearchText')
-                    .grainName {{item.name}} <hr />
-                        
-        .ingredient.hops
-            .hopsBox
-                .boxImage(ng-click='showHopsFunction()' ng-hide='showHopsBox')
+                    .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
+                
             form.hops(ng-show='showHopsBox')
                 label.hops(for='input.hops') Add Hops!
                 button(ng-click='showHopsFunction()') Hide
                 input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
                 .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
-                    .hopsName {{item.name}} <hr />
-        .ingredient.yeast
-            .yeastBox
-                .boxImage(ng-click='showYeastFunction()' ng-hide='showYeastBox') 
+                    .hopsName(ng-click='addToHopsSearchText(item)') {{item.name}} <hr />
+            
             form.yeast(ng-show='showYeastBox')
                 label.yeast(for='input.yeast') Add Yeast!
                 button(ng-click='showYeastFunction()') Hide
                 input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
                 .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
-                    .yeastName {{item.name}} <hr />
-        
+                    .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
+
+            
+            
+            
+            
+            
+            
+            
+            
+        //- .batchModule
+        //-     .grainInRecipe(ng-repeat='grain in grainInRecipe' 'weight in poundsOfGrainInRecipe') {{weight}} - {{grain.name}}
+        //-     
