@@ -62,37 +62,72 @@ input {
 .itemDescription {
   cursor: pointer; }
 
+.containerContainer {
+  height: 60vh;
+  min-height: 60vh;
+  max-height: 60vh;
+  width: 100vh;
+  max-width: 100vh; }
+
 .container {
+  margin: 20px 0 0 20px;
+  height: 100%;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-  margin: 20px 0 0 20px; }
+  -webkit-box-align: space-between;
+  -webkit-align-items: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between; }
 
 header {
   font-size: 1.5em; }
 
-.displayNone {
-  display: none; }
-
 .moduleTitle {
+  text-align: center;
   font-size: 2em;
   font-weight: 500;
   padding: 0 0 10px 0;
   color: #C76730; }
 
 .ingredientModule {
-  width: 100%;
+  width: 30%;
+  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-content: space-around;
+      -ms-flex-line-pack: distribute;
+          align-content: space-around; }
+
+.searchResults {
+  width: 70%; }
+  .searchResults form {
+    position: absolute;
+    width: 100%;
+    font-size: 19px;
+    margin: 10% 0 0 0;
+    height: 99%;
+    max-height: 40%;
+    max-width: 66vw;
+    overflow: scroll;
+    padding: 1%;
+    box-shadow: 0 0 3px #666, 0 0 3px #999;
+    -webkit-transition: all ease 0.5s;
+            transition: all ease 0.5s; }
+    .searchResults form input {
+      margin: 10px 0; }
+  .searchResults form.ng-hide {
+    margin-left: -100%;
+    opacity: 0; }
 
 .ingredient {
   display: -webkit-box;
@@ -104,28 +139,21 @@ header {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: space-around;
-  -webkit-align-items: space-around;
-      -ms-flex-align: space-around;
-          align-items: space-around;
-  margin: 5% 0;
+  -webkit-box-align: space-between;
+  -webkit-align-items: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  height: 125px;
-  width: 40%; }
-  .ingredient form {
-    height: 20px;
-    width: 200px;
-    font-size: 19px;
-    margin: 10% 0 0 95%; }
-    .ingredient form input {
-      margin: 10px 0; }
+  height: calc(100%/3);
+  width: 80%;
+  max-width: 180px; }
 
 .grainBox, .hopsBox, .yeastBox, .waterBox {
+  margin: 0 0 40% 0;
   color: #fff;
   font-weight: 500;
   font-size: 2em;
-  height: 100%;
   width: 100%;
   text-align: center;
   line-height: 125px;
@@ -134,13 +162,6 @@ header {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none; }
-  .grainBox .boxImage, .hopsBox .boxImage, .yeastBox .boxImage, .waterBox .boxImage {
-    height: 125px;
-    width: 100%;
-    -webkit-transition: all 0.45s ease;
-            transition: all 0.45s ease;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d; }
 
 .grainBox .boxImage {
   background: url(../assets/grainSmall.png) top center no-repeat;
@@ -158,25 +179,19 @@ header {
   background: url(../assets/waterSmall.png) top center no-repeat;
     background-size: contain; }
 
+.boxImage {
+  height: 125px;
+  width: 100%;
+  -webkit-transition: all 0.45s ease;
+          transition: all 0.45s ease;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
 .boxImage.ng-hide {
   -webkit-transform: rotateY(360deg);
           transform: rotateY(360deg);
   opacity: 0; }
 
-form {
-  width: 100%; }
-
 .grainSearchResults, .hopsSearchResults, .yeastSearchResults {
   margin: 10px 0;
   width: 100%; }
-
-form.grain, form.hops, form.yeast {
-  -webkit-transition: all ease 0.3s;
-          transition: all ease 0.3s; }
-
-form.grain.ng-hide, form.hops.ng-hide, form.yeast.ng-hide {
-  margin-left: -100%;
-  opacity: 0; }
-
-.absolute {
-  position: absolute; }
