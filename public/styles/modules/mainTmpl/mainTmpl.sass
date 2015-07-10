@@ -1,11 +1,12 @@
 .container
     display: flex
     justify-content: space-around
-    margin: 20px
+    margin: 20px 0 0 20px
 
 header
     font-size: 1.5em
-
+.displayNone
+    display: none
 .moduleTitle
     font-size: 2em
     font-weight: 500
@@ -13,7 +14,7 @@ header
     color: #C76730
 
 .ingredientModule
-    width: 30%
+    width: 60%
     margin: 0 1%
     input
         margin: 1% 0
@@ -24,7 +25,7 @@ header
     margin: 5% 0
     perspective: 1000px
     height: 125px
-    width: 125px
+    width: 60%
     input
         height: 20px
         width: 200px
@@ -46,7 +47,7 @@ header
     user-select: none
     .boxImage
         height: 125px
-        width: 125px
+        width: 100%
         transition: all .45s ease
         transform-style: preserve-3d
 .grainBox
@@ -64,19 +65,29 @@ header
         background: url(../assets/yeastSmall2.jpg)top center no-repeat
             size: contain
 
+
 .waterBox
     .boxImage
-        background: blue
-        border-radius: 50%
+        background: url(../assets/waterSmall.png) top center no-repeat
+            size: contain
 
 .boxImage.open
     transform: rotateY(360deg)
-input.grain, input.hops, input.yeast, input.water
-    display: none
-.hidden
-    visibility: hidden
+form
+    width: 100%
+.grainSearchResults
+    margin: 10px 0 0 0
+    width: 100%
+    .grainName
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+form.grain, form.hops, form.yeast
+    transition: all ease .3s
+form.grain.ng-hide, form.hops.ng-hide, form.yeast.ng-hide
+    margin-left: -100%
 .absolute
     position: absolute
 .batchModule
     text-align: left
-    width: 60%
+    width: 40%

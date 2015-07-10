@@ -70,10 +70,13 @@ input {
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around;
-  margin: 20px; }
+  margin: 20px 0 0 20px; }
 
 header {
   font-size: 1.5em; }
+
+.displayNone {
+  display: none; }
 
 .moduleTitle {
   font-size: 2em;
@@ -82,7 +85,7 @@ header {
   color: #C76730; }
 
 .ingredientModule {
-  width: 30%;
+  width: 60%;
   margin: 0 1%; }
   .ingredientModule input {
     margin: 1% 0; }
@@ -105,7 +108,7 @@ header {
   -webkit-perspective: 1000px;
           perspective: 1000px;
   height: 125px;
-  width: 125px; }
+  width: 60%; }
   .ingredient input {
     height: 20px;
     width: 200px;
@@ -131,7 +134,7 @@ header {
           user-select: none; }
   .grainBox .boxImage, .hopsBox .boxImage, .yeastBox .boxImage, .waterBox .boxImage {
     height: 125px;
-    width: 125px;
+    width: 100%;
     -webkit-transition: all 0.45s ease;
             transition: all 0.45s ease;
     -webkit-transform-style: preserve-3d;
@@ -150,22 +153,42 @@ header {
     background-size: contain; }
 
 .waterBox .boxImage {
-  background: blue;
-  border-radius: 50%; }
+  background: url(../assets/waterSmall.png) top center no-repeat;
+    background-size: contain; }
 
 .boxImage.open {
   -webkit-transform: rotateY(360deg);
           transform: rotateY(360deg); }
 
-input.grain, input.hops, input.yeast, input.water {
-  display: none; }
+form {
+  width: 100%; }
 
-.hidden {
-  visibility: hidden; }
+.grainSearchResults {
+  margin: 10px 0 0 0;
+  width: 100%; }
+  .grainSearchResults .grainName {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+
+form.grain, form.hops, form.yeast {
+  -webkit-transition: all ease 0.3s;
+          transition: all ease 0.3s; }
+
+form.grain.ng-hide, form.hops.ng-hide, form.yeast.ng-hide {
+  margin-left: -100%; }
 
 .absolute {
   position: absolute; }
 
 .batchModule {
   text-align: left;
-  width: 60%; }
+  width: 40%; }
