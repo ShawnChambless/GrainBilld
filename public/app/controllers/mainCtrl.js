@@ -1,6 +1,10 @@
 var app = angular.module('personalProject');
 
 app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
+    $scope.pageTitle = $location.url()
+    $scope.showGrainBox = false;
+    $scope.showHopsBox = false;
+    $scope.showYeastBox = false;
 
     var getGrainsInDb = function() {
         mainService.getGrainsInDb().then(function(resp) {
@@ -20,12 +24,6 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
         });
     }();
 
-
-    $scope.pageTitle = $location.url()
-    $scope.showGrainBox = false;
-    $scope.showHopsBox = false;
-    $scope.showYeastBox = false;
-
     $scope.showGrainFunction = function() {
         $scope.showGrainBox = !$scope.showGrainBox;
         $scope.showHopsBox = false;
@@ -41,5 +39,23 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
         $scope.showGrainBox = false;
         $scope.showHopsBox = false;
     };
+
+    $scope.addToGrainSearchText = function(item) {
+        $scope.grainSearchText = item.name;
+    };
+    $scope.addToHopsSearchText = function(item) {
+        $scope.hopsSearchText = item.name;
+    };
+    $scope.addToYeastSearchText = function(item) {
+        $scope.yeastSearchText = item.name;
+    };
+
+    // $scope.addGrainToRecipe = function(grainSearchText, grainWeight) {
+    //     $scope.grainInRecipe += grainSearchText;
+    //     $scope.poundsOfGrainInRecipe += grainWeight;
+    //     $scope.grainSearchText = '';
+    // }
+    //
+
 
 });
