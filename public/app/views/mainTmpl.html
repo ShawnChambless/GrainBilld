@@ -3,36 +3,36 @@
 <div class="container">
   <div class="ingredientModule">
     <div class="moduleTitle">Ingredients</div><hr>
-    <div class="ingredient grain">
+    <div ng-click="showGrainFunction()" class="ingredient grain">
       <div class="grainBox">
-        <div class="boxImage"> </div>
+        <div class="boxImage"></div>
       </div>
-      <form>
+      <form ng-show="showGrainBox" class="grain">
         <input type="text" ng-model="grainSearchText" placeholder="Search grains..." class="grain"/>
         <input type="text" placeholder="Pounds of Grain" class="grain"/>
-        <div ng-repeat="item in grains | filter:grainSearchText" class="grainSearchResults"></div>
+        <div ng-repeat="item in grainsInDb | filter:grainSearchText" class="grainSearchResults">{{item.name}}</div>
       </form>
     </div>
-    <div class="ingredient hops">
-      <div class="hopsBox"> 
+    <div ng-click="showHopsFunction()" class="ingredient hops">
+      <div class="hopsBox">
         <div class="boxImage"> </div>
       </div>
-      <form>
+      <form ng-show="showHopsBox" class="hops">
         <input type="text" ng-model="hopsSearchText" placeholder="Enter hops..." class="hops"/>
         <div ng-repeat="item in grains | filter:grainSearchText" class="hopsSearchResults"></div>
       </form>
     </div>
-    <div class="ingredient yeast">
+    <div ng-click="showYeastFunction()" class="ingredient yeast">
       <div class="yeastBox">
         <div class="boxImage"> </div>
       </div>
-      <form>
+      <form ng-show="showYeastBox" class="yeast">
         <input type="text" ng-model="yeastSearchText" placeholder="Enter yeast..." class="yeast"/>
       </form>
     </div>
     <div class="ingredient water">
       <div class="waterBox">
-        <div class="boxImage">water</div>
+        <div class="boxImage"></div>
       </div>
       <form>
         <input type="text" placeholder="Desired batch size..." class="water"/>

@@ -1,32 +1,31 @@
 a(ng-href='/#/NewBatch')    
     .title Grain Billd{{pageTitle}}
 .container
-
     .ingredientModule
-    
         .moduleTitle Ingredients
         <hr>
-        .ingredient.grain
+        .ingredient.grain(ng-click='showGrainFunction()')
             .grainBox
-                .boxImage 
-            form
+                .boxImage
+            form.grain(ng-show='showGrainBox')
                 input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
                 input.grain(type='text' placeholder='Pounds of Grain')
-                .grainSearchResults(ng-repeat='item in grains | filter:grainSearchText')
-        .ingredient.hops
-            .hopsBox 
+                .grainSearchResults(ng-repeat='item in grainsInDb | filter:grainSearchText')
+                     {{item.name}}
+        .ingredient.hops(ng-click='showHopsFunction()')
+            .hopsBox
                 .boxImage 
-            form
+            form.hops(ng-show='showHopsBox')
                 input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
                 .hopsSearchResults(ng-repeat='item in grains | filter:grainSearchText')
-        .ingredient.yeast
+        .ingredient.yeast(ng-click='showYeastFunction()')
             .yeastBox
                 .boxImage 
-            form
+            form.yeast(ng-show='showYeastBox')
                 input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
         .ingredient.water
             .waterBox
-                .boxImage water
+                .boxImage
             form
                 input.water(type='text' placeholder='Desired batch size...')
     
