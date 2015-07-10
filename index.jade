@@ -5,16 +5,19 @@ html
         link(href='bower_components/angular-loading-bar/build/loading-bar.min.css' rel='stylesheet')
         link(href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' rel='stylesheet')
         link(href='public/styles/modernizr.css' rel='stylesheet')
+        link(href='bower_components/angular-grid/ng-grid.min.css')
         link(href='public/styles/main.css' rel='stylesheet')
     body(ng-app='personalProject')
         
         ng-view
         
+        script(src='bower_components/jquery/dist/jquery.js')
         script(src='bower_components/angular/angular.js')
         script(src='bower_components/angular-route/angular-route.js')
         script(src='bower_components/angular-loading-bar/build/loading-bar.min.js')
         script(src='bower_components/angucomplete-alt/angucomplete-alt.js')
         script(src='bower_components/angular-animate/angular-animate.js')
+        script(src='bower_components/angular-grid/build/ng-grid.js')
         script(src='public/app/app.js')
         script(src='public/app/services/mainService.js')
         script(src='public/app/controllers/databaseCtrl.js')
