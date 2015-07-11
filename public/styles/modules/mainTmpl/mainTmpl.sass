@@ -6,7 +6,7 @@
     max-width: 100vh
 .container
     margin: 20px 0 0 20px
-    height: 100%
+    height: 80%
     width: 100%
     display: flex
     align-items: space-between
@@ -26,9 +26,11 @@ header
     display: flex
     flex-direction: column
     align-content: space-around
+.grainName, .hopsName, .yeastName
+    cursor: pointer
+
 .searchResults
     width: 70%
-
     form
         position: absolute
         width: 100%
@@ -86,7 +88,8 @@ header
         background: url(../assets/waterSmall.png) top center no-repeat
             size: contain
 .boxImage
-    height: 125px
+    height: 50px
+    max-height: 50px
     width: 100%
     transition: all .45s ease
     transform-style: preserve-3d
@@ -98,14 +101,24 @@ header
     margin: 10px 0
     width: 100%
 
-
-
-
-
-
-
-
-// .gridStyle
-//     width: 100%
-//     height: 500px
-//     border: 1px solid #888
+.batchModule
+    height: 20%
+    margin: 10% 0
+    .grainInRecipe
+        height: 100%
+.recipe
+    color: #222
+    font-weight: 500
+    .octicon
+        color: #666
+        margin-left: 3px
+.grainInfo, .hopsInfo, .yeastInfo
+    transition: all .3s ease
+    perspective: 1000px
+    transform-style: preserve-3d
+.grainInfo.ng-hide, .hopsInfo.ng-hide, .yeastInfo.ng-hide
+    margin-top: -4%
+    transform: rotateX(90deg)
+    opacity: 0
+.octicon-x
+    cursor: pointer
