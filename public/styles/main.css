@@ -227,5 +227,10 @@ header {
           transform: rotateX(90deg);
   opacity: 0; }
 
-.octicon-x {
-  cursor: pointer; }
+.x {
+  position: absolute;
+  cursor: pointer;
+  font-size: 38px;
+  color: #888;
+  top: 0;
+  right: 10px; }
