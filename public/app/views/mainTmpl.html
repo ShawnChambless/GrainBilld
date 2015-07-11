@@ -22,28 +22,26 @@
     </div>
     <div class="searchResults"> 
       <form ng-show="showGrainBox" class="grain">
-        <label class="grain">Add Grain! <br /></label><span ng-click="showGrainFunction()" class="mega-octicon octicon-x"></span>
+        <label class="grain">Add Grain! <br /></label>
         <input type="text" ng-model="grainSearchText" placeholder="Search grains..." class="grain"/>
         <input type="text" ng-model="grainWeight" placeholder="Pounds of Grain" class="grain"/>
-        <button ng-click="addGrainToRecipe(grainSearchText)">Add to recipe</button>
+        <button ng-click="addGrainToRecipe(grainSearchText); getSrm()">Add to recipe</button><span ng-click="showGrainFunction()" class="x">X</span>
         <div ng-repeat="item in grainsInDb | filter:grainSearchText" class="grainSearchResults">
           <div ng-click="addToGrainSearchText(item)" class="grainName">{{item.name}} <hr /></div>
         </div>
       </form>
       <form ng-show="showHopsBox" class="hops">
         <label class="hops">Add Hops! <br /></label>
-        <button ng-click="showHopsFunction()">Hide</button>
         <input type="text" ng-model="hopsSearchText" placeholder="Enter hops..." class="hops"/>
-        <button ng-click="addHopsToRecipe(hopsSearchText)">Add to recipe</button>
+        <button ng-click="addHopsToRecipe(hopsSearchText)">Add to recipe</button><span ng-click="showHopsFunction()" class="x">X</span>
         <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">
           <div ng-click="addToHopsSearchText(item)" class="hopsName">{{item.name}} <hr /></div>
         </div>
       </form>
       <form ng-show="showYeastBox" class="yeast">
         <label class="yeast">Add Yeast! <br /></label>
-        <button ng-click="showYeastFunction()">Hide</button>
         <input type="text" ng-model="yeastSearchText" placeholder="Enter yeast..." class="yeast"/>
-        <button ng-click="addYeastToRecipe(yeastSearchText)">Add to recipe</button>
+        <button ng-click="addYeastToRecipe(yeastSearchText)">Add to recipe</button><span ng-click="showYeastFunction()" class="x">X</span>
         <div ng-repeat="item in yeastInDb | filter:yeastSearchText" class="yeastSearchResults">
           <div ng-click="addToYeastSearchText(item)" class="yeastName">{{item.name}} <hr /></div>
         </div>
@@ -51,20 +49,25 @@
     </div>
   </div>
   <div class="batchModule">
-    <div ng-repeat="grain in grainInRecipe" class="grainInRecipe">
-      <div class="recipe grainName">{{grain.name}}<span ng-click="toggleGrainInfo()" class="octicon octicon-question"></span></div>
-      <div ng-show="showGrainInfo" class="grainInfo">{{grain.description}} &nbsp;<span class="item">Type: </span>{{grain.type}} <span class="item">SRM: </span>{{grain.lovibond}}°L</div>
-    </div>
-    <div ng-repeat="hops in hopsInRecipe" class="hopsInRecipe">
-      <div class="recipe hopsName">{{hops.name}}<span ng-click="toggleHopsInfo()" class="octicon octicon-question"></span></div>
-      <div ng-show="showHopsInfo" class="hopsInfo">
-         
-        {{hops.description}} &nbsp;<span class="item">Alpha Acid: </span>{{hops.alphaAcid}}% <span class="item">Beta Acid:</span>{{hops.betaAcid}}%
+    <div class="recipeIngredientWrapper">
+      <div ng-repeat="grain in grainInRecipe" class="grainInRecipe">
+        <div class="recipe grainName">{{grain.name}}<span ng-click="toggleGrainInfo()" class="octicon octicon-question"></span></div>
+        <div ng-show="showGrainInfo" class="grainInfo">{{grain.description}} &nbsp;<span class="item">Type: </span>{{grain.type}} <span class="item">SRM: </span>{{grain.lovibond}}°L</div>
+      </div>
+      <div ng-repeat="hops in hopsInRecipe" class="hopsInRecipe">
+        <div class="recipe hopsName">{{hops.name}}<span ng-click="toggleHopsInfo()" class="octicon octicon-question"></span></div>
+        <div ng-show="showHopsInfo" class="hopsInfo">
+           
+          {{hops.description}} &nbsp;<span class="item">Alpha Acid: </span>{{hops.alphaAcid}}% <span class="item">Beta Acid:</span>{{hops.betaAcid}}%
+        </div>
+      </div>
+      <div ng-repeat="yeast in yeastInRecipe" class="yeastInRecipe">
+        <div class="recipe yeastName">{{yeast.name}}<span ng-click="toggleYeastInfo()" class="octicon octicon-question"></span></div>
+        <div ng-show="showYeastInfo" class="yeastInfo">{{yeast.description}} &nbsp;<span class="item">Flocculation: </span>{{yeast.flocculation}} <span class="item">Temp: </span>{{yeast.minimumTemperature}}° <span class="item">Max. Temp: </span>{{yeast.maximumTemperature}}° <span class="item">Min. Att.: </span>{{yeast.minimumAttenuation}}% <span class="item">Max. Att.: </span>{{yeast.maximumAttenuation}}%</div>
       </div>
     </div>
-    <div ng-repeat="yeast in yeastInRecipe" class="yeastInRecipe">
-      <div class="recipe yeastName">{{yeast.name}}<span ng-click="toggleYeastInfo()" class="octicon octicon-question"></span></div>
-      <div ng-show="showYeastInfo" class="yeastInfo">{{yeast.description}} &nbsp;<span class="item">Flocculation: </span>{{yeast.flocculation}} <span class="item">Temp: </span>{{yeast.minimumTemperature}}° <span class="item">Max. Temp: </span>{{yeast.maximumTemperature}}° <span class="item">Min. Att.: </span>{{yeast.minimumAttenuation}}% <span class="item">Max. Att.: </span>{{yeast.maximumAttenuation}}%</div>
+    <div class="recipeInfoBox">
+      <div class="recipeInfo">{{recipeSrm}} {{recipeIBU}} {{recipeAlcohol}}</div>
     </div>
   </div>
 </div>
