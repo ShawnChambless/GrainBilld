@@ -5,22 +5,29 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
     $scope.showGrainBox = false;
     $scope.showHopsBox = false;
     $scope.showYeastBox = false;
+    $scope.showGrainInfo = false;
+    $scope.showHopsInfo = false;
+    $scope.showYeastInfo = false;
+
 
     var getGrainsInDb = function() {
         mainService.getGrainsInDb().then(function(resp) {
             $scope.grainsInDb = resp.data;
+            console.log('Got Grain In DB',resp)
         });
     }();
 
     var getHopsInDb = function() {
         mainService.getHopsInDb().then(function(resp) {
             $scope.hopsInDb = resp.data;
+            console.log('Got Hops in DB', resp)
         });
     }();
 
     var getYeastInDb = function() {
         mainService.getYeastInDb().then(function(resp) {
             $scope.yeastInDb = resp.data;
+            console.log('Got Yeast in DB',resp)
         });
     }();
 
@@ -50,12 +57,58 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
         $scope.yeastSearchText = item.name;
     };
 
-    // $scope.addGrainToRecipe = function(grainSearchText, grainWeight) {
-    //     $scope.grainInRecipe += grainSearchText;
-    //     $scope.poundsOfGrainInRecipe += grainWeight;
-    //     $scope.grainSearchText = '';
-    // }
-    //
+    $scope.grainInRecipe = [];
+    $scope.hopsInRecipe = [];
+    $scope.yeastInRecipe = [];
+
+    $scope.addGrainToRecipe = function(grainSearchText) {
+        mainService.getGrainsInDb(grainSearchText).then(function(resp) {
+            $scope.grainInRecipe.push(resp.data[0]);
+            console.log('Added Grain', resp);
+            $scope.grainSearchText = '';
+        });
+    };
+
+    $scope.addHopsToRecipe = function(hopsSearchText) {
+        mainService.getHopsInDb(hopsSearchText).then(function(resp) {
+            $scope.hopsInRecipe.push(resp.data[0]);
+            console.log('Added Hops', resp);
+            $scope.hopsSearchText = '';
+        });
+    };
+
+    $scope.addYeastToRecipe = function(yeastSearchText) {
+        mainService.getYeastInDb(yeastSearchText).then(function(resp) {
+            $scope.yeastInRecipe.push(resp.data[0]);
+            console.log('Added yeast', resp);
+            $scope.yeastSearchText = '';
+        });
+    };
+
+
+    $scope.toggleGrainInfo = function() {
+        $scope.showGrainInfo = !$scope.showGrainInfo;
+        $scope.showHopsInfo = false;
+        $scope.showYeastInfo = false;
+    };
+    $scope.toggleHopsInfo = function() {
+        $scope.showHopsInfo = !$scope.showHopsInfo;
+        $scope.showGrainInfo = false;
+        $scope.showYeastInfo = false;
+    };
+    $scope.toggleYeastInfo = function() {
+        $scope.showYeastInfo = !$scope.showYeastInfo;
+        $scope.showGrainInfo = false;
+        $scope.showHopsInfo = false;
+    };
+
+
+
+
+        // $scope.grainInRecipe.push({name: grainSearchText});
+        //
+        // console.log($scope.grainInRecipe);
+
 
 
 });
