@@ -8,6 +8,7 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
     $scope.showGrainInfo = false;
     $scope.showHopsInfo = false;
     $scope.showYeastInfo = false;
+    var srmArr = [];
 
 
     var getGrainsInDb = function() {
@@ -61,9 +62,11 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
     $scope.hopsInRecipe = [];
     $scope.yeastInRecipe = [];
 
+
     $scope.addGrainToRecipe = function(grainSearchText) {
         mainService.getGrainsInDb(grainSearchText).then(function(resp) {
             $scope.grainInRecipe.push(resp.data[0]);
+            srmArr.push(resp.data[0].lovibond);
             console.log('Added Grain', resp);
             $scope.grainSearchText = '';
         });
@@ -102,9 +105,19 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
         $scope.showHopsInfo = false;
     };
 
+    function avgArray(array) {
+       var s = 0;
+       for (var i = 0; i < array.length; i++) {
+           s+= parseFloat(array[i], 10);
+           console.log(array[i])
+       }
+       console.log(s)
+       return s/array.length;
+    }
 
-
-
+    $scope.getSrm = function() {
+        $scope.recipeSrm = avgArray(srmArr);
+    };
         // $scope.grainInRecipe.push({name: grainSearchText});
         //
         // console.log($scope.grainInRecipe);
