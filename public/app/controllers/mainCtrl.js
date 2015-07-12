@@ -1,15 +1,41 @@
 var app = angular.module('personalProject');
 
-app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
+app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, mainService) {
     $scope.pageTitle = $location.url()
-    $scope.showGrainBox = false;
     $scope.showHopsBox = false;
     $scope.showYeastBox = false;
     $scope.showGrainInfo = false;
     $scope.showHopsInfo = false;
     $scope.showYeastInfo = false;
+    $scope.grainBoxToggle = {rotate: false};
+    $scope.hopsBoxToggle = {rotate: false};
+    $scope.yeastBoxToggle = {rotate: false};
     var srmArr = [];
 
+    if(!$scope.batchSize) {
+        $scope.batchSize = 5;
+    }
+
+    $scope.rotateGrain = function() {
+        $scope.grainBoxToggle.rotate=true;
+        $timeout(function() {
+            $scope.grainBoxToggle.rotate = false;
+        }, 255, true);
+
+    };
+
+    $scope.rotateHops = function() {
+        $scope.hopsBoxToggle.rotate = true;
+        $timeout(function() {
+            $scope.hopsBoxToggle.rotate = false;
+        }, 255, true);
+    };
+    $scope.rotateYeast = function() {
+        $scope.yeastBoxToggle.rotate = true;
+        $timeout(function() {
+            $scope.yeastBoxToggle.rotate = false;
+        }, 255, true);
+    };
 
     var getGrainsInDb = function() {
         mainService.getGrainsInDb().then(function(resp) {
@@ -58,33 +84,38 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
         $scope.yeastSearchText = item.name;
     };
 
-    $scope.grainInRecipe = [];
-    $scope.hopsInRecipe = [];
-    $scope.yeastInRecipe = [];
-
 
     $scope.addGrainToRecipe = function(grainSearchText) {
         mainService.getGrainsInDb(grainSearchText).then(function(resp) {
-            $scope.grainInRecipe.push(resp.data[0]);
-            srmArr.push(resp.data[0].lovibond);
-            console.log('Added Grain', resp);
+            mainService.grainInRecipe.push(resp.data[0]);
             $scope.grainSearchText = '';
+            $scope.grainInRecipe = mainService.grainInRecipe;
+            var MCU = (parseFloat((resp.data[0].lovibond * $scope.grainWeight)/$scope.batchSize));
+            $scope.getSrm = function() {
+                $scope.recipeSrm = .4922*(Math.pow(MCU, 0.6859));
+            };
+
         });
     };
 
     $scope.addHopsToRecipe = function(hopsSearchText) {
         mainService.getHopsInDb(hopsSearchText).then(function(resp) {
-            $scope.hopsInRecipe.push(resp.data[0]);
+            mainService.hopsInRecipe.push(resp.data[0]);
             console.log('Added Hops', resp);
             $scope.hopsSearchText = '';
+            $scope.hopsInRecipe = mainService.hopsInRecipe;
         });
     };
 
     $scope.addYeastToRecipe = function(yeastSearchText) {
         mainService.getYeastInDb(yeastSearchText).then(function(resp) {
-            $scope.yeastInRecipe.push(resp.data[0]);
+            mainService.yeastInRecipe.push(resp.data[0]);
             console.log('Added yeast', resp);
             $scope.yeastSearchText = '';
+            $scope.yeastInRecipe = mainService.yeastInRecipe;
+            // $scope.getRecipeIBU = function() {
+            //  $scope.recipeIBU = ($scope.hopWeight * resp.data[0].utilization * resp.data[0].alphaAcid * 7489)/($scope.batchSize * (1+($scope.batchSize - 1.050)/0.2))
+        //}
         });
     };
 
@@ -104,23 +135,6 @@ app.controller('mainCtrl', function($scope, $location, $q, $http, mainService) {
         $scope.showGrainInfo = false;
         $scope.showHopsInfo = false;
     };
-
-    function avgArray(array) {
-       var s = 0;
-       for (var i = 0; i < array.length; i++) {
-           s+= parseFloat(array[i], 10);
-           console.log(array[i])
-       }
-       console.log(s)
-       return s/array.length;
-    }
-
-    $scope.getSrm = function() {
-        $scope.recipeSrm = avgArray(srmArr);
-    };
-        // $scope.grainInRecipe.push({name: grainSearchText});
-        //
-        // console.log($scope.grainInRecipe);
 
 
 
