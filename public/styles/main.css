@@ -66,8 +66,8 @@ input {
   height: 60vh;
   min-height: 60vh;
   max-height: 60vh;
-  width: 100vh;
-  max-width: 100vh; }
+  margin: 0 2%;
+  width: 100%; }
 
 .container {
   margin: 20px 0 0 20px;
@@ -85,8 +85,11 @@ input {
 header {
   font-size: 1.5em; }
 
+input#batchSize {
+  width: 40px;
+  text-align: center; }
+
 .moduleTitle {
-  text-align: center;
   font-size: 2em;
   font-weight: 500;
   padding: 0 0 10px 0;
@@ -117,15 +120,14 @@ header {
     position: absolute;
     width: 100%;
     font-size: 19px;
-    margin: 10% 0 0 0;
     height: 99%;
     max-height: 40%;
-    max-width: 66vw;
+    max-width: 36%;
     overflow: scroll;
     padding: 1%;
     box-shadow: 0 0 3px #666, 0 0 3px #999;
-    -webkit-transition: all ease 0.5s;
-            transition: all ease 0.5s; }
+    -webkit-transition: margin-left ease 0.5s, opacity ease 1s;
+            transition: margin-left ease 0.5s, opacity ease 1s; }
     .searchResults form input {
       margin: 10px 0; }
   .searchResults form.ng-hide {
@@ -191,26 +193,54 @@ header {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d; }
 
-.boxImage.ng-hide {
+.grainBoxRotate, .hopsBoxRotate, .yeastBoxRotate {
   -webkit-transform: rotateY(360deg);
-          transform: rotateY(360deg);
-  opacity: 0; }
+          transform: rotateY(360deg); }
 
 .grainSearchResults, .hopsSearchResults, .yeastSearchResults {
   margin: 10px 0;
   width: 100%; }
 
+.x {
+  position: absolute;
+  cursor: pointer;
+  font-size: 38px;
+  color: #888;
+  top: 0;
+  right: 10px; }
+
 .batchModule {
-  height: 20%;
-  margin: 10% 0; }
-  .batchModule .grainInRecipe {
-    height: 100%; }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  width: 100%; }
+
+.grainInRecipe {
+  height: 100%; }
+
+.recipeIngredientWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%; }
 
 .recipe {
   color: #222;
   font-weight: 500; }
   .recipe .octicon {
-    color: #666;
+    color: lightgreen;
     margin-left: 3px; }
 
 .grainInfo, .hopsInfo, .yeastInfo {
@@ -222,15 +252,20 @@ header {
           transform-style: preserve-3d; }
 
 .grainInfo.ng-hide, .hopsInfo.ng-hide, .yeastInfo.ng-hide {
-  margin-top: -4%;
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
   opacity: 0; }
 
-.x {
-  position: absolute;
-  cursor: pointer;
-  font-size: 38px;
-  color: #888;
-  top: 0;
-  right: 10px; }
+.waterBox {
+  border: 1px solid red;
+  width: 20%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .waterBox input {
+    color: #333;
+    padding: 0;
+    margin: 0;
+    max-width: 100%; }

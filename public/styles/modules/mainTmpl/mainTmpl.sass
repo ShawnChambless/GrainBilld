@@ -2,8 +2,8 @@
     height: 60vh
     min-height: 60vh
     max-height: 60vh
-    width: 100vh
-    max-width: 100vh
+    margin: 0 2%
+    width: 100%
 .container
     margin: 20px 0 0 20px
     height: 80%
@@ -13,8 +13,11 @@
 header
     font-size: 1.5em
 
-.moduleTitle
+input#batchSize
+    width: 40px
     text-align: center
+
+.moduleTitle
     font-size: 2em
     font-weight: 500
     padding: 0 0 10px 0
@@ -35,14 +38,13 @@ header
         position: absolute
         width: 100%
         font-size: 19px
-        margin: 10% 0 0 0
         height: 99%
         max-height: 40%
-        max-width: 66vw
+        max-width: 36%
         overflow: scroll
         padding: 1%
         box-shadow: 0 0 3px #666, 0 0 3px #999
-        transition: all ease .5s
+        transition: margin-left ease .5s, opacity ease 1s
         input
             margin: 10px 0
     form.ng-hide
@@ -93,33 +95,14 @@ header
     width: 100%
     transition: all .45s ease
     transform-style: preserve-3d
-.boxImage.ng-hide
+
+.grainBoxRotate, .hopsBoxRotate, .yeastBoxRotate
     transform: rotateY(360deg)
-    opacity: 0
 
 .grainSearchResults, .hopsSearchResults, .yeastSearchResults
     margin: 10px 0
     width: 100%
 
-.batchModule
-    height: 20%
-    margin: 10% 0
-    .grainInRecipe
-        height: 100%
-.recipe
-    color: #222
-    font-weight: 500
-    .octicon
-        color: #666
-        margin-left: 3px
-.grainInfo, .hopsInfo, .yeastInfo
-    transition: all .3s ease
-    perspective: 1000px
-    transform-style: preserve-3d
-.grainInfo.ng-hide, .hopsInfo.ng-hide, .yeastInfo.ng-hide
-    margin-top: -4%
-    transform: rotateX(90deg)
-    opacity: 0
 .x
     position: absolute
     cursor: pointer
