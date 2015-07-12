@@ -2,6 +2,7 @@
 config.codekit
 .codekit-cache
 .DS_Store
+secret/
 # Logs
 logs
 *.log
