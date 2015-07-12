@@ -104,6 +104,27 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
             console.log('Added Hops', resp);
             $scope.hopsSearchText = '';
             $scope.hopsInRecipe = mainService.hopsInRecipe;
+            $scope.getRecipeIBU = function() {
+                var hopUtilization;
+                if($scope.boilTime === 0) {
+                    hopUtilization = 0;
+                } else if ($scope.boilTime > 0 && $scope.boilTime <= 9) {
+                    hopUtilization = .05;
+                } else if ($scope.boilTime > 9 && $scope.boilTime <= 19) {
+                    hopUtilization = .12;
+                } else if ($scope.boilTime > 19 && $scope.boilTime <= 29) {
+                    hopUtilization = .15;
+                } else if ($scope.boilTime > 29 && $scope.boilTime <= 44) {
+                    hopUtilization = .19;
+                } else if ($scope.boilTime > 44 && $scope.boilTime <= 59) {
+                    hopUtilization = .22;
+                } else if ($scope.boilTime > 59 && $scope.boilTime <= 74) {
+                    hopUtilization = .24;
+                } else if ($scope.boilTime > 74) {
+                    hopUtilization = .27;
+                }
+             $scope.recipeIBU = ($scope.hopWeight * hopUtilization * (resp.data[0].alphaAcid / 100) * 7489)/($scope.batchSize * (1+($scope.batchSize - 1.050)/0.2));
+        };
         });
     };
 
@@ -113,9 +134,6 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
             console.log('Added yeast', resp);
             $scope.yeastSearchText = '';
             $scope.yeastInRecipe = mainService.yeastInRecipe;
-            // $scope.getRecipeIBU = function() {
-            //  $scope.recipeIBU = ($scope.hopWeight * resp.data[0].utilization * resp.data[0].alphaAcid * 7489)/($scope.batchSize * (1+($scope.batchSize - 1.050)/0.2))
-        //}
         });
     };
 
