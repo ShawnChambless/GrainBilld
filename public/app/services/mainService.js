@@ -1,6 +1,10 @@
 var app = angular.module('personalProject');
 
 app.service('mainService', function($http, $q) {
+    this.grainInRecipe = [];
+    this.hopsInRecipe = [];
+    this.yeastInRecipe = [];
+
 
     this.getGrainsInDb = function(grainName) {
         if (!grainName) {
@@ -48,5 +52,22 @@ app.service('mainService', function($http, $q) {
         }
 
     };
+
+    // this.srmArr = [];
+    //
+    // this.avgArray = function(array) {
+    //    var s = 0;
+    //    for(var i = 0; i < array.length; i++) {
+    //        s+= parseFloat(array[i], 10);
+    //        console.log(array[i], array.length, s)
+    //    }
+    //    console.log('AvgArray', s/array.length);
+    //    return s/array.length;
+    // };
+    // this.recipeSrm = this.avgArray(this.srmArr)
+    //
+    //
+
+
 
 });
