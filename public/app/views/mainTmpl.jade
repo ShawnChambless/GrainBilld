@@ -1,20 +1,24 @@
 a(ng-href='/#/NewBatch')    
     .title Grain Billd{{pageTitle}}
 .containerContainer
+    .batchInfo
+        label(for='batchSize') Batch Size:
+        input#batchSize(type='number' ng-model='batchSize')
+        label gal
     .container
         .ingredientModule
             //.moduleTitle Add Ingredients
             .ingredient.grain Grain
-                .grainBox
-                    .boxImage(ng-click='showGrainFunction()' ng-hide='showGrainBox')
+                .grainBox(ng-click= 'rotateGrain(); showGrainFunction()')
+                    .boxImage(ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}")
                             
             .ingredient.hops Hops
-                .hopsBox
-                    .boxImage(ng-click='showHopsFunction()' ng-hide='showHopsBox')
+                .hopsBox(ng-click='rotateHops(); showHopsFunction()')
+                    .boxImage(ng-class="{'hopsBoxRotate': hopsBoxToggle.rotate}")
                 
             .ingredient.yeast  Yeast
-                .yeastBox
-                    .boxImage(ng-click='showYeastFunction()' ng-hide='showYeastBox') 
+                .yeastBox(ng-click='rotateYeast(); showYeastFunction()')
+                    .boxImage(ng-class="{'yeastBoxRotate': yeastBoxToggle.rotate}") 
                 
         .searchResults  
             form.grain(ng-show='showGrainBox')
@@ -29,7 +33,8 @@ a(ng-href='/#/NewBatch')
             form.hops(ng-show='showHopsBox')
                 label.hops Add Hops! <br />
                 input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
-                button(ng-click='addHopsToRecipe(hopsSearchText)') Add to recipe
+                input.hops(type='number' ng-model='boilTime' placeholder='Boil time...')
+                button(ng-click='addHopsToRecipe(hopsSearchText); getRecipeIBU()') Add to recipe
                 span(class="x" ng-click='showHopsFunction()') X
                 .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
                     .hopsName(ng-click='addToHopsSearchText(item)') {{item.name}} <hr />
@@ -42,43 +47,5 @@ a(ng-href='/#/NewBatch')
                 .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
                     .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
             
-    .batchModule
-        .recipeIngredientWrapper
-            .grainInRecipe(ng-repeat='grain in grainInRecipe')
-                .recipe.grainName {{grain.name}}
-                    span(class='octicon octicon-question' ng-click='toggleGrainInfo()')
-                .grainInfo(ng-show='showGrainInfo')
-                    {{grain.description}} &nbsp;
-                    span.item Type: 
-                    {{grain.type}} 
-                    span.item SRM: 
-                    {{grain.lovibond}}°L
-                
-            .hopsInRecipe(ng-repeat='hops in hopsInRecipe')
-                .recipe.hopsName {{hops.name}}
-                    span(class='octicon octicon-question' ng-click='toggleHopsInfo()')
-                .hopsInfo(ng-show='showHopsInfo') 
-                    {{hops.description}} &nbsp;
-                    span.item Alpha Acid: 
-                    {{hops.alphaAcid}}% 
-                    span.item Beta Acid:
-                    {{hops.betaAcid}}%
-                
-            .yeastInRecipe(ng-repeat='yeast in yeastInRecipe')
-                .recipe.yeastName {{yeast.name}}
-                    span(class='octicon octicon-question' ng-click='toggleYeastInfo()')
-                .yeastInfo(ng-show='showYeastInfo')
-                    {{yeast.description}} &nbsp;
-                    span.item Flocculation: 
-                    {{yeast.flocculation}} 
-                    span.item Temp: 
-                    {{yeast.minimumTemperature}}° 
-                    span.item Max. Temp: 
-                    {{yeast.maximumTemperature}}° 
-                    span.item Min. Att.: 
-                    {{yeast.minimumAttenuation}}% 
-                    span.item Max. Att.: 
-                    {{yeast.maximumAttenuation}}%
-        .recipeInfoBox
-            .recipeInfo {{recipeSrm}} {{recipeIBU}} {{recipeAlcohol}}
-            
+    ng-include(src="'public/app/views/recipeTmpl.html'")
+        

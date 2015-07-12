@@ -1,22 +1,27 @@
 <a ng-href="/#/NewBatch">   
   <div class="title">Grain Billd{{pageTitle}}</div></a>
 <div class="containerContainer">
+  <div class="batchInfo">
+    <label for="batchSize">Batch Size:</label>
+    <input id="batchSize" type="number" ng-model="batchSize"/>
+    <label>gal</label>
+  </div>
   <div class="container">
     <div class="ingredientModule">
       <!--.moduleTitle Add Ingredients-->
       <div class="ingredient grain">Grain
-        <div class="grainBox">
-          <div ng-click="showGrainFunction()" ng-hide="showGrainBox" class="boxImage"></div>
+        <div ng-click="rotateGrain(); showGrainFunction()" class="grainBox">
+          <div ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}" class="boxImage"></div>
         </div>
       </div>
       <div class="ingredient hops">Hops
-        <div class="hopsBox">
-          <div ng-click="showHopsFunction()" ng-hide="showHopsBox" class="boxImage"></div>
+        <div ng-click="rotateHops(); showHopsFunction()" class="hopsBox">
+          <div ng-class="{'hopsBoxRotate': hopsBoxToggle.rotate}" class="boxImage"></div>
         </div>
       </div>
       <div class="ingredient yeast"> Yeast
-        <div class="yeastBox">
-          <div ng-click="showYeastFunction()" ng-hide="showYeastBox" class="boxImage"> </div>
+        <div ng-click="rotateYeast(); showYeastFunction()" class="yeastBox">
+          <div ng-class="{'yeastBoxRotate': yeastBoxToggle.rotate}" class="boxImage"> </div>
         </div>
       </div>
     </div>
@@ -33,7 +38,8 @@
       <form ng-show="showHopsBox" class="hops">
         <label class="hops">Add Hops! <br /></label>
         <input type="text" ng-model="hopsSearchText" placeholder="Enter hops..." class="hops"/>
-        <button ng-click="addHopsToRecipe(hopsSearchText)">Add to recipe</button><span ng-click="showHopsFunction()" class="x">X</span>
+        <input type="number" ng-model="boilTime" placeholder="Boil time..." class="hops"/>
+        <button ng-click="addHopsToRecipe(hopsSearchText); getRecipeIBU()">Add to recipe</button><span ng-click="showHopsFunction()" class="x">X</span>
         <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">
           <div ng-click="addToHopsSearchText(item)" class="hopsName">{{item.name}} <hr /></div>
         </div>
@@ -48,26 +54,5 @@
       </form>
     </div>
   </div>
-  <div class="batchModule">
-    <div class="recipeIngredientWrapper">
-      <div ng-repeat="grain in grainInRecipe" class="grainInRecipe">
-        <div class="recipe grainName">{{grain.name}}<span ng-click="toggleGrainInfo()" class="octicon octicon-question"></span></div>
-        <div ng-show="showGrainInfo" class="grainInfo">{{grain.description}} &nbsp;<span class="item">Type: </span>{{grain.type}} <span class="item">SRM: </span>{{grain.lovibond}}°L</div>
-      </div>
-      <div ng-repeat="hops in hopsInRecipe" class="hopsInRecipe">
-        <div class="recipe hopsName">{{hops.name}}<span ng-click="toggleHopsInfo()" class="octicon octicon-question"></span></div>
-        <div ng-show="showHopsInfo" class="hopsInfo">
-           
-          {{hops.description}} &nbsp;<span class="item">Alpha Acid: </span>{{hops.alphaAcid}}% <span class="item">Beta Acid:</span>{{hops.betaAcid}}%
-        </div>
-      </div>
-      <div ng-repeat="yeast in yeastInRecipe" class="yeastInRecipe">
-        <div class="recipe yeastName">{{yeast.name}}<span ng-click="toggleYeastInfo()" class="octicon octicon-question"></span></div>
-        <div ng-show="showYeastInfo" class="yeastInfo">{{yeast.description}} &nbsp;<span class="item">Flocculation: </span>{{yeast.flocculation}} <span class="item">Temp: </span>{{yeast.minimumTemperature}}° <span class="item">Max. Temp: </span>{{yeast.maximumTemperature}}° <span class="item">Min. Att.: </span>{{yeast.minimumAttenuation}}% <span class="item">Max. Att.: </span>{{yeast.maximumAttenuation}}%</div>
-      </div>
-    </div>
-    <div class="recipeInfoBox">
-      <div class="recipeInfo">{{recipeSrm}} {{recipeIBU}} {{recipeAlcohol}}</div>
-    </div>
-  </div>
+  <ng-include src="'public/app/views/recipeTmpl.html'"></ng-include>
 </div>
