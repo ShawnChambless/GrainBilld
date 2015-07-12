@@ -10,7 +10,7 @@ var express = require('express'),
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(__dirname + '/public/app/views/databaseTmpl.html'));
+app.use(express.static(__dirname + '/public/app/'));
 
 
     app.get('/database/ingredients/grain', grainCtrl.getGrain);
