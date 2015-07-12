@@ -38,6 +38,7 @@
       <form ng-show="showHopsBox" class="hops">
         <label class="hops">Add Hops! <br /></label>
         <input type="text" ng-model="hopsSearchText" placeholder="Enter hops..." class="hops"/>
+        <input type="number" ng-model="hopWeight" placeholder="Number of oz." class="hops"/>
         <input type="number" ng-model="boilTime" placeholder="Boil time..." class="hops"/>
         <button ng-click="addHopsToRecipe(hopsSearchText); getRecipeIBU()">Add to recipe</button><span ng-click="showHopsFunction()" class="x">X</span>
         <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">

@@ -3,7 +3,7 @@
 <div class="batchModule">
   <div class="recipeIngredientWrapper">
     <div ng-repeat="grain in grainInRecipe" class="grainInRecipe">
-      <div class="recipe grainName">{{grain.name}}<span ng-click="toggleGrainInfo()" class="octicon octicon-question"></span></div>
+      <div class="recipe grainName">{{grainWeight}}lbs - {{grain.name}}<span ng-click="toggleGrainInfo()" class="octicon octicon-question"></span></div>
       <div ng-show="showGrainInfo" class="grainInfo">{{grain.description}} &nbsp;<span class="item">Type: </span>{{grain.type}} <span class="item">SRM: </span>{{grain.lovibond}}°L</div>
     </div>
     <div ng-repeat="hops in hopsInRecipe" class="hopsInRecipe">

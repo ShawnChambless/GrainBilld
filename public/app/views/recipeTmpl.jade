@@ -2,7 +2,7 @@
 .batchModule
     .recipeIngredientWrapper
         .grainInRecipe(ng-repeat='grain in grainInRecipe')
-            .recipe.grainName {{grain.name}}
+            .recipe.grainName {{grainWeight}}lbs - {{grain.name}}
                 span(class='octicon octicon-question' ng-click='toggleGrainInfo()')
             .grainInfo(ng-show='showGrainInfo')
                 {{grain.description}} &nbsp;

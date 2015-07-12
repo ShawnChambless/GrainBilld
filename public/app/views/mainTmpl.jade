@@ -33,6 +33,7 @@ a(ng-href='/#/NewBatch')
             form.hops(ng-show='showHopsBox')
                 label.hops Add Hops! <br />
                 input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
+                input.hops(type='number' ng-model='hopWeight' placeholder='Number of oz.')
                 input.hops(type='number' ng-model='boilTime' placeholder='Boil time...')
                 button(ng-click='addHopsToRecipe(hopsSearchText); getRecipeIBU()') Add to recipe
                 span(class="x" ng-click='showHopsFunction()') X
