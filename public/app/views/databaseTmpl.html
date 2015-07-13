@@ -55,7 +55,10 @@
 </form>
 <h1 ng-click="toggleGrainInDb()">Grain in Database</h1>
 <div class="databaseContainer">
-  <h3 ng-repeat="item in grains" ng-show="showGrainInDb"><span class="itemName">{{item.name}}:<br /> </span><span class="item">Malt type: </span>{{item.type}} malt<br /><span class="item">Origin: </span>{{item.origin}}<br /> <span class="item">Alpha Amaylase: </span>{{item.alphaAmylase}}<br /> <span class="item">Diastatic Power: </span>{{item.diastaticPower}}<br /> <span class="item">Lovibond: </span>{{item.lovibond}}L<br /> <span class="item">Extract %: </span>{{item.extractPercent}}%<br /> <span class="item">Soluble Protein: </span>{{item.solubleProtein}}<br /> <span class="item">Total Protein: </span>{{item.totalProtein}}<br /> <span class="item">Usage %: </span>{{item.usage}}%<br /> <span class="item">Moisture %: </span>{{item.moisture}}%<br /> <span ng-click="toggleShowDescription()" class="itemDescription">Description: </span><span ng-show="showDescription" class="description">{{item.description}} <br /></span></h3>
+  <h3 ng-repeat="item in grains" ng-show="showGrainInDb">
+    <input type="number" ng-model="updateSG" ng-submit="updateGrainSG(updateSG, item._id)" placeholder="Update SG"/>
+    <input type="submit" ng-click="updateGrainSG(updateSG, item._id)" value="Submit SG"/><span class="itemName">{{item.name}}:<br /> </span><span class="item">Malt type: </span>{{item.type}} malt<br /><span class="item">Origin: </span>{{item.origin}}<br /> <span class="item">Alpha Amaylase: </span>{{item.alphaAmylase}}<br /> <span class="item">Diastatic Power: </span>{{item.diastaticPower}}<br /> <span class="item">Lovibond: </span>{{item.lovibond}}L<br /> <span class="item">Extract %: </span>{{item.extractPercent}}%<br /> <span class="item">Soluble Protein: </span>{{item.solubleProtein}}<br /> <span class="item">Total Protein: </span>{{item.totalProtein}}<br /> <span class="item">Usage %: </span>{{item.usage}}%<br /> <span class="item">Moisture %: </span>{{item.moisture}}%<br /> <span class="item">SG: </span>{{item.sg}}<br /><span ng-click="toggleShowDescription()" class="itemDescription">Description: </span><span ng-show="showDescription" class="description">{{item.description}} <br /></span>
+  </h3>
 </div>
 <h1 ng-click="toggleHopsInDb()">Hops in Database</h1>
 <div class="databaseContainer">

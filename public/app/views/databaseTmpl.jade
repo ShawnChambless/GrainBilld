@@ -57,6 +57,8 @@ h1(ng-click = 'toggleGrainInDb()') Grain in Database
 .databaseContainer
 
     h3(ng-repeat='item in grains' ng-show='showGrainInDb')
+        input(type='number' ng-model='updateSG' ng-submit='updateGrainSG(updateSG, item._id)' placeholder='Update SG')
+        input(type='submit' ng-click='updateGrainSG(updateSG, item._id)' value='Submit SG')
         span.itemName {{item.name}}:<br /> 
         span.item Malt type: 
         {{item.type}} malt<br />
@@ -78,6 +80,8 @@ h1(ng-click = 'toggleGrainInDb()') Grain in Database
         {{item.usage}}%<br /> 
         span.item Moisture %: 
         {{item.moisture}}%<br /> 
+        span.item SG: 
+        {{item.sg}}<br />
         span.itemDescription(ng-click='toggleShowDescription()') Description: 
         span.description(ng-show='showDescription') {{item.description}} <br />
 
