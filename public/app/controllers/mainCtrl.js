@@ -10,6 +10,7 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
     $scope.grainBoxToggle = {rotate: false};
     $scope.hopsBoxToggle = {rotate: false};
     $scope.yeastBoxToggle = {rotate: false};
+
     var srmArr = [];
 
     if(!$scope.batchSize) {
@@ -86,6 +87,8 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
 
     var gpOfGrain;
     var itemToAdd;
+    var sgItemToAdd;
+    var recipeOG;
     $scope.addGrainToRecipe = function(grainSearchText) {
         if(!$scope.OG) {
             $scope.OG = 1.000;
@@ -93,6 +96,7 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
         mainService.getGrainsInDb(grainSearchText).then(function(resp) {
             mainService.grainInRecipe.push(resp.data[0]);
             $scope.grainSearchText = '';
+            $scope.grainWeight = '';
             $scope.grainInRecipe = mainService.grainInRecipe;
 
             /*===================================================
@@ -102,27 +106,27 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
             =====================================================*/
 
             if (!itemToAdd) {
-                itemToAdd = ((resp.data[0].sg - 1) * 1000);
+                itemToAdd = ((resp.data[0].sg - 1)*1000 * $scope.grainWeight);
                 gpOfGrain = itemToAdd;
                 console.log('item to add === 0', gpOfGrain, itemToAdd);
             }else {
-                gpOfGrain = (parseFloat(itemToAdd) + ((parseFloat(resp.data[0].sg) - 1) * 1000));
+                gpOfGrain = (itemToAdd + ((parseFloat(resp.data[0].sg) - 1)*1000) * $scope.grainWeight);
                 itemToAdd = gpOfGrain;
                 console.log('item to add > 0', gpOfGrain, itemToAdd);
             }
 
             /*===================================================
             =====================================================
-                                Calculate SRM
+                            Calculate SRM/MCU/OG
             =======================================================
             =====================================================*/
 
             var MCU = (parseFloat((resp.data[0].lovibond * $scope.grainWeight)/$scope.batchSize));
-                $scope.recipeSrm = 1.4922*(Math.pow(MCU, 0.6859));
-                    $scope.OG = (parseFloat(($scope.grainWeight * ((resp.data[0].extractPercent/100) * $scope.grainWeight)) * .75)/ $scope.batchSize)/ 10 + 1;
-            });
-        };
-        
+            $scope.recipeSrm = (1.4922*(Math.pow(MCU, 0.6859))).toFixed(1);
+            $scope.OG = ((gpOfGrain * .75 / $scope.batchSize)/1000 + 1).toFixed(3);
+        });
+    };
+
     var IBUOfGrain;
     var hopsItemToAdd;
     $scope.addHopsToRecipe = function(hopsSearchText) {
@@ -162,12 +166,12 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
                 if (!hopsItemToAdd) {
                     IBUOfGrain = AAU * hopUtilization * 74.89 / $scope.batchSize;
                     hopsItemToAdd = IBUOfGrain;
-                    $scope.IBU = IBUOfGrain;
+                    $scope.IBU = IBUOfGrain.toFixed(1);
                 }
                 else {
                     IBUOfGrain = (AAU * hopUtilization * 74.89 / $scope.batchSize) + hopsItemToAdd;
                     hopsItemToAdd = IBUOfGrain;
-                    $scope.IBU = IBUOfGrain;
+                    $scope.IBU = IBUOfGrain.toFixed(1);
                 }
         });
     };
@@ -185,9 +189,8 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
             =======================================================
             =====================================================*/
 
-            $scope.FG = (1 + (gpOfGrain * (1 - parseFloat($scope.yeastInRecipe[0].maximumAttenuation) / 100)) / 1000);
-
-            $scope.ABV = ((76.08) * ($scope.OG - $scope.FG) / (1.775 - $scope.OG) * ($scope.FG / 0.794))
+            $scope.FG = ($scope.OG / ($scope.yeastInRecipe[0].maximumAttenuation/100)/1000 + 1).toFixed(3);
+            $scope.ABV = ((76.08) * ($scope.OG - $scope.FG) / (1.775 - $scope.OG) * ($scope.FG / 0.794)).toFixed(2)
 
         });
     };
