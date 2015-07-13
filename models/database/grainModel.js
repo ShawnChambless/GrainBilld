@@ -12,6 +12,7 @@ var grainSchema = new mongoose.Schema({
     totalProtein: {type: String, default: 0},
     usage: {type: String, default: 0},
     moisture: {type: String, default: 0},
+    sg: {type: Number, default: 0},
     description: {type: String, default: 'N/A'}
 });
 
