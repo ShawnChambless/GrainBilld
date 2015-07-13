@@ -118,22 +118,27 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
             =====================================================*/
 
             var MCU = (parseFloat((resp.data[0].lovibond * $scope.grainWeight)/$scope.batchSize));
-                $scope.recipeSrm = .4922*(Math.pow(MCU, 0.6859));
-                    $scope.OG = (parseFloat(($scope.grainWeight * ((resp.data[0].extractPercent/100) * $scope.grainWeight)) * .75)/ $scope.batchSize);
-        });
-    };
-    var hopUtilization;
+                $scope.recipeSrm = 1.4922*(Math.pow(MCU, 0.6859));
+                    $scope.OG = (parseFloat(($scope.grainWeight * ((resp.data[0].extractPercent/100) * $scope.grainWeight)) * .75)/ $scope.batchSize)/ 10 + 1;
+            });
+        };
+        
+    var IBUOfGrain;
+    var hopsItemToAdd;
     $scope.addHopsToRecipe = function(hopsSearchText) {
         mainService.getHopsInDb(hopsSearchText).then(function(resp) {
             mainService.hopsInRecipe.push(resp.data[0]);
             console.log('Added Hops', resp);
             $scope.hopsSearchText = '';
             $scope.hopsInRecipe = mainService.hopsInRecipe;
+
             /*==================================================
             ====================================================
                                 Calculate IBU
             ======================================================
             ====================================================*/
+
+            var hopUtilization;
                 if($scope.boilTime === 0) {
                     hopUtilization = 0;
                 } else if ($scope.boilTime > 0 && $scope.boilTime <= 9) {
@@ -151,7 +156,19 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
                 } else if ($scope.boilTime > 74) {
                     hopUtilization = .27;
                 }
-             $scope.IBU = ($scope.hopWeight * hopUtilization * (resp.data[0].alphaAcid / 100) * 7489)/($scope.batchSize * (1+($scope.batchSize - 1.050)/0.2));
+
+                var AAU = $scope.hopWeight * (resp.data[0].alphaAcid)
+
+                if (!hopsItemToAdd) {
+                    IBUOfGrain = AAU * hopUtilization * 74.89 / $scope.batchSize;
+                    hopsItemToAdd = IBUOfGrain;
+                    $scope.IBU = IBUOfGrain;
+                }
+                else {
+                    IBUOfGrain = (AAU * hopUtilization * 74.89 / $scope.batchSize) + hopsItemToAdd;
+                    hopsItemToAdd = IBUOfGrain;
+                    $scope.IBU = IBUOfGrain;
+                }
         });
     };
 
@@ -169,8 +186,9 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
             =====================================================*/
 
             $scope.FG = (1 + (gpOfGrain * (1 - parseFloat($scope.yeastInRecipe[0].maximumAttenuation) / 100)) / 1000);
-            $scope.ABV = (76.08 * ($scope.OG - ($scope.FG/1.775)) - ($scope.OG * ($scope.FG / 0.794)));
-            console.log($scope.yeastInRecipe[0].maximumAttenuation, $scope.FG)
+
+            $scope.ABV = ((76.08) * ($scope.OG - $scope.FG) / (1.775 - $scope.OG) * ($scope.FG / 0.794))
+
         });
     };
 
@@ -190,7 +208,5 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
         $scope.showGrainInfo = false;
         $scope.showHopsInfo = false;
     };
-
-
 
 });
