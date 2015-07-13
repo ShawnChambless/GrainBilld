@@ -29,9 +29,9 @@
       <form ng-show="showGrainBox" class="grain">
         <label class="grain">Add Grain! <br /></label>
         <input type="text" ng-model="grainSearchText" placeholder="Search grains..." class="grain"/>
-        <input type="text" ng-model="grainWeight" placeholder="Pounds of Grain" class="grain"/><span ng-click="addGrainToRecipe(grainSearchText)" class="octicon octicon-plus"></span><span ng-click="showGrainFunction()" class="x">X</span>
+        <input type="text" ng-model="grainWeight" placeholder="Pounds of Grain" class="grain"/><span ng-click="addGrainToRecipe(grainSearchText)" class="mega-octicon octicon-check"></span><span ng-click="showGrainFunction()" class="x">X</span>
         <div ng-repeat="item in grainsInDb | filter:grainSearchText" class="grainSearchResults">
-          <div ng-click="addToGrainSearchText(item)" class="grainName">{{item.name}} <hr /></div>
+          <div ng-click="addToGrainSearchText(item)" class="grainName">{{item.name}}<hr /></div>
         </div>
       </form>
       <form ng-show="showHopsBox" class="hops">

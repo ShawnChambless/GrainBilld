@@ -25,10 +25,10 @@ a(ng-href='/#/NewBatch')
                 label.grain Add Grain! <br />
                 input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
                 input.grain(type='text' ng-model='grainWeight' placeholder='Pounds of Grain')
-                span.octicon.octicon-plus(ng-click='addGrainToRecipe(grainSearchText)')
+                span.mega-octicon.octicon-check(ng-click='addGrainToRecipe(grainSearchText)')
                 span(class="x" ng-click='showGrainFunction()') X
                 .grainSearchResults(ng-repeat='item in grainsInDb | filter:grainSearchText')
-                    .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
+                    .grainName(ng-click='addToGrainSearchText(item)') {{item.name}}<hr />
                 
             form.hops(ng-show='showHopsBox')
                 label.hops Add Hops! <br />
