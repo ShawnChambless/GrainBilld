@@ -1,1 +1,0 @@
-var app=angular.module("personalProject");app.controller("databaseCtrl",function(o,a){o.h2="H2",o.addGrainToDb=function(o){return a({method:"POST",url:"localhost:8081"},function(o){console.log(o)})}});
