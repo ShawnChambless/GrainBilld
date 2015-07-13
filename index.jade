@@ -9,12 +9,14 @@ html
         link(href='bower_components/normalize.css/normalize.css' rel='stylesheet')
         link(href='public/assets/octicons/octicons.css' rel='stylesheet')
         link(href='public/styles/main.css' rel='stylesheet')
+        
     body(ng-app='personalProject')
         .signIn
+            ng-include(src="'public/app/views/login.html'")
             input(type='email' ng-model='user.email' placeholder='Email...')
             input(type='password' ng-model='user.password' placeholder='Password...')
             input(type='submit' value='Submit')
-        
+            
         ng-view
         
         script(src='bower_components/jquery/dist/jquery.js')

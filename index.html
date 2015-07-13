@@ -11,6 +11,7 @@
   </head>
   <body ng-app="personalProject">
     <div class="signIn">
+      <ng-include src="'public/app/views/login.html'"></ng-include>
       <input type="email" ng-model="user.email" placeholder="Email...">
       <input type="password" ng-model="user.password" placeholder="Password...">
       <input type="submit" value="Submit">
