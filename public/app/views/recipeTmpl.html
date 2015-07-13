@@ -18,7 +18,7 @@
       <div ng-show="showYeastInfo" class="yeastInfo">{{yeast.description}} &nbsp;<span class="item">Flocculation: </span>{{yeast.flocculation}} <span class="item">Temp: </span>{{yeast.minimumTemperature}}° <span class="item">Max. Temp: </span>{{yeast.maximumTemperature}}° <span class="item">Min. Att.: </span>{{yeast.minimumAttenuation}}% <span class="item">Max. Att.: </span>{{yeast.maximumAttenuation}}%</div>
     </div>
     <div class="recipeInfoBox">
-      <div class="recipeInfo">{{recipeAlcohol}} {{recipeSrm}} {{recipeIBU}} </div>
+      <div class="recipeInfo"> </div><span ng-show="recipeSrm" class="item">SRM: </span>{{recipeSrm}} <span ng-show="IBU" class="item">IBU: </span>{{IBU}} <span ng-show="FG" class="item">FG:</span>{{FG}} <span ng-show="OG" class="item">OG: </span>{{OG}} <span ng-show="ABV" class="item">ABV: </span>{{ABV}} 
     </div>
   </div>
   <div class="waterBox"></div>

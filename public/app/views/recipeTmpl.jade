@@ -37,6 +37,17 @@
                 span.item Max. Att.: 
                 {{yeast.maximumAttenuation}}%
         .recipeInfoBox
-            .recipeInfo {{recipeAlcohol}} {{recipeSrm}} {{recipeIBU}} 
+            .recipeInfo 
+            span.item(ng-show='recipeSrm') SRM: 
+            {{recipeSrm}} 
+            span.item(ng-show='IBU') IBU: 
+            {{IBU}} 
+            span.item(ng-show='FG') FG:
+            {{FG}} 
+            span.item(ng-show='OG') OG: 
+            {{OG}} 
+            span.item(ng-show='ABV') ABV: 
+            {{ABV}} 
+             
     .waterBox
         
