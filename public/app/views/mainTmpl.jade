@@ -24,7 +24,7 @@ a(ng-href='/#/NewBatch')
             form.grain(ng-show='showGrainBox')
                 label.grain Add Grain! <br />
                 input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
-                input.grain(type='text' ng-model='grainWeight' placeholder='Pounds of Grain')
+                input.grain(type='number' ng-model='grainWeight' placeholder='Pounds of Grain')
                 span.mega-octicon.octicon-check(ng-click='addGrainToRecipe(grainSearchText)')
                 span(class="x" ng-click='showGrainFunction()') X
                 .grainSearchResults(ng-repeat='item in grainsInDb | filter:grainSearchText')
