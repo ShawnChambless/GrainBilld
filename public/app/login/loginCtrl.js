@@ -3,12 +3,6 @@ var app = angular.module('personalProject')
         $scope.authData = loginService.authObj.$getAuth();
         var ub;
         loginService.authObj.$onAuth(function(authData) {
-            if(authData) {
-                $scope.user.email = '';
-                $scope.user.password = '';
-                $scope.showSignIn = true;
-                $scope.showSignUp = false;
-            }
             loginService.authData = authData;
             var userRef = new Firebase('https://grainbilld.firebaseio.com/users/' + authData.uid),
                 user = $firebaseObject(userRef);
