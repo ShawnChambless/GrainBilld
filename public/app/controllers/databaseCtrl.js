@@ -1,6 +1,6 @@
 var app = angular.module('personalProject');
 
-app.controller('databaseCtrl', function($scope, $http, $q, mainService) {
+app.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', function($scope, $http, $q, mainService) {
 
     $scope.showGrain = false;
     $scope.showHops = false;
@@ -122,4 +122,4 @@ app.controller('databaseCtrl', function($scope, $http, $q, mainService) {
     //         $scope.addYeast = '';
     //     })
     // }
-});
+}]);

@@ -10,7 +10,6 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
     $scope.grainBoxToggle = {rotate: false};
     $scope.hopsBoxToggle = {rotate: false};
     $scope.yeastBoxToggle = {rotate: false};
-
     $scope.hopsInDb = hops.data;
     $scope.grainsInDb = grains.data;
     $scope.yeastInDb = yeast.data;
