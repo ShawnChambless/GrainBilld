@@ -11,15 +11,26 @@ html
         link(href='public/styles/main.css' rel='stylesheet')
         
     body(ng-app='personalProject')
-        .signIn
-            input(type='email' ng-model='user.email' placeholder='Email...')
-            input(type='password' ng-model='user.password' placeholder='Password...')
-            input(type='submit' value='Submit')
-            
-        ng-view        
+        .loginWrapper(ng-controller='loginCtrl')
+            {{authData.password.email}}
+            .signIn(ng-hide='showSignIn')
+                input(type='email' ng-model='user.email' placeholder='Email...')
+                input(type='password' ng-model='user.password' placeholder='Password...')
+                input(type='submit' ng-click='login(user)' value='Sign In!')
+                span(ng-click='showSignUp = !showSignUp; showSignIn = !showSignIn') Sign Up
+            .signUp(ng-show='showSignUp')
+                input(type='email' ng-model='newUser.email' placeholder='Email...')
+                input(type='password' ng-model='newUser.password' placeholder='Password...')
+                input(type='password' placeholder='Confirm password...')
+                input(type='submit' ng-click='register(newUser)' value='Sign Up!')
+                span(ng-click='showSignIn = !showSignIn; showSignUp = !showSignUp') Sign In
+            input(type='submit' ng-click='logout()' value='Log Out' ng-show='authData') 
+        ng-view
         
         script(src='bower_components/jquery/dist/jquery.js')
         script(src='bower_components/angular/angular.js')
+        script(src='bower_components/firebase/firebase.js')
+        script(src='bower_components/angularfire/dist/angularfire.js')
         script(src='bower_components/angular-route/angular-route.js')
         script(src='bower_components/angular-loading-bar/build/loading-bar.min.js')
         script(src='bower_components/angucomplete-alt/angucomplete-alt.js')
@@ -27,7 +38,9 @@ html
         script(src='bower_components/angular-grid/build/ng-grid.js')
         script(src='public/app/app.js')
         script(src='public/app/services/mainService.js')
+        script(src='public/app/login/loginService.js')
+        script(src='public/app/login/loginCtrl.js')
         script(src='public/app/controllers/databaseCtrl.js')
         script(src='public/app/controllers/mainCtrl.js')
         script(src='bower_components/jquery/dist/jquery.js')
-        script(src='bower_components/firebase/firebase.js')
+        

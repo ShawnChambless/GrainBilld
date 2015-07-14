@@ -28,7 +28,6 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
         }, 255, true);
 
     };
-
     $scope.rotateHops = function() {
         $scope.hopsBoxToggle.rotate = true;
         $timeout(function() {
