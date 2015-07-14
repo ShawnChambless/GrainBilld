@@ -1,6 +1,6 @@
 var app = angular.module('personalProject');
 
-app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, mainService) {
+app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, grains, hops, yeast) {
     $scope.pageTitle = $location.url()
     $scope.showHopsBox = false;
     $scope.showYeastBox = false;
@@ -10,6 +10,10 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
     $scope.grainBoxToggle = {rotate: false};
     $scope.hopsBoxToggle = {rotate: false};
     $scope.yeastBoxToggle = {rotate: false};
+
+    $scope.hopsInDb = hops;
+    $scope.grainsInDb = grains;
+    $scope.yeastInDb = yeast;
 
     var srmArr = [];
 
@@ -37,27 +41,6 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
             $scope.yeastBoxToggle.rotate = false;
         }, 255, true);
     };
-
-    var getGrainsInDb = function() {
-        mainService.getGrainsInDb().then(function(resp) {
-            $scope.grainsInDb = resp.data;
-            console.log('Got Grain In DB',resp)
-        });
-    }();
-
-    var getHopsInDb = function() {
-        mainService.getHopsInDb().then(function(resp) {
-            $scope.hopsInDb = resp.data;
-            console.log('Got Hops in DB', resp)
-        });
-    }();
-
-    var getYeastInDb = function() {
-        mainService.getYeastInDb().then(function(resp) {
-            $scope.yeastInDb = resp.data;
-            console.log('Got Yeast in DB',resp)
-        });
-    }();
 
     $scope.showGrainFunction = function() {
         $scope.showGrainBox = !$scope.showGrainBox;
@@ -96,7 +79,6 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
         mainService.getGrainsInDb(grainSearchText).then(function(resp) {
             mainService.grainInRecipe.push(resp.data[0]);
             $scope.grainSearchText = '';
-            $scope.grainWeight = '';
             $scope.grainInRecipe = mainService.grainInRecipe;
 
             /*===================================================
@@ -212,4 +194,4 @@ app.controller('mainCtrl', function($scope, $timeout, $location, $q, $http, main
         $scope.showHopsInfo = false;
     };
 
-});
+}]);
