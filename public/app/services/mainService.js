@@ -5,18 +5,21 @@ app.service('mainService', function($http, $q) {
     this.hopsInRecipe = [];
     this.yeastInRecipe = [];
 
-
     this.getGrainsInDb = function(grainName) {
         if (!grainName) {
             return $http({
                 method: 'GET',
                 url: 'http://localhost:8081/database/ingredients/grain/'
+            }).then(function(resp) {
+                return resp.data;
             });
         }
         else {
             return $http({
                 method: 'GET',
                 url: 'http://localhost:8081/database/ingredients/grain/?name=' + grainName
+            }).then(function(resp) {
+                return resp.data;
             });
         }
     };
@@ -26,12 +29,16 @@ app.service('mainService', function($http, $q) {
             return $http({
                 method: 'GET',
                 url: 'http://localhost:8081/database/ingredients/hops/'
+            }).then(function(resp) {
+                return resp.data;
             });
         }
-        else if (hopsName) {
+        else {
             return $http({
                 method: 'GET',
                 url: 'http://localhost:8081/database/ingredients/hops/?name=' + hopsName
+            }).then(function(resp) {
+                return resp.data;
             });
         }
 
@@ -42,12 +49,18 @@ app.service('mainService', function($http, $q) {
                 return $http({
                 method: 'GET',
                 url: 'http://localhost:8081/database/ingredients/yeast/'
+            }).then(function(resp) {
+                return resp.data;
+                console.log('Got Yeast in DB',resp)
             });
         }
         else {
             return $http({
             method: 'GET',
             url: 'http://localhost:8081/database/ingredients/yeast/?name=' + yeastName
+        }).then(function(resp) {
+            return resp.data;
+            console.log('Got Yeast in DB from search text',resp)
         });
         }
 
