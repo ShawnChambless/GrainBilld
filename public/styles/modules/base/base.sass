@@ -15,15 +15,21 @@ a
     font-family: Lobster
     padding: 0 50px
     color: #3090C7
-.signIn
-    display: flex
-    align-items: center
-    justify-content: flex-end
-    margin:  0 2%
-    ng-include
-        display: flex
-        flex-direction: row
 
-.pluginLoginButton
+.loginWrapper
+    width: 100%
     display: flex
-    flex-direction: row
+    user-select: none
+    justify-content: flex-end
+    align-items: center
+    .signIn, .signUp
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        width: 100%
+        margin: 0 3%
+        input
+            margin: 5px
+    span
+        cursor: pointer
+        border-bottom: 2px solid #888
