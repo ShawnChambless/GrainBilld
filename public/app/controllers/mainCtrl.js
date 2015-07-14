@@ -11,9 +11,9 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
     $scope.hopsBoxToggle = {rotate: false};
     $scope.yeastBoxToggle = {rotate: false};
 
-    $scope.hopsInDb = hops;
-    $scope.grainsInDb = grains;
-    $scope.yeastInDb = yeast;
+    $scope.hopsInDb = hops.data;
+    $scope.grainsInDb = grains.data;
+    $scope.yeastInDb = yeast.data;
 
     var srmArr = [];
 
