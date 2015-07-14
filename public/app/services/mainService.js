@@ -1,6 +1,6 @@
 var app = angular.module('personalProject');
 
-app.service('mainService', function($http, $q) {
+app.service('mainService',['$http', '$q', function($http, $q) {
     this.grainInRecipe = [];
     this.hopsInRecipe = [];
     this.yeastInRecipe = [];
@@ -43,7 +43,6 @@ app.service('mainService', function($http, $q) {
                 url: 'http://localhost:8081/database/ingredients/yeast/'
             }).then(function(resp) {
                 return resp;
-                console.log('Got Yeast in DB',resp)
             });
         }
         else {
@@ -65,4 +64,4 @@ app.service('mainService', function($http, $q) {
         });
     };
 
-});
+}]);
