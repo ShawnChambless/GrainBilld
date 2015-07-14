@@ -8,7 +8,33 @@ app.config(function($routeProvider) {
         })
         .when('/NewBatch', {
             templateUrl: 'public/app/views/mainTmpl.html',
-            controller: 'mainCtrl'
+            controller: 'mainCtrl',
+            resolve:  {
+
+                    grain: function(mainService) {
+                        console.log("grain resolve");
+                        return mainService.getGrainsInDb().then(function(grains){
+                            console.log(grains);
+                            return grains;
+                        });
+                    },
+                    hops: function(mainService) {
+                        console.log("hops resolve");
+                        return mainService.getHopsInDb().then(function(hops){
+                            console.log(hops);
+                            return hops;
+                        });
+                    },
+                    yeast: function(mainService) {
+                        console.log("yeast resolve");
+                        return mainService.getYeastInDb().then(function(yeast){
+                            console.log(yeast);
+                            return yeast;
+                        });
+                    }
+
+                }
+
         })
         .otherwise('/NewBatch')
 });
