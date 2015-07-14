@@ -12,14 +12,11 @@ html
         
     body(ng-app='personalProject')
         .signIn
-            ng-include(src="'public/app/views/login.html'")
             input(type='email' ng-model='user.email' placeholder='Email...')
             input(type='password' ng-model='user.password' placeholder='Password...')
             input(type='submit' value='Submit')
             
-        ng-view
-        
-        
+        ng-view        
         
         script(src='bower_components/jquery/dist/jquery.js')
         script(src='bower_components/angular/angular.js')
@@ -33,4 +30,4 @@ html
         script(src='public/app/controllers/databaseCtrl.js')
         script(src='public/app/controllers/mainCtrl.js')
         script(src='bower_components/jquery/dist/jquery.js')
-        script(src='secret/scripts/scripts/min/login-min.js')
+        script(src='bower_components/firebase/firebase.js')
