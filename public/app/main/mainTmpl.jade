@@ -48,5 +48,5 @@ a(ng-href='/#/NewBatch')
                 .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
                     .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
             
-    ng-include(src="'public/app/views/recipeTmpl.html'")
+    ng-include(src="'public/app/recipe/recipeTmpl.html'")
         
