@@ -14,7 +14,7 @@ var app = angular.module('personalProject')
                 console.log(resp)
             });
         });
-    }
+    };
 
     this.login = function(email, password) {
         this.authObj.$authWithPassword(email, password).then(function(authData, user) {
@@ -22,7 +22,7 @@ var app = angular.module('personalProject')
         }, function(err) {
             alert(err);
         });
-    }
+    };
     var login = this.login;
     this.loginWithFacebook = function() {
         authObj.$authWithOAuthPopup("facebook").then(function(authData, error) {
@@ -52,6 +52,6 @@ var app = angular.module('personalProject')
             console.log("Authenticated successfully with Google:", authData);
         }
         });
-    }
+    };
 
 }])
