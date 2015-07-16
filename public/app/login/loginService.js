@@ -1,29 +1,27 @@
-var app = angular.module('personalProject')
-.service('loginService', ['$firebaseAuth', '$q', function($firebaseAuth, $q) {
+angular.module('personalProject')
+.service('loginService', ['$firebaseAuth', function($firebaseAuth) {
 
     this.ref = 'https://grainbilld.firebaseio.com/';
     this.firebaseRef = new Firebase(this.ref);
     this.authObj = $firebaseAuth(this.firebaseRef);
     var authObj = this.authObj;
-    var ref = this.ref;
 
     this.register = function(email, password) {
         this.authObj.$createUser(email, password).then(function(authData) {
-            console.log(authData)
+            console.log(authData);
             authObj.$authWithPassword(email, password).then(function(resp) {
-                console.log(resp)
+                console.log(resp);
             });
         });
     };
 
     this.login = function(email, password) {
         this.authObj.$authWithPassword(email, password).then(function(authData, user) {
-            console.log('logged in', authData);
+            console.log('logged in', user, authData);
         }, function(err) {
             alert(err);
         });
     };
-    var login = this.login;
     this.loginWithFacebook = function() {
         authObj.$authWithOAuthPopup("facebook").then(function(authData, error) {
             if (error) {
@@ -54,4 +52,4 @@ var app = angular.module('personalProject')
         });
     };
 
-}])
+}]);
