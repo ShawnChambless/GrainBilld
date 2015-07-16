@@ -12,19 +12,26 @@ html
         
     body(ng-app='personalProject')
         .loginWrapper(ng-controller='loginCtrl')
-            {{authData.password.email}}
+            div(ng-show='authData.facebook.displayName') {{authData.facebook.displayName}}
+            div(ng-show='authData.twitter.displayName') {{authData.twitter.displayName}}
+            div(ng-show='authData.google.displayName') {{authData.google.displayName}}
             .signIn(ng-hide='showSignIn')
                 input(type='email' ng-model='user.email' placeholder='Email...')
                 input(type='password' ng-model='user.password' placeholder='Password...')
-                input(type='submit' ng-click='login(user)' value='Sign In!')
+                input(type='submit' ng-click='login(user.email, user.password)' value='Sign In!')
                 span(ng-click='showSignUp = !showSignUp; showSignIn = !showSignIn') Sign Up
             .signUp(ng-show='showSignUp')
                 input(type='email' ng-model='newUser.email' placeholder='Email...')
                 input(type='password' ng-model='newUser.password' placeholder='Password...')
                 input(type='password' placeholder='Confirm password...')
-                input(type='submit' ng-click='register(newUser)' value='Sign Up!')
+                input(type='submit' ng-click='register(newUser.email, newUser.password)' value='Sign Up!')
                 span(ng-click='showSignIn = !showSignIn; showSignUp = !showSignUp') Sign In
-            input(type='submit' ng-click='logout()' value='Log Out' ng-show='authData') 
+            input(type='submit' ng-click='authObj.$unauth(); unbind()' value='Log Out' ng-show='authData') 
+        input(type='submit' value='Log In With Facebook' ng-controller='loginCtrl' ng-click='loginWithFacebook()')
+        input(type='submit' value='Log In With Twitter' ng-controller='loginCtrl' ng-click='loginWithTwitter()')
+        input(type='submit' value='Log In With Google' ng-controller='loginCtrl' ng-click='loginWithGoogle()')
+
+
         ng-view
         
         script(src='bower_components/jquery/dist/jquery.js')
@@ -37,10 +44,10 @@ html
         script(src='bower_components/angular-animate/angular-animate.js')
         script(src='bower_components/angular-grid/build/ng-grid.js')
         script(src='public/app/app.js')
-        script(src='public/app/min/mainService-min.js')
-        script(src='public/app/min/loginService-min.js')
-        script(src='public/app/min/loginCtrl-min.js')
-        script(src='public/app/min/databaseCtrl-min.js')
-        script(src='public/app/min/mainCtrl-min.js')
+        script(src='public/app/main/mainService.js')
+        script(src='public/app/login/loginService.js')
+        script(src='public/app/login/loginCtrl.js')
+        script(src='public/app/database/databaseCtrl.js')
+        script(src='public/app/main/mainCtrl.js')
         script(src='bower_components/jquery/dist/jquery.js')
         
