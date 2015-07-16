@@ -1,0 +1,1 @@
+angular.module("personalProject").controller("recipeCtrl",["$scope","recipeService",function(e,c){e.saveRecipe=function(){c.saveRecipe(),console.log("pressed")}}]);
