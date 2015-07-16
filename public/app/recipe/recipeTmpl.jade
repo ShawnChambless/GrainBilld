@@ -48,5 +48,5 @@
             {{OG}} 
             span.item(ng-show='ABV') ABV: 
             {{ABV}} 
-         .saveBtn(ng-show='recipeSrm')
-            input(type='submit' value='Save Recipe' ng-click='saveRecipeToDb()')
+        .saveBtn(ng-show='recipeSrm' ng-controller='recipeCtrl')
+            input(type='submit' value='Save Recipe' ng-click='saveRecipe()')
