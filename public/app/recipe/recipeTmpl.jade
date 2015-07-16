@@ -48,6 +48,5 @@
             {{OG}} 
             span.item(ng-show='ABV') ABV: 
             {{ABV}} 
-             
-    .waterBox
-        
+         .saveBtn(ng-show='recipeSrm')
+            input(type='submit' value='Save Recipe' ng-click='saveRecipeToDb()')
