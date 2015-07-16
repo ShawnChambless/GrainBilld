@@ -10,7 +10,6 @@ app.config(function($routeProvider) {
             templateUrl: 'public/app/main/mainTmpl.html',
             controller: 'mainCtrl',
             resolve:  {
-
                     grain: function(mainService) {
                         return mainService.getGrainsInDb().then(function(grains){
                             return grains;
@@ -26,9 +25,7 @@ app.config(function($routeProvider) {
                             return yeast;
                         });
                     }
-
                 }
-
         })
         .otherwise('/NewBatch')
 });
