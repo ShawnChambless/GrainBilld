@@ -1,0 +1,1 @@
+var User=require("../../models/users/userModel");module.exports={addUser:function(e,s){newUser=new User(e.body),newUser.save(function(e,r){return e?s.sendStatus(500):s.send(r)})}};

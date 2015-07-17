@@ -1,0 +1,1 @@
+var mongoose=require("mongoose"),userSchema=new mongoose.Schema({id:{type:Number},recipes:[]});module.exports=mongoose.model("userSchema",userSchema);
