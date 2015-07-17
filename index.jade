@@ -3,7 +3,6 @@ html
     head
         title Personal Project
         
-        script(src='bower_components/modernizr/modernizr.js')
         link(href='bower_components/angular-grid/ng-grid.min.css')
         link(href='bower_components/angular-loading-bar/build/loading-bar.css' rel='stylesheet')
         link(href='bower_components/normalize.css/normalize.css' rel='stylesheet')
@@ -12,37 +11,34 @@ html
         
     body(ng-app='personalProject')
         .loginWrapper(ng-controller='loginCtrl')
-            div(ng-show='authData.facebook.displayName') {{authData.facebook.displayName}}
-            div(ng-show='authData.twitter.displayName') {{authData.twitter.displayName}}
-            div(ng-show='authData.google.displayName') {{authData.google.displayName}}
-            .signIn(ng-hide='showSignIn')
-                input(type='email' ng-model='user.email' placeholder='Email...')
-                input(type='password' ng-model='user.password' placeholder='Password...')
-                input(type='submit' ng-click='login(user.email, user.password)' value='Sign In!')
-                span(ng-click='showSignUp = !showSignUp; showSignIn = !showSignIn') Sign Up
-            .signUp(ng-show='showSignUp')
-                input(type='email' ng-model='newUser.email' placeholder='Email...')
-                input(type='password' ng-model='newUser.password' placeholder='Password...')
-                input(type='password' placeholder='Confirm password...')
-                input(type='submit' ng-click='register(newUser.email, newUser.password)' value='Sign Up!')
-                span(ng-click='showSignIn = !showSignIn; showSignUp = !showSignUp') Sign In
-            input(type='submit' ng-click='authObj.$unauth(); unbind()' value='Log Out' ng-show='authData') 
-        input(type='submit' value='Log In With Facebook' ng-controller='loginCtrl' ng-click='loginWithFacebook()')
-        input(type='submit' value='Log In With Twitter' ng-controller='loginCtrl' ng-click='loginWithTwitter()')
-        input(type='submit' value='Log In With Google' ng-controller='loginCtrl' ng-click='loginWithGoogle()')
-
+            //- div(ng-show='authData.facebook.displayName') {{authData.facebook.displayName}}
+            //- div(ng-show='authData.twitter.displayName') {{authData.twitter.displayName}}
+            //- div(ng-show='authData.google.displayName') {{authData.google.displayName}}
+            //- .signIn(ng-hide='showSignIn')
+            //-     input(type='email' ng-model='user.email' placeholder='Email...')
+            //-     input(type='password' ng-model='user.password' placeholder='Password...')
+            //-     input(type='submit' ng-click='login(user.email, user.password)' value='Sign In!')
+            //-     span(ng-click='showSignUp = !showSignUp; showSignIn = !showSignIn') Sign Up
+            //- .signUp(ng-show='showSignUp')
+            //-     input(type='email' ng-model='newUser.email' placeholder='Email...')
+            //-     input(type='password' ng-model='newUser.password' placeholder='Password...')
+            //-     input(type='password' placeholder='Confirm password...')
+            //-     input(type='submit' ng-click='register(newUser.email, newUser.password)' value='Sign Up!')
+            //-     span(ng-click='showSignIn = !showSignIn; showSignUp = !showSignUp') Sign In
+            a(ng-href='http://localhost:8081/auth/facebook')
+                input(type='submit' value='Log In With Facebook')
+            a(ng-href='http://localhost:8081/logout')
+                input(type='submit' value='Log Out') 
+            
+        
 
         ng-view
         
-        script(src='bower_components/jquery/dist/jquery.js')
         script(src='bower_components/angular/angular.js')
-        script(src='bower_components/firebase/firebase.js')
-        script(src='bower_components/angularfire/dist/angularfire.js')
         script(src='bower_components/angular-route/angular-route.js')
         script(src='bower_components/angular-loading-bar/build/loading-bar.min.js')
         script(src='bower_components/angucomplete-alt/angucomplete-alt.js')
         script(src='bower_components/angular-animate/angular-animate.js')
-        script(src='bower_components/angular-grid/build/ng-grid.js')
         script(src='public/app/app.js')
         script(src='public/app/main/mainService.js')
         script(src='public/app/login/loginService.js')
@@ -51,5 +47,5 @@ html
         script(src='public/app/database/databaseCtrl.js')
         script(src='public/app/main/mainCtrl.js')
         script(src='public/app/recipe/recipeCtrl.js')
-        script(src='bower_components/jquery/dist/jquery.js')
+
         
