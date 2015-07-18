@@ -20,6 +20,8 @@
     <div class="recipeInfoBox">
       <div class="recipeInfo"> </div><span ng-show="recipeSrm" class="item">SRM: </span>{{recipeSrm}} <span ng-show="IBU" class="item">IBU: </span>{{IBU}} <span ng-show="FG" class="item">FG:</span>{{FG}} <span ng-show="OG" class="item">OG: </span>{{OG}} <span ng-show="ABV" class="item">ABV: </span>{{ABV}} 
     </div>
+    <div ng-show="recipeSrm" ng-controller="recipeCtrl" class="saveBtn">
+      <input type="submit" value="Save Recipe" ng-click="saveRecipe()"/>
+    </div>
   </div>
-  <div class="waterBox"></div>
 </div>

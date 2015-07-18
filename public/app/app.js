@@ -1,6 +1,8 @@
-var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt', 'ngAnimate', 'ngGrid', 'firebase']);
+var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt', 'ngAnimate']);
 
 app.config(function($routeProvider) {
+
+
     $routeProvider
         .when('/database', {
             templateUrl: 'public/app/database/databaseTmpl.html',
@@ -10,7 +12,6 @@ app.config(function($routeProvider) {
             templateUrl: 'public/app/main/mainTmpl.html',
             controller: 'mainCtrl',
             resolve:  {
-
                     grain: function(mainService) {
                         return mainService.getGrainsInDb().then(function(grains){
                             return grains;
@@ -25,10 +26,14 @@ app.config(function($routeProvider) {
                         return mainService.getYeastInDb().then(function(yeast){
                             return yeast;
                         });
-                    }
-
+                    },
+                    // user: function($http){
+                    //     $http({
+                    //         method: 'GET',
+                    //         url: 'http://localhost:8081/auth/user'
+                    //     });
+                    // }
                 }
-
         })
         .otherwise('/NewBatch')
 });

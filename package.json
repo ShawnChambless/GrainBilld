@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ShawnChambless/personal-project#readme",
   "dependencies": {
+    "bcryptjs": "^2.2.0",
     "body-parser": "^1.13.1",
     "cors": "^2.7.1",
     "express": "^4.13.0",
@@ -24,6 +25,8 @@
     "mongoose": "^4.0.6",
     "passport": "^0.2.2",
     "passport-facebook": "^2.0.0",
+    "passport-google-oauth2": "^0.1.6",
+    "passport-local": "^1.0.0",
     "passport-oauth2": "^1.1.2",
     "passport-twitter": "^1.0.3"
   }

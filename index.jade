@@ -3,7 +3,6 @@ html
     head
         title Personal Project
         
-        script(src='bower_components/modernizr/modernizr.js')
         link(href='bower_components/angular-grid/ng-grid.min.css')
         link(href='bower_components/angular-loading-bar/build/loading-bar.css' rel='stylesheet')
         link(href='bower_components/normalize.css/normalize.css' rel='stylesheet')
@@ -12,11 +11,13 @@ html
         
     body(ng-app='personalProject')
         .loginWrapper(ng-controller='loginCtrl')
-            {{authData.password.email}}
+            //- div(ng-show='authData.facebook.displayName') {{authData.facebook.displayName}}
+            //- div(ng-show='authData.twitter.displayName') {{authData.twitter.displayName}}
+            //- div(ng-show='authData.google.displayName') {{authData.google.displayName}}
             .signIn(ng-hide='showSignIn')
                 input(type='email' ng-model='user.email' placeholder='Email...')
                 input(type='password' ng-model='user.password' placeholder='Password...')
-                input(type='submit' ng-click='login(user)' value='Sign In!')
+                input(type='submit' ng-click='login(user.email, user.password)' value='Sign In!')
                 span(ng-click='showSignUp = !showSignUp; showSignIn = !showSignIn') Sign Up
             .signUp(ng-show='showSignUp')
                 input(type='email' ng-model='newUser.email' placeholder='Email...')
@@ -24,23 +25,31 @@ html
                 input(type='password' placeholder='Confirm password...')
                 input(type='submit' ng-click='register(newUser)' value='Sign Up!')
                 span(ng-click='showSignIn = !showSignIn; showSignUp = !showSignUp') Sign In
-            input(type='submit' ng-click='logout()' value='Log Out' ng-show='authData') 
+            //- a(ng-href='http://localhost:8081/auth/facebook')
+            //-     image(ng-src='public/assets/social-logos/fbSmall.png')
+            //- a(ng-href='http://localhost:8081/auth/twitter')
+            //-     image(ng-src='public/assets/social-logos/twitterSmall.png' height='50')
+            //- a(ng-href='http://localhost:8081/auth/google')
+            //-     image(ng-src='public/assets/social-logos/googleSmall.png' height='50')
+            a(ng-href='http://localhost:8081/logout')
+                input(type='submit' value='Log Out') 
+            
+        
+
         ng-view
         
-        script(src='bower_components/jquery/dist/jquery.js')
         script(src='bower_components/angular/angular.js')
-        script(src='bower_components/firebase/firebase.js')
-        script(src='bower_components/angularfire/dist/angularfire.js')
         script(src='bower_components/angular-route/angular-route.js')
         script(src='bower_components/angular-loading-bar/build/loading-bar.min.js')
         script(src='bower_components/angucomplete-alt/angucomplete-alt.js')
         script(src='bower_components/angular-animate/angular-animate.js')
-        script(src='bower_components/angular-grid/build/ng-grid.js')
         script(src='public/app/app.js')
-        script(src='public/app/min/mainService-min.js')
-        script(src='public/app/min/loginService-min.js')
-        script(src='public/app/min/loginCtrl-min.js')
-        script(src='public/app/min/databaseCtrl-min.js')
-        script(src='public/app/min/mainCtrl-min.js')
-        script(src='bower_components/jquery/dist/jquery.js')
+        script(src='public/app/main/mainService.js')
+        script(src='public/app/login/loginService.js')
+        script(src='public/app/recipe/recipeService.js')
+        script(src='public/app/login/loginCtrl.js')
+        script(src='public/app/database/databaseCtrl.js')
+        script(src='public/app/main/mainCtrl.js')
+        script(src='public/app/recipe/recipeCtrl.js')
+
         
