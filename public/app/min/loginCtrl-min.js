@@ -1,0 +1,1 @@
+var app=angular.module("personalProject").controller("loginCtrl",["$scope","$http","loginService",function(r,e,o){r.register=function(r){return e({method:"POST",url:"http://localhost:8081/register/user",data:{email:r.email,password:r.password}})}}]);

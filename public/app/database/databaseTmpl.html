@@ -1,0 +1,70 @@
+<a ng-href="/#/database">   
+  <div ng-controller="mainCtrl" class="title">Grain Billd{{pageTitle}}</div></a><a ng-href="/#/NewBatch">
+  <h3>New Batch</h3></a>
+<h1>Database Editor</h1>
+<h1 ng-click="toggleGrain()">Add Grain</h1>
+<form ng-submit="addGrainToDb(grain)" ng-show="showGrain">
+  <input type="text" ng-model="grain.name" placeholder="Grain Name..." autofocus="autofocus"/>
+  <input type="text" ng-model="grain.type" placeholder="Grain Type..."/>
+  <input type="text" ng-model="grain.origin" placeholder="Grain Origin..."/>
+  <input type="text" ng-model="grain.alphaAmylase" placeholder="Alpha Amalyse..."/>
+  <input type="text" ng-model="grain.diastaticPower" placeholder="Diastatic Power..."/>
+  <input type="text" ng-model="grain.lovibond" placeholder="Lovibond..."/>
+  <input type="text" ng-model="grain.extractPercent" placeholder="Extract Percentage..."/>
+  <input type="text" ng-model="grain.solubleProtein" placeholder="Soluble Protein..."/>
+  <input type="text" ng-model="grain.totalProtein" placeholder="Total Protein..."/>
+  <input type="text" ng-model="grain.usage" placeholder="Usage Percentage..."/>
+  <input type="text" ng-model="grain.moisture" placeholder="Moisture Percentage..."/>
+  <input type="text" ng-model="grain.description" placeholder="Grain Description..."/>
+  <input type="submit" value="Add Grain"/>
+</form>
+<h1 ng-click="toggleHops()">Add Hops</h1>
+<form ng-submit="addHopsToDb(addHops)" ng-show="showHops">
+  <input type="text" ng-model="addHops.name" placeholder="Name..." autofocus="autofocus"/>
+  <input type="text" ng-model="addHops.origin" placeholder="Origin..."/>
+  <input type="text" ng-model="addHops.type" placeholder="Type...(flavor, bittering, etc.)"/>
+  <input type="text" ng-model="addHops.alphaAcid" placeholder="Alpha Acid..."/>
+  <input type="text" ng-model="addHops.cohumulone" placeholder="Cohumulone..."/>
+  <input type="text" ng-model="addHops.colupulone" placeholder="Colupulone..."/>
+  <input type="text" ng-model="addHops.betaAcid" placeholder="Beta Acid..."/>
+  <input type="text" ng-model="addHops.totalOil" placeholder="Total Oil..."/>
+  <input type="text" ng-model="addHops.myrcene" placeholder="Myrcene..."/>
+  <input type="text" ng-model="addHops.humulene" placeholder="Humulene..."/>
+  <input type="text" ng-model="addHops.humuleneCaryophyllene" placeholder="Humulene Caryophyllene"/>
+  <input type="text" ng-model="addHops.linalool" placeholder="Linalool..."/>
+  <input type="text" ng-model="addHops.flavor" placeholder="Flavor/Aroma..."/>
+  <input type="text" ng-model="addHops.style" placeholder="Style..."/>
+  <input type="text" ng-model="addHops.parentage" placeholder="Parentage..."/>
+  <input type="text" ng-model="addHops.description" placeholder="Description..."/>
+  <input type="submit" value="Add Hops"/>
+</form>
+<h1 ng-click="toggleYeast()">Add Yeast</h1>
+<form ng-submit="addYeastToDb(addYeast)" ng-show="showYeast">
+  <input type="text" ng-model="addYeast.name" placeholder="Name..." autofocus="autofocus"/>
+  <input type="text" ng-model="addYeast.brand" placeholder="Brand..."/>
+  <input type="text" ng-model="addYeast.format" placeholder="Format...(liquid, dry)"/>
+  <input type="text" ng-model="addYeast.yeastType" placeholder="Type(ale, lager, etc)"/>
+  <input type="text" ng-model="addYeast.origin" placeholder="Origin"/>
+  <input type="text" ng-model="addYeast.minimumTemperature" placeholder="Minimum temperature..."/>
+  <input type="text" ng-model="addYeast.maximumTemperature" placeholder="Maximum temperature..."/>
+  <input type="text" ng-model="addYeast.flocculation" placeholder="Flocculation..."/>
+  <input type="text" ng-model="addYeast.minimumAttenuation" placeholder="Minimum attenuation..."/>
+  <input type="text" ng-model="addYeast.maximumAttenuation" placeholder="Maximum attenuation..."/>
+  <input type="text" ng-model="addYeast.description" placeholder="Description..."/>
+  <input type="submit" value="Add Yeast"/>
+</form>
+<h1 ng-click="toggleGrainInDb()">Grain in Database</h1>
+<div class="databaseContainer">
+  <h3 ng-repeat="item in grains" ng-show="showGrainInDb">
+    <input type="number" ng-model="updateSG" ng-submit="updateGrainSG(updateSG, item._id)" placeholder="Update SG"/>
+    <input type="submit" ng-click="updateGrainSG(updateSG, item._id)" value="Submit SG"/><span class="itemName">{{item.name}}:<br /> </span><span class="item">Malt type: </span>{{item.type}} malt<br /><span class="item">Origin: </span>{{item.origin}}<br /> <span class="item">Alpha Amaylase: </span>{{item.alphaAmylase}}<br /> <span class="item">Diastatic Power: </span>{{item.diastaticPower}}<br /> <span class="item">Lovibond: </span>{{item.lovibond}}L<br /> <span class="item">Extract %: </span>{{item.extractPercent}}%<br /> <span class="item">Soluble Protein: </span>{{item.solubleProtein}}<br /> <span class="item">Total Protein: </span>{{item.totalProtein}}<br /> <span class="item">Usage %: </span>{{item.usage}}%<br /> <span class="item">Moisture %: </span>{{item.moisture}}%<br /> <span class="item">SG: </span>{{item.sg}}<br /><span ng-click="toggleShowDescription()" class="itemDescription">Description: </span><span ng-show="showDescription" class="description">{{item.description}} <br /></span>
+  </h3>
+</div>
+<h1 ng-click="toggleHopsInDb()">Hops in Database</h1>
+<div class="databaseContainer">
+  <h3 ng-repeat="item in hops" ng-show="showHopsInDb"><span class="itemName">{{item.name}}:<br /></span><span class="item">Origin: </span>{{item.origin}}<br /><span class="item">Type: </span>{{item.type}}<br /><span class="item">Form: </span>{{item.form}}<br /><span class="item">Alpha Acid: </span>{{item.alphaAcid}}%<br /><span class="item">Cohumulone: </span>{{item.cohumulone}}%<br /><span class="item">Colupulone: </span>{{item.colupulone}}%<br /><span class="item">Beta Acid: </span>{{item.betaAcid}}%<br /><span class="item">Total Oil: </span>{{item.totalOil}}mL/100g<br /><span class="item">Myrcene: </span>{{item.myrcene}}% of total oil<br /><span class="item">Humulene: </span>{{item.humulene}}% of total oil<br /><span class="item">Humulene Caryophyllene: </span>{{item.humuleneCaryophyllene}}% of total oil<br /><span class="item">Linalool: </span>{{item.linalool}}%<br /><span class="item">Flavor/Aroma: </span>{{item.flavor}}<br /><span class="item">Style: </span>{{item.style}}<br /><span class="item">Parentage: </span>{{item.parentage}}<br /></h3>
+</div>
+<h1 ng-click="toggleYeastInDb()">Yeast in Database</h1>
+<div class="databaseContainer">
+  <h3 ng-repeat="item in yeast" ng-show="showYeastInDb"><span class="itemName"> </span>{{item.name}}:<br /><span class="item">Format: </span>{{item.format}}<br /><span class="item">Type: </span>{{item.type}}<br /><span class="item">Origin: </span>{{item.origin}}<br /> <span class="item">Minimum Temp: </span>{{item.minimumTemperature}}°F<br /><span class="item">Maximum Temp: </span>{{item.maximumTemperature}}°F<br /><span class="item">Flocculation: </span>{{item.flocculation}}%<br /><span class="item">Minimum Attenuation: </span>{{item.minimumAttenuation}}%<br /><span class="item">Maximum Attenuation: </span>{{item.maximumAttenuation}}%<br /><span class="item">Description: </span>{{item.description}}<br /></h3>
+</div>

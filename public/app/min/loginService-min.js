@@ -1,0 +1,1 @@
+angular.module("personalProject").service("loginService",["$http",function(e){}]);

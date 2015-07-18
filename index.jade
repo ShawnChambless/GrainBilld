@@ -2,19 +2,54 @@ doctype html
 html
     head
         title Personal Project
-        link(href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' rel='stylesheet')
-        link(href='public/styles/modernizr.css' rel='stylesheet')
-        link(href='public/styles/main.css' rel='stylesheet')
-    body(ng-app='personalProject')
-        a(href='/#/NewBatch') 
-            .title(ng-controller='mainCtrl') Grain Billd{{pageTitle}}
         
+        link(href='bower_components/angular-grid/ng-grid.min.css')
+        link(href='bower_components/angular-loading-bar/build/loading-bar.css' rel='stylesheet')
+        link(href='bower_components/normalize.css/normalize.css' rel='stylesheet')
+        link(href='public/assets/octicons/octicons.css' rel='stylesheet')
+        link(href='public/styles/main.css' rel='stylesheet')
+        
+    body(ng-app='personalProject')
+        .loginWrapper(ng-controller='loginCtrl')
+            //- div(ng-show='authData.facebook.displayName') {{authData.facebook.displayName}}
+            //- div(ng-show='authData.twitter.displayName') {{authData.twitter.displayName}}
+            //- div(ng-show='authData.google.displayName') {{authData.google.displayName}}
+            .signIn(ng-hide='showSignIn')
+                input(type='email' ng-model='user.email' placeholder='Email...')
+                input(type='password' ng-model='user.password' placeholder='Password...')
+                input(type='submit' ng-click='login(user.email, user.password)' value='Sign In!')
+                span(ng-click='showSignUp = !showSignUp; showSignIn = !showSignIn') Sign Up
+            .signUp(ng-show='showSignUp')
+                input(type='email' ng-model='newUser.email' placeholder='Email...')
+                input(type='password' ng-model='newUser.password' placeholder='Password...')
+                input(type='password' placeholder='Confirm password...')
+                input(type='submit' ng-click='register(newUser)' value='Sign Up!')
+                span(ng-click='showSignIn = !showSignIn; showSignUp = !showSignUp') Sign In
+            //- a(ng-href='http://localhost:8081/auth/facebook')
+            //-     image(ng-src='public/assets/social-logos/fbSmall.png')
+            //- a(ng-href='http://localhost:8081/auth/twitter')
+            //-     image(ng-src='public/assets/social-logos/twitterSmall.png' height='50')
+            //- a(ng-href='http://localhost:8081/auth/google')
+            //-     image(ng-src='public/assets/social-logos/googleSmall.png' height='50')
+            a(ng-href='http://localhost:8081/logout')
+                input(type='submit' value='Log Out') 
+            
+        
+
         ng-view
         
         script(src='bower_components/angular/angular.js')
         script(src='bower_components/angular-route/angular-route.js')
+        script(src='bower_components/angular-loading-bar/build/loading-bar.min.js')
+        script(src='bower_components/angucomplete-alt/angucomplete-alt.js')
+        script(src='bower_components/angular-animate/angular-animate.js')
         script(src='public/app/app.js')
-        script(src='public/app/controllers/databaseCtrl.js')
-        script(src='public/app/controllers/mainCtrl.js')
-        script(src='bower_components/jquery/dist/jquery.js')
-        script(src='public/app/functionality.js')
+        script(src='public/app/main/mainService.js')
+        script(src='public/app/login/loginService.js')
+        script(src='public/app/recipe/recipeService.js')
+        script(src='public/app/login/loginCtrl.js')
+        script(src='public/app/database/databaseCtrl.js')
+        script(src='public/app/main/mainCtrl.js')
+        script(src='public/app/recipe/recipeCtrl.js')
+
+        
