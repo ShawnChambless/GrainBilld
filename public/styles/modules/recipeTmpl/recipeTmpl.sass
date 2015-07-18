@@ -1,0 +1,33 @@
+.batchModule
+    display: flex
+    justify-content: space-between
+    height: 100%
+    width: 100%
+.grainInRecipe
+    height: 100%
+.recipeIngredientWrapper
+    display: flex
+    flex-direction: column
+    width: 80%
+.recipe
+    color: #222
+    font-weight: 500
+    .octicon
+        color: lightgreen
+        margin-left: 3px
+.grainInfo, .hopsInfo, .yeastInfo
+    transition: all .3s ease
+    perspective: 1000px
+    transform-style: preserve-3d
+.grainInfo.ng-hide, .hopsInfo.ng-hide, .yeastInfo.ng-hide
+    transform: rotateX(90deg)
+    opacity: 0
+.waterBox
+    width: 20%
+    height: 100%
+    display: flex
+    input
+        color: #333
+        padding: 0
+        margin: 0
+        max-width: 100%
