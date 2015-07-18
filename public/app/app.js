@@ -1,6 +1,8 @@
 var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt', 'ngAnimate']);
 
 app.config(function($routeProvider) {
+
+
     $routeProvider
         .when('/database', {
             templateUrl: 'public/app/database/databaseTmpl.html',
@@ -24,7 +26,13 @@ app.config(function($routeProvider) {
                         return mainService.getYeastInDb().then(function(yeast){
                             return yeast;
                         });
-                    }
+                    },
+                    // user: function($http){
+                    //     $http({
+                    //         method: 'GET',
+                    //         url: 'http://localhost:8081/auth/user'
+                    //     });
+                    // }
                 }
         })
         .otherwise('/NewBatch')

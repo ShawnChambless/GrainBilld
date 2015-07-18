@@ -1,1 +1,1 @@
-var User=require("../../models/users/userModel");module.exports={addUser:function(e,s){newUser=new User(e.body),newUser.save(function(e,r){return e?s.sendStatus(500):s.send(r)})}};
+var User=require("../../models/users/userModel");module.exports={register:function(e,n){var r=new User(e.body);r.save(function(e,r){return e?n.send(e):(r.password=null,n.send(r))})},me:function(e,n){return e.user?(e.user.password=null,n.json(e.user)):n.send("current user not defined")},update:function(e,n,r){User.findByIdAndUpdate(e.user._id,e.body,function(e,s){e&&r(e),n.sendStatus(200)})}};

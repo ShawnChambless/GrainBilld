@@ -1,22 +1,15 @@
 var app = angular.module('personalProject')
     .controller('loginCtrl', ['$scope', '$http', 'loginService', function($scope, $http, loginService) {
 
-        $scope.facebookLogin = function() {
+        $scope.register = function(newUser) {
             return $http({
-                method: 'GET',
-                url: 'http://localhost:8081/auth/facebook'
-            }).then(function(resp) {
-                console.log(resp)
+                method: 'POST',
+                url: 'http://localhost:8081/register/user',
+                data: {
+                    email: newUser.email,
+                    password: newUser.password
+                }
             });
         };
-
-        // $scope.logout = function() {
-        //     return $http({
-        //         method: 'GET',
-        //         url: 'http://localhost:8081/logout'
-        //     }).then(function(resp) {
-        //         console.log(resp);
-        //     });
-        // };
 
     }]);
