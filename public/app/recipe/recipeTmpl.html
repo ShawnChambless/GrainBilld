@@ -6,23 +6,23 @@
   <div class="recipeIngredientWrapper">
     <div class="grainInRecipe"><span ng-show="grainInRecipe" class="recipeLabel">Grain</span>
       <div ng-repeat="grain in grainInRecipe">
-        <div class="recipe grainName">{{grainWeight}}lbs - {{grain.name}}<span ng-click="toggleGrainInfo()" class="octicon octicon-question"></span></div>
-        <div ng-show="showGrainInfo" class="grainInfo">{{grain.description}} &nbsp;<span class="item">Type: </span>{{grain.type}} <span class="item">SRM: </span>{{grain.lovibond}}°L</div>
+        <div class="recipe grainName">{{grain.amount}}lbs - {{grain.grain.name}}<span ng-click="toggleGrainInfo()" class="octicon octicon-question"></span></div>
+        <div ng-show="showGrainInfo" class="grainInfo">{{grain.grain.description}} <br /><span class="item">Type: </span>{{grain.grain.type}} <span class="item">SRM: </span>{{grain.grain.lovibond}}°L</div>
       </div>
     </div>
     <div class="hopsInRecipe"><span ng-show="hopsInRecipe" class="recipeLabel">Hops</span>
       <div ng-repeat="hops in hopsInRecipe">
-        <div class="recipe hopsName">{{hops.name}}<span ng-click="toggleHopsInfo()" class="octicon octicon-question"></span></div>
+        <div class="recipe hopsName">{{hops.amount}}oz - {{hops.hop.name}} - {{hops.boil}}mins<span ng-click="toggleHopsInfo()" class="octicon octicon-question"></span></div>
         <div ng-show="showHopsInfo" class="hopsInfo">
            
-          {{hops.description}} &nbsp;<span class="item">Alpha Acid: </span>{{hops.alphaAcid}}% <span class="item">Beta Acid:</span>{{hops.betaAcid}}%
+          {{hops.hop.description}} <br /><span class="item">Alpha Acid: </span>{{hops.hop.alphaAcid}}% <span class="item">Beta Acid:</span>{{hops.hop.betaAcid}}%
         </div>
       </div>
     </div>
     <div class="yeastInRecipe"><span ng-show="yeastInRecipe" class="recipeLabel">Yeast</span>
       <div ng-repeat="yeast in yeastInRecipe">
         <div class="recipe yeastName">{{yeast.name}}<span ng-click="toggleYeastInfo()" class="octicon octicon-question"></span></div>
-        <div ng-show="showYeastInfo" class="yeastInfo">{{yeast.description}} &nbsp;<span class="item">Flocculation: </span>{{yeast.flocculation}} <span class="item">Temp: </span>{{yeast.minimumTemperature}}° <span class="item">Max. Temp: </span>{{yeast.maximumTemperature}}° <span class="item">Min. Att.: </span>{{yeast.minimumAttenuation}}% <span class="item">Max. Att.: </span>{{yeast.maximumAttenuation}}%</div>
+        <div ng-show="showYeastInfo" class="yeastInfo">{{yeast.description}} <br /><span class="item">Flocculation: </span>{{yeast.flocculation}} <span class="item">Temp: </span>{{yeast.minimumTemperature}}° <span class="item">Max. Temp: </span>{{yeast.maximumTemperature}}° <span class="item">Min. Att.: </span>{{yeast.minimumAttenuation}}% <span class="item">Max. Att.: </span>{{yeast.maximumAttenuation}}%</div>
       </div>
     </div>
     <div class="recipeInfoBox"><span ng-show="recipeSrm" class="item">SRM: </span>{{recipeSrm}} <span ng-show="IBU" class="item">IBU: </span>{{IBU}} <span ng-show="FG" class="item">FG:</span>{{FG}} <span ng-show="OG" class="item">OG: </span>{{OG}} <span ng-show="ABV" class="item">ABV: </span>{{ABV}} 

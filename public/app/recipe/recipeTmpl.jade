@@ -5,32 +5,32 @@
         .grainInRecipe
             span.recipeLabel(ng-show='grainInRecipe') Grain
             div(ng-repeat='grain in grainInRecipe')
-                .recipe.grainName {{grainWeight}}lbs - {{grain.name}}
+                .recipe.grainName {{grain.amount}}lbs - {{grain.grain.name}}
                     span(class='octicon octicon-question' ng-click='toggleGrainInfo()')
                 .grainInfo(ng-show='showGrainInfo')
-                    {{grain.description}} &nbsp;
+                    {{grain.grain.description}} <br />
                     span.item Type: 
-                    {{grain.type}} 
+                    {{grain.grain.type}} 
                     span.item SRM: 
-                    {{grain.lovibond}}°L
+                    {{grain.grain.lovibond}}°L
         .hopsInRecipe
             span.recipeLabel(ng-show='hopsInRecipe') Hops
             div(ng-repeat='hops in hopsInRecipe')
-                .recipe.hopsName {{hops.name}}
+                .recipe.hopsName {{hops.amount}}oz - {{hops.hop.name}} - {{hops.boil}}mins
                     span(class='octicon octicon-question' ng-click='toggleHopsInfo()')
                 .hopsInfo(ng-show='showHopsInfo') 
-                    {{hops.description}} &nbsp;
+                    {{hops.hop.description}} <br />
                     span.item Alpha Acid: 
-                    {{hops.alphaAcid}}% 
+                    {{hops.hop.alphaAcid}}% 
                     span.item Beta Acid:
-                    {{hops.betaAcid}}%
+                    {{hops.hop.betaAcid}}%
         .yeastInRecipe
             span.recipeLabel(ng-show='yeastInRecipe') Yeast
             div(ng-repeat='yeast in yeastInRecipe')
                 .recipe.yeastName {{yeast.name}}
                     span(class='octicon octicon-question' ng-click='toggleYeastInfo()')
                 .yeastInfo(ng-show='showYeastInfo')
-                    {{yeast.description}} &nbsp;
+                    {{yeast.description}} <br />
                     span.item Flocculation: 
                     {{yeast.flocculation}} 
                     span.item Temp: 
