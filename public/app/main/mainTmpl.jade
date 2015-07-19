@@ -10,21 +10,21 @@ a(ng-href='/#/NewBatch')
     .container
         .ingredientModule
             //.moduleTitle Add Ingredients
-            .ingredient.grain Grain
+            label.grain Grain
                 .grainBox(ng-click= 'rotateGrain(); showGrainFunction()')
                     .boxImage(ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}")
                             
-            .ingredient.hops Hops
+            label.hops Hops
                 .hopsBox(ng-click='rotateHops(); showHopsFunction()')
                     .boxImage(ng-class="{'hopsBoxRotate': hopsBoxToggle.rotate}")
                 
-            .ingredient.yeast  Yeast
+            label.yeast  Yeast
                 .yeastBox(ng-click='rotateYeast(); showYeastFunction()')
                     .boxImage(ng-class="{'yeastBoxRotate': yeastBoxToggle.rotate}") 
                 
         .searchResults  
             form.grain(ng-show='showGrainBox')
-                label.grain Add Grain! <br />
+                label.grain Grain <br />
                 input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
                 input.grain(type='number' ng-model='grainWeight' placeholder='Pounds of Grain')
                 span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
@@ -33,7 +33,7 @@ a(ng-href='/#/NewBatch')
                     .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
                 
             form.hops(ng-show='showHopsBox')
-                label.hops Add Hops! <br />
+                label.hops Hops <br />
                 span.inputLine
                     input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
                     input.hops(type='number' ng-model='hopWeight' placeholder='Number of oz.')
@@ -44,7 +44,7 @@ a(ng-href='/#/NewBatch')
                     .hopsName(ng-click='addToHopsSearchText(item)') {{item.name}} <hr />
             
             form.yeast(ng-show='showYeastBox')
-                label.yeast Add Yeast! <br />
+                label.yeast Yeast <br />
                 input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
                 span.add(ng-click='addYeastToRecipe(yeastSearchText)') Add!
                 span(class="x" ng-click='showYeastFunction()') X

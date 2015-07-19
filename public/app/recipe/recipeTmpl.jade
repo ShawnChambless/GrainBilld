@@ -2,43 +2,46 @@
     hr
 .batchModule
     .recipeIngredientWrapper
-        .grainInRecipe(ng-repeat='grain in grainInRecipe')
-            .recipe.grainName {{grainWeight}}lbs - {{grain.name}}
-                span(class='octicon octicon-question' ng-click='toggleGrainInfo()')
-            .grainInfo(ng-show='showGrainInfo')
-                {{grain.description}} &nbsp;
-                span.item Type: 
-                {{grain.type}} 
-                span.item SRM: 
-                {{grain.lovibond}}°L
-            
-        .hopsInRecipe(ng-repeat='hops in hopsInRecipe')
-            .recipe.hopsName {{hops.name}}
-                span(class='octicon octicon-question' ng-click='toggleHopsInfo()')
-            .hopsInfo(ng-show='showHopsInfo') 
-                {{hops.description}} &nbsp;
-                span.item Alpha Acid: 
-                {{hops.alphaAcid}}% 
-                span.item Beta Acid:
-                {{hops.betaAcid}}%
-            
-        .yeastInRecipe(ng-repeat='yeast in yeastInRecipe')
-            .recipe.yeastName {{yeast.name}}
-                span(class='octicon octicon-question' ng-click='toggleYeastInfo()')
-            .yeastInfo(ng-show='showYeastInfo')
-                {{yeast.description}} &nbsp;
-                span.item Flocculation: 
-                {{yeast.flocculation}} 
-                span.item Temp: 
-                {{yeast.minimumTemperature}}° 
-                span.item Max. Temp: 
-                {{yeast.maximumTemperature}}° 
-                span.item Min. Att.: 
-                {{yeast.minimumAttenuation}}% 
-                span.item Max. Att.: 
-                {{yeast.maximumAttenuation}}%
+        .grainInRecipe
+            span.recipeLabel(ng-show='grainInRecipe') Grain
+            div(ng-repeat='grain in grainInRecipe')
+                .recipe.grainName {{grainWeight}}lbs - {{grain.name}}
+                    span(class='octicon octicon-question' ng-click='toggleGrainInfo()')
+                .grainInfo(ng-show='showGrainInfo')
+                    {{grain.description}} &nbsp;
+                    span.item Type: 
+                    {{grain.type}} 
+                    span.item SRM: 
+                    {{grain.lovibond}}°L
+        .hopsInRecipe
+            span.recipeLabel(ng-show='hopsInRecipe') Hops
+            div(ng-repeat='hops in hopsInRecipe')
+                .recipe.hopsName {{hops.name}}
+                    span(class='octicon octicon-question' ng-click='toggleHopsInfo()')
+                .hopsInfo(ng-show='showHopsInfo') 
+                    {{hops.description}} &nbsp;
+                    span.item Alpha Acid: 
+                    {{hops.alphaAcid}}% 
+                    span.item Beta Acid:
+                    {{hops.betaAcid}}%
+        .yeastInRecipe
+            span.recipeLabel(ng-show='yeastInRecipe') Yeast
+            div(ng-repeat='yeast in yeastInRecipe')
+                .recipe.yeastName {{yeast.name}}
+                    span(class='octicon octicon-question' ng-click='toggleYeastInfo()')
+                .yeastInfo(ng-show='showYeastInfo')
+                    {{yeast.description}} &nbsp;
+                    span.item Flocculation: 
+                    {{yeast.flocculation}} 
+                    span.item Temp: 
+                    {{yeast.minimumTemperature}}° 
+                    span.item Max. Temp: 
+                    {{yeast.maximumTemperature}}° 
+                    span.item Min. Att.: 
+                    {{yeast.minimumAttenuation}}% 
+                    span.item Max. Att.: 
+                    {{yeast.maximumAttenuation}}%
         .recipeInfoBox
-            .recipeInfo 
             span.item(ng-show='recipeSrm') SRM: 
             {{recipeSrm}} 
             span.item(ng-show='IBU') IBU: 
@@ -49,5 +52,5 @@
             {{OG}} 
             span.item(ng-show='ABV') ABV: 
             {{ABV}} 
-        .saveBtn(ng-show='recipeSrm' ng-controller='recipeCtrl')
-            input(type='submit' value='Save Recipe' ng-click='saveRecipe()')
+            .saveBtn(ng-show='recipeSrm' ng-controller='recipeCtrl')
+                input(type='submit' value='Save Recipe' ng-click='saveRecipe()')

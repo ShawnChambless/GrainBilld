@@ -13,8 +13,9 @@
 header
     font-size: 1.5em
 
-label
-    padding: 0 5px
+label.grain, label.hops, label.yeast
+    color: #444
+    cursor: default
 input#batchSize, input#efficiency
     margin: 10px -7px
     width: 40px
@@ -22,13 +23,15 @@ input#batchSize, input#efficiency
     border-radius: 0
     background: #fff
     transition: all ease 70ms
+
     &:focus
         border-radius: 4px
         background: #3090c7
         color: #fff
         font-weight: 400
-
-
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+    cursor: pointer
 .ingredientModule
     width: 30%
     height: 100%

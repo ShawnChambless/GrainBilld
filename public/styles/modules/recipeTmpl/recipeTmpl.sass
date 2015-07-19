@@ -1,8 +1,19 @@
 .batchModule
-    display: flex
-    justify-content: space-between
     height: 100%
     width: 100%
+.recipeIngredientWrapper
+    display: flex
+    justify-content: space-around
+    text-align: center
+.grainInRecipe, .hopsInRecipe, .yeastInRecipe, .recipeInfoBox
+    height: 100%
+.recipeInfoBox
+    display: flex
+    flex-direction: column
+    align-items: center
+    span
+        margin: 2% 0
+        text-decoration: underline
 .moduleTitle
     font-size: 2em
     font-weight: 500
@@ -13,12 +24,9 @@
         border: none
         height: 2px
 
-.grainInRecipe
-    height: 100%
-.recipeIngredientWrapper
-    display: flex
-    flex-direction: column
-    width: 80%
+span.recipeLabel
+    font-size: 1.3em
+    text-decoration: underline
 .recipe
     color: #222
     font-weight: 500
@@ -32,12 +40,3 @@
 .grainInfo.ng-hide, .hopsInfo.ng-hide, .yeastInfo.ng-hide
     transform: rotateX(90deg)
     opacity: 0
-.waterBox
-    width: 20%
-    height: 100%
-    display: flex
-    input
-        color: #333
-        padding: 0
-        margin: 0
-        max-width: 100%

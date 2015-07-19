@@ -14,6 +14,12 @@ a {
   text-decoration: none;
   color: inherit; }
 
+label {
+  font-size: 1.2em;
+  color: #777;
+  cursor: text;
+  padding: 0 5px; }
+
 hr {
   border: none;
   height: 1px;
@@ -139,8 +145,9 @@ input {
 header {
   font-size: 1.5em; }
 
-label {
-  padding: 0 5px; }
+label.grain, label.hops, label.yeast {
+  color: #444;
+  cursor: default; }
 
 input#batchSize, input#efficiency {
   margin: 10px -7px;
@@ -155,6 +162,10 @@ input#batchSize, input#efficiency {
     background: #3090c7;
     color: #fff;
     font-weight: 400; }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  cursor: pointer; }
 
 .ingredientModule {
   width: 30%;
@@ -284,7 +295,7 @@ input#batchSize, input#efficiency {
   margin: 10px 0;
   width: 100%; }
 
-label.grain {
+label.grain, label.hops, label.yeast {
   padding: 10px 0;
   font-size: 1.4em; }
 
@@ -322,16 +333,39 @@ label.grain {
     border: none; }
 
 .batchModule {
+  height: 100%;
+  width: 100%; }
+
+.recipeIngredientWrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  height: 100%;
-  width: 100%; }
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  text-align: center; }
+
+.grainInRecipe, .hopsInRecipe, .yeastInRecipe, .recipeInfoBox {
+  height: 100%; }
+
+.recipeInfoBox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .recipeInfoBox span {
+    margin: 2% 0;
+    text-decoration: underline; }
 
 .moduleTitle {
   font-size: 2em;
@@ -343,20 +377,9 @@ label.grain {
     border: none;
     height: 2px; }
 
-.grainInRecipe {
-  height: 100%; }
-
-.recipeIngredientWrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 80%; }
+span.recipeLabel {
+  font-size: 1.3em;
+  text-decoration: underline; }
 
 .recipe {
   color: #222;
@@ -377,16 +400,3 @@ label.grain {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
   opacity: 0; }
-
-.waterBox {
-  width: 20%;
-  height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  .waterBox input {
-    color: #333;
-    padding: 0;
-    margin: 0;
-    max-width: 100%; }
