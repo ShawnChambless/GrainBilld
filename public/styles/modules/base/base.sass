@@ -10,12 +10,19 @@ body
 a
     text-decoration: none
     color: inherit
+::-webkit-scrollbar
+    display: none
 .title
     font-size: 3.5em
     font-family: Lobster
-    padding: 0 50px
-    color: #3090C7
-
+    padding: 5px 50px
+    color: #fff
+    background: #3090C7
+input
+    border: none
+    border-bottom: 1px solid #999
+    &:focus
+        outline: none
 .loginWrapper
     width: 100%
     display: flex

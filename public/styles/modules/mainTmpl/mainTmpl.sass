@@ -32,25 +32,6 @@ input#batchSize
 .grainName, .hopsName, .yeastName
     cursor: pointer
 
-.searchResults
-    width: 70%
-    form
-        position: absolute
-        width: 100%
-        font-size: 19px
-        height: 99%
-        max-height: 40%
-        max-width: 36%
-        overflow: scroll
-        padding: 1%
-        box-shadow: 0 0 3px #666, 0 0 3px #999
-        transition: margin-left ease .5s, opacity ease 1s
-        input
-            margin: 10px 0
-    form.ng-hide
-        margin-left: -100%
-        opacity: 0
-
 .ingredient
     display: flex
     flex-direction: column
@@ -59,6 +40,7 @@ input#batchSize
     height: calc(100%/3)
     width: 80%
     max-width: 180px
+
 .grainBox, .hopsBox, .yeastBox, .waterBox
     margin: 0 0 40% 0
     color: #fff
@@ -69,6 +51,7 @@ input#batchSize
     line-height: 125px
     cursor: pointer
     user-select: none
+
 .grainBox
     .boxImage
         background: url(../assets/ingredientLogos/grainSmall.png) top center no-repeat

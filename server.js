@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    // session = require('express-session'),
+    session = require('express-session'),
     mongoose = require('mongoose'),
     // passport = require('passport'),
     // flash = require('connect-flash'),
@@ -14,7 +14,7 @@ var express = require('express'),
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(__dirname + '/public/app/'));
+app.use(express.static(__dirname + '/public/app/views'));
 // app.use(passport.initialize());
 // app.use(flash());
 

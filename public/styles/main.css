@@ -14,11 +14,21 @@ a {
   text-decoration: none;
   color: inherit; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 .title {
   font-size: 3.5em;
   font-family: Lobster;
-  padding: 0 50px;
-  color: #3090C7; }
+  padding: 5px 50px;
+  color: #fff;
+  background: #3090C7; }
+
+input {
+  border: none;
+  border-bottom: 1px solid #999; }
+  input:focus {
+    outline: none; }
 
 .loginWrapper {
   width: 100%;
@@ -153,26 +163,6 @@ input#batchSize {
 .grainName, .hopsName, .yeastName {
   cursor: pointer; }
 
-.searchResults {
-  width: 70%; }
-  .searchResults form {
-    position: absolute;
-    width: 100%;
-    font-size: 19px;
-    height: 99%;
-    max-height: 40%;
-    max-width: 36%;
-    overflow: scroll;
-    padding: 1%;
-    box-shadow: 0 0 3px #666, 0 0 3px #999;
-    -webkit-transition: margin-left ease 0.5s, opacity ease 1s;
-            transition: margin-left ease 0.5s, opacity ease 1s; }
-    .searchResults form input {
-      margin: 10px 0; }
-  .searchResults form.ng-hide {
-    margin-left: -100%;
-    opacity: 0; }
-
 .ingredient {
   display: -webkit-box;
   display: -webkit-flex;
@@ -236,23 +226,69 @@ input#batchSize {
   -webkit-transform: rotateY(360deg);
           transform: rotateY(360deg); }
 
+.searchResults {
+  width: 100%; }
+  .searchResults form {
+    position: absolute;
+    width: 60%;
+    font-size: 19px;
+    height: 99%;
+    max-height: 40%;
+    max-width: 700px;
+    overflow: auto;
+    padding: 1%;
+    box-shadow: 0 0 3px #666;
+    -webkit-transition: margin-left ease 0.5s, opacity ease 1s;
+            transition: margin-left ease 0.5s, opacity ease 1s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+    .searchResults form .inputLine {
+      width: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-around;
+          -ms-flex-pack: distribute;
+              justify-content: space-around;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center; }
+    .searchResults form input {
+      margin: 10px 0;
+      padding: 0; }
+  .searchResults form.ng-hide {
+    margin-left: -100%;
+    opacity: 0; }
+
 .grainSearchResults, .hopsSearchResults, .yeastSearchResults {
   margin: 10px 0;
   width: 100%; }
+
+label.grain {
+  position: absolute;
+  color: red; }
 
 .x {
   position: absolute;
   cursor: pointer;
   font-size: 38px;
-  color: #888;
-  top: 0;
-  right: 10px; }
+  color: #3090c7;
+  top: -5px;
+  right: 3px; }
 
-.octicon-plus {
-  font-size: 36px;
-  color: #38e038;
-  margin: 0 5%;
-  cursor: pointer; }
+.add {
+  font-size: 1.2em;
+  padding: 0.5% 2%;
+  color: #3090C7;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 2px #3090c7 inset; }
+  .add:hover {
+    box-shadow: 0 0 3px 3px #3090c7; }
 
 .batchModule {
   display: -webkit-box;

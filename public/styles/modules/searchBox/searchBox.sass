@@ -1,17 +1,51 @@
+.searchResults
+    width: 100%
+    form
+        position: absolute
+        width: 60%
+        font-size: 19px
+        height: 99%
+        max-height: 40%
+        max-width: 700px
+        overflow: auto
+        padding: 1%
+        box-shadow: 0 0 3px #666
+        transition: margin-left ease .5s, opacity ease 1s
+        user-select: none
+        .inputLine
+            width: 100%
+            display: flex
+            justify-content: space-around
+            align-items: center
+        input
+            margin: 10px 0
+            padding: 0
+    form.ng-hide
+        margin-left: -100%
+        opacity: 0
+
 .grainSearchResults, .hopsSearchResults, .yeastSearchResults
     margin: 10px 0
     width: 100%
+
+label.grain
+    position: absolute
+    color: red
 
 .x
     position: absolute
     cursor: pointer
     font-size: 38px
-    color: #888
-    top: 0
-    right: 10px
+    color: #3090c7
+    top: -5px
+    right: 3px
 
-.octicon-plus
-    font-size: 36px
-    color: darken(lightgreen, 20%)
-    margin: 0 5%
+.add
+    font-size: 1.2em
+    padding: .5% 2%
+    color: #3090C7
     cursor: pointer
+    border-radius: 5px
+    box-shadow: 0 0 2px 2px #3090c7 inset
+    &:hover
+        box-shadow: 0 0 3px 3px #3090c7
