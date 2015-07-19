@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ShawnChambless/personal-project#readme",
   "dependencies": {
+    "angular": "^1.4.3",
     "bcryptjs": "^2.2.0",
     "body-parser": "^1.13.1",
     "connect-flash": "^0.1.1",
