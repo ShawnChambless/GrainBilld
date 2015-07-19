@@ -1,6 +1,6 @@
 @import "http://fonts.googleapis.com/css?family=Quicksand:300|Lobster|Varela+Round";
 html, body {
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0; }
 
@@ -8,7 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: "Helvetica Nue", Helvetica, Arial, sans-serif;
   font-weight: 200;
-  color: #444; }
+  color: #444;
+  overflow-x: hidden; }
+
+*, *:before, *:after {
+  box-sizing: border-box; }
 
 a {
   text-decoration: none;
@@ -33,6 +37,7 @@ hr {
   font-family: Lobster;
   padding: 5px 50px;
   color: #fff;
+  width: 100vw;
   background: #3090C7; }
 
 input {
@@ -363,6 +368,9 @@ label.grain, label.hops, label.yeast {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
+  .recipeInfoBox .add {
+    white-space: nowrap;
+    padding: 5%; }
   .recipeInfoBox span {
     margin: 2% 0;
     text-decoration: underline; }
