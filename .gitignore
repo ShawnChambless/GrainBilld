@@ -1,6 +1,0 @@
-bower_components
-node_modules
-.sass-cache
-.codekit-cache
-config.codekit
-.DS_Store
