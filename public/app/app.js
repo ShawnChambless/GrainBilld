@@ -11,29 +11,29 @@ app.config(function($routeProvider) {
         .when('/NewBatch', {
             templateUrl: 'public/app/main/mainTmpl.html',
             controller: 'mainCtrl',
-            resolve:  {
-                    grain: function(mainService) {
-                        return mainService.getGrainsInDb().then(function(grains){
-                            return grains;
-                        });
-                    },
-                    hops: function(mainService) {
-                        return mainService.getHopsInDb().then(function(hops){
-                            return hops;
-                        });
-                    },
-                    yeast: function(mainService) {
-                        return mainService.getYeastInDb().then(function(yeast){
-                            return yeast;
-                        });
-                    },
-                    // user: function($http){
-                    //     $http({
-                    //         method: 'GET',
-                    //         url: 'http://localhost:8081/auth/user'
-                    //     });
-                    // }
-                }
+            // resolve:  {
+            //         grain: function(mainService) {
+            //             return mainService.getGrainsInDb().then(function(grains){
+            //                 return grains;
+            //             });
+            //         },
+            //         hops: function(mainService) {
+            //             return mainService.getHopsInDb().then(function(hops){
+            //                 return hops;
+            //             });
+            //         },
+            //         yeast: function(mainService) {
+            //             return mainService.getYeastInDb().then(function(yeast){
+            //                 return yeast;
+            //             });
+            //         },
+            //         // user: function($http){
+            //         //     $http({
+            //         //         method: 'GET',
+            //         //         url: 'http://localhost:8081/auth/user'
+            //         //     });
+            //         // }
+            //     }
         })
         .otherwise('/NewBatch')
 });
