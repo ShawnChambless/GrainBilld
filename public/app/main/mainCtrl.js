@@ -1,6 +1,5 @@
-var app = angular.module('personalProject');
-
-app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, grains, hops, yeast) {
+angular.module('personalProject')
+.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast) {
     $scope.pageTitle = $location.url()
     $scope.showHopsBox = false;
     $scope.showYeastBox = false;
@@ -10,8 +9,9 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
     $scope.grainBoxToggle = {rotate: false};
     $scope.hopsBoxToggle = {rotate: false};
     $scope.yeastBoxToggle = {rotate: false};
+
+    $scope.grainInDb = grain.data;
     $scope.hopsInDb = hops.data;
-    $scope.grainsInDb = grains.data;
     $scope.yeastInDb = yeast.data;
 
     var srmArr = [];
@@ -78,10 +78,10 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
             $scope.OG = 1.000;
         }
         mainService.getGrainsInDb(grainSearchText).then(function(resp) {
-            mainService.grainInRecipe.push(resp.data[0]);
+            mainService.grainInRecipe.push({grain: resp.data[0], amount: $scope.grainWeight});
             $scope.grainSearchText = '';
             $scope.grainInRecipe = mainService.grainInRecipe;
-
+            console.log(mainService.grainInRecipe)
             /*===================================================
             =====================================================
                                 Calculate GP
@@ -114,8 +114,8 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
     var hopsItemToAdd;
     $scope.addHopsToRecipe = function(hopsSearchText) {
         mainService.getHopsInDb(hopsSearchText).then(function(resp) {
-            mainService.hopsInRecipe.push(resp.data[0]);
-            console.log('Added Hops', resp);
+            mainService.hopsInRecipe.push({hop: resp.data[0], amount: $scope.hopWeight, boil: $scope.boilTime});
+            console.log('Added Hops', mainService.hopsInRecipe);
             $scope.hopsSearchText = '';
             $scope.hopsInRecipe = mainService.hopsInRecipe;
 
@@ -147,12 +147,12 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
                 var AAU = $scope.hopWeight * (resp.data[0].alphaAcid)
 
                 if (!hopsItemToAdd) {
-                    IBUOfGrain = AAU * hopUtilization * 74.89 / e;
+                    IBUOfGrain = AAU * hopUtilization * 74.89 / $scope.batchSize;
                     hopsItemToAdd = IBUOfGrain;
                     $scope.IBU = IBUOfGrain.toFixed(1);
                 }
                 else {
-                    IBUOfGrain = (AAU * hopUtilization * 74.89 / e) + hopsItemToAdd;
+                    IBUOfGrain = (AAU * hopUtilization * 74.89 / $scope.batchSize) + hopsItemToAdd;
                     hopsItemToAdd = IBUOfGrain;
                     $scope.IBU = IBUOfGrain.toFixed(1);
                 }

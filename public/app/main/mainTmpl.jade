@@ -1,6 +1,9 @@
 a(ng-href='/#/NewBatch')    
     .title Grain Billd{{pageTitle}}
 .containerContainer
+    .ingredientInfoLink
+        a(ng-href='/#/IngredientInfo')
+            .moduleTitle Ingredient Information
     .batchInfo
         label(for='batchSize') Batch Size:
         input#batchSize(type='number' ng-model='batchSize')
@@ -26,19 +29,19 @@ a(ng-href='/#/NewBatch')
             form.grain(ng-show='showGrainBox')
                 label.grain Grain <br />
                 input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
-                input.grain(type='number' ng-model='grainWeight' placeholder='Pounds of Grain')
+                input.grain(type='number' ng-model='grainWeight' placeholder='Pounds')
                 span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
                 span(class="x" ng-click='showGrainFunction()') X
-                .grainSearchResults(ng-repeat='item in grainsInDb | filter:grainSearchText')
+                .grainSearchResults(ng-repeat='item in grainInDb | filter:grainSearchText')
                     .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
                 
             form.hops(ng-show='showHopsBox')
                 label.hops Hops <br />
                 span.inputLine
                     input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
-                    input.hops(type='number' ng-model='hopWeight' placeholder='Number of oz.')
+                    input.hops(type='number' ng-model='hopWeight' placeholder='oz.')
                     input.hops(type='number' ng-model='boilTime' placeholder='Boil time...')
-                span.add(ng-click='addHopsToRecipe(hopsSearchText)') Add!
+                    span.add(ng-click='addHopsToRecipe(hopsSearchText)') Add!
                 span(class="x" ng-click='showHopsFunction()') X
                 .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
                     .hopsName(ng-click='addToHopsSearchText(item)') {{item.name}} <hr />
