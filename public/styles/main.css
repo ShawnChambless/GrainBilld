@@ -14,6 +14,11 @@ a {
   text-decoration: none;
   color: inherit; }
 
+hr {
+  border: none;
+  height: 1px;
+  background: #999; }
+
 ::-webkit-scrollbar {
   display: none; }
 
@@ -134,15 +139,22 @@ input {
 header {
   font-size: 1.5em; }
 
-input#batchSize {
-  width: 40px;
-  text-align: center; }
+label {
+  padding: 0 5px; }
 
-.moduleTitle {
-  font-size: 2em;
-  font-weight: 500;
-  padding: 0 0 10px 0;
-  color: #C76730; }
+input#batchSize, input#efficiency {
+  margin: 10px -7px;
+  width: 40px;
+  text-align: center;
+  border-radius: 0;
+  background: #fff;
+  -webkit-transition: all ease 70ms;
+          transition: all ease 70ms; }
+  input#batchSize:focus, input#efficiency:focus {
+    border-radius: 4px;
+    background: #3090c7;
+    color: #fff;
+    font-weight: 400; }
 
 .ingredientModule {
   width: 30%;
@@ -237,7 +249,8 @@ input#batchSize {
     max-width: 700px;
     overflow: auto;
     padding: 1%;
-    box-shadow: 0 0 3px #666;
+    box-shadow: 0 0 3px 2px #999;
+    border-radius: 6px;
     -webkit-transition: margin-left ease 0.5s, opacity ease 1s;
             transition: margin-left ease 0.5s, opacity ease 1s;
     -webkit-user-select: none;
@@ -259,7 +272,10 @@ input#batchSize {
               align-items: center; }
     .searchResults form input {
       margin: 10px 0;
-      padding: 0; }
+      padding: 0;
+      outline: none;
+      -webkit-transition: all ease 70ms;
+              transition: all ease 70ms; }
   .searchResults form.ng-hide {
     margin-left: -100%;
     opacity: 0; }
@@ -269,8 +285,8 @@ input#batchSize {
   width: 100%; }
 
 label.grain {
-  position: absolute;
-  color: red; }
+  padding: 10px 0;
+  font-size: 1.4em; }
 
 .x {
   position: absolute;
@@ -278,17 +294,32 @@ label.grain {
   font-size: 38px;
   color: #3090c7;
   top: -5px;
-  right: 3px; }
+  right: 3px;
+  -webkit-transition: all ease 30ms;
+          transition: all ease 30ms; }
+  .x:hover {
+    color: #297AA8; }
+  .x:active {
+    font-size: 30px;
+    top: 0;
+    right: 5px; }
 
 .add {
   font-size: 1.2em;
+  background: #3090c7;
   padding: 0.5% 2%;
-  color: #3090C7;
+  margin: 0 2%;
+  border: 1px solid #3090c7;
+  color: #fff;
   cursor: pointer;
   border-radius: 5px;
-  box-shadow: 0 0 2px 2px #3090c7 inset; }
+  -webkit-transition: border ease 30ms, background-color ease 70ms;
+          transition: border ease 30ms, background-color ease 70ms; }
   .add:hover {
-    box-shadow: 0 0 3px 3px #3090c7; }
+    background-color: #297AA8; }
+  .add:active {
+    background-color: radial-gradient(#297AA8, #26719C, #297AA8);
+    border: none; }
 
 .batchModule {
   display: -webkit-box;
@@ -301,6 +332,16 @@ label.grain {
           justify-content: space-between;
   height: 100%;
   width: 100%; }
+
+.moduleTitle {
+  font-size: 2em;
+  font-weight: 500;
+  padding: 0 0 10px 0;
+  color: #3090C7; }
+  .moduleTitle hr {
+    background: #3090c7;
+    border: none;
+    height: 2px; }
 
 .grainInRecipe {
   height: 100%; }

@@ -13,15 +13,21 @@
 header
     font-size: 1.5em
 
-input#batchSize
+label
+    padding: 0 5px
+input#batchSize, input#efficiency
+    margin: 10px -7px
     width: 40px
     text-align: center
+    border-radius: 0
+    background: #fff
+    transition: all ease 70ms
+    &:focus
+        border-radius: 4px
+        background: #3090c7
+        color: #fff
+        font-weight: 400
 
-.moduleTitle
-    font-size: 2em
-    font-weight: 500
-    padding: 0 0 10px 0
-    color: #C76730
 
 .ingredientModule
     width: 30%

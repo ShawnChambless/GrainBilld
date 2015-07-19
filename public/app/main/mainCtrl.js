@@ -19,6 +19,9 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
     if(!$scope.batchSize) {
         $scope.batchSize = 5;
     }
+    if(!$scope.efficiency) {
+        $scope.efficiency = 75;
+    }
 
     $scope.rotateGrain = function() {
         $scope.grainBoxToggle.rotate=true;
@@ -144,12 +147,12 @@ app.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'm
                 var AAU = $scope.hopWeight * (resp.data[0].alphaAcid)
 
                 if (!hopsItemToAdd) {
-                    IBUOfGrain = AAU * hopUtilization * 74.89 / $scope.batchSize;
+                    IBUOfGrain = AAU * hopUtilization * 74.89 / e;
                     hopsItemToAdd = IBUOfGrain;
                     $scope.IBU = IBUOfGrain.toFixed(1);
                 }
                 else {
-                    IBUOfGrain = (AAU * hopUtilization * 74.89 / $scope.batchSize) + hopsItemToAdd;
+                    IBUOfGrain = (AAU * hopUtilization * 74.89 / e) + hopsItemToAdd;
                     hopsItemToAdd = IBUOfGrain;
                     $scope.IBU = IBUOfGrain.toFixed(1);
                 }
