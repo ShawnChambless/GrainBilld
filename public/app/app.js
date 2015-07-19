@@ -4,9 +4,26 @@ app.config(function($routeProvider) {
 
 
     $routeProvider
-        .when('/database', {
-            templateUrl: 'public/app/database/databaseTmpl.html',
-            controller: 'databaseCtrl'
+        .when('/IngredientInfo', {
+            templateUrl: 'public/app/ingredientInfo/ingredientInfoTmpl.html',
+            controller: 'ingredientInfoCtrl',
+            resolve: {
+                grain: function(mainService) {
+                    return mainService.getGrainsInDb().then(function(grains){
+                        return grains;
+                    });
+                },
+                hops: function(mainService) {
+                    return mainService.getHopsInDb().then(function(hops){
+                        return hops;
+                    });
+                },
+                yeast: function(mainService) {
+                    return mainService.getYeastInDb().then(function(yeast){
+                        return yeast;
+                    });
+                }
+            }
         })
         .when('/NewBatch', {
             templateUrl: 'public/app/main/mainTmpl.html',
@@ -26,16 +43,31 @@ app.config(function($routeProvider) {
                         return mainService.getYeastInDb().then(function(yeast){
                             return yeast;
                         });
-                    },
-                    // user: function($http){
-                    //     $http({
-                    //         method: 'GET',
-                    //         url: 'http://localhost:8081/auth/user'
-                    //     });
-                    // }
+                    }
                 }
         })
-        .otherwise('/NewBatch')
+        .when('/database', {
+            templateUrl: 'public/app/database/databaseTmpl.html',
+            controller: 'databaseCtrl',
+            resolve: {
+                grain: function(mainService) {
+                    return mainService.getGrainsInDb().then(function(grains){
+                        return grains;
+                    });
+                },
+                hops: function(mainService) {
+                    return mainService.getHopsInDb().then(function(hops){
+                        return hops;
+                    });
+                },
+                yeast: function(mainService) {
+                    return mainService.getYeastInDb().then(function(yeast){
+                        return yeast;
+                    });
+                }
+            }
+        })
+        .otherwise('/database')
 });
 app.config(function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.latencyThreshold = 10;
