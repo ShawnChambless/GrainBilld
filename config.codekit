@@ -28099,6 +28099,37 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0
 		},
+	"\/public\/app\/ingredientInfo\/ingredientInfoCtrl.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/app\/ingredientInfo\/ingredientInfoCtrl.js",
+		"outputAbbreviatedPath": "\/public\/app\/ingredientInfo\/min\/ingredientInfoCtrl-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/public\/app\/ingredientInfo\/ingredientInfoTmpl.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/app\/ingredientInfo\/ingredientInfoTmpl.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/public\/app\/ingredientInfo\/ingredientInfoTmpl.jade": {
+		"compileDebug": 1,
+		"fileType": 512,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/app\/ingredientInfo\/ingredientInfoTmpl.jade",
+		"outputAbbreviatedPath": "\/public\/app\/ingredientInfo\/ingredientInfoTmpl.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0
+		},
 	"\/public\/app\/login\/loginCtrl.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -28568,6 +28599,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/public\/styles\/modules\/database.sass",
 		"outputAbbreviatedPath": "\/public\/styles\/modules\/database.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 0,
+		"useLibsass": false
+		},
+	"\/public\/styles\/modules\/ingredientInfo\/ingredientInfo.sass": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 2,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/styles\/modules\/ingredientInfo\/ingredientInfo.sass",
+		"outputAbbreviatedPath": "\/public\/styles\/modules\/ingredientInfo\/ingredientInfo.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
