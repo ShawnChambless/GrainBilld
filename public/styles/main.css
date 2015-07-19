@@ -29,6 +29,13 @@ hr {
   height: 1px;
   background: #999; }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  cursor: pointer; }
+
+input[type="number"] {
+  width: 100px; }
+
 ::-webkit-scrollbar {
   display: none; }
 
@@ -168,10 +175,6 @@ input#batchSize, input#efficiency {
     color: #fff;
     font-weight: 400; }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  cursor: pointer; }
-
 .ingredientModule {
   width: 30%;
   height: 100%;
@@ -260,8 +263,8 @@ input[type="number"]::-webkit-inner-spin-button {
     position: absolute;
     width: 60%;
     font-size: 19px;
-    height: 99%;
-    max-height: 40%;
+    height: 100%;
+    max-height: 320px;
     max-width: 700px;
     overflow: auto;
     padding: 1%;
@@ -316,9 +319,7 @@ label.grain, label.hops, label.yeast {
   .x:hover {
     color: #297AA8; }
   .x:active {
-    font-size: 30px;
-    top: 0;
-    right: 5px; }
+    color: #666; }
 
 .add {
   font-size: 1.2em;
@@ -329,13 +330,13 @@ label.grain, label.hops, label.yeast {
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
-  -webkit-transition: border ease 30ms, background-color ease 70ms;
-          transition: border ease 30ms, background-color ease 70ms; }
+  -webkit-transition: border ease 30ms, background ease 70ms;
+          transition: border ease 30ms, background ease 70ms; }
   .add:hover {
-    background-color: #297AA8; }
+    background: #297AA8; }
   .add:active {
-    background-color: radial-gradient(#297AA8, #26719C, #297AA8);
-    border: none; }
+    background: -webkit-linear-gradient(#297AA8, #26719C, #297AA8);
+    background: linear-gradient(#297AA8, #26719C, #297AA8); }
 
 .batchModule {
   height: 100%;
@@ -353,6 +354,10 @@ label.grain, label.hops, label.yeast {
 
 .grainInRecipe, .hopsInRecipe, .yeastInRecipe, .recipeInfoBox {
   height: 100%; }
+
+.grainInfo, .hopsInfo, .yeastInfo {
+  max-width: 230px;
+  margin: 0 auto; }
 
 .recipeInfoBox {
   display: -webkit-box;
@@ -407,4 +412,31 @@ span.recipeLabel {
 .grainInfo.ng-hide, .hopsInfo.ng-hide, .yeastInfo.ng-hide {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
+  opacity: 0; }
+
+h1, .itemDescription, .itemName {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+
+.itemName, h1 {
+  cursor: pointer; }
+
+.itemDescription, .description {
+  cursor: initial; }
+
+.description {
+  -webkit-transition: all 200ms ease-in-out;
+          transition: all 200ms ease-in-out;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  opacity: 1;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.description.ng-hide {
+  -webkit-transform: scale(0.1);
+      -ms-transform: scale(0.1);
+          transform: scale(0.1);
   opacity: 0; }
