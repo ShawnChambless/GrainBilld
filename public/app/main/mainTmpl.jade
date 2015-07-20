@@ -1,9 +1,17 @@
-a(ng-href='/#/NewBatch')    
-    .title Grain Billd{{pageTitle}}
+.titleBar
+    a(ng-href='/#/NewBatch')    
+        .title Grain Billd{{pageTitle}}
+            span.mega-octicon.octicon-beer
+    a(ng-href='/#/IngredientInfo')
+        .link Ingredient Information
+            span.octicon.octicon-arrow-right
+    a(ng-href='/#/MyRecipes')
+        .link My Recipes
+            span.octicon.octicon-arrow-right
+    
 .containerContainer
-    .ingredientInfoLink
-        a(ng-href='/#/IngredientInfo')
-            .moduleTitle Ingredient Information
+    .moduleTitle Add Ingredients
+    div (click on the images to see the list of ingredients)
     .batchInfo
         label(for='batchSize') Batch Size:
         input#batchSize(type='number' ng-model='batchSize')
@@ -12,7 +20,6 @@ a(ng-href='/#/NewBatch')
         input#efficiency(type='number' ng-model='efficiency')
     .container
         .ingredientModule
-            //.moduleTitle Add Ingredients
             label.grain Grain
                 .grainBox(ng-click= 'rotateGrain(); showGrainFunction()')
                     .boxImage(ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}")

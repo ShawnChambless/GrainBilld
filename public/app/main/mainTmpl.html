@@ -1,8 +1,11 @@
-<a ng-href="/#/NewBatch">   
-  <div class="title">Grain Billd{{pageTitle}}</div></a>
+
+<div class="titleBar"><a ng-href="/#/NewBatch">   
+    <div class="title">Grain Billd{{pageTitle}}<span class="mega-octicon octicon-beer"></span></div></a><a ng-href="/#/IngredientInfo">
+    <div class="link">Ingredient Information<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/MyRecipes">
+    <div class="link">My Recipes<span class="octicon octicon-arrow-right"></span></div></a></div>
 <div class="containerContainer">
-  <div class="ingredientInfoLink"><a ng-href="/#/IngredientInfo">
-      <div class="moduleTitle">Ingredient Information</div></a></div>
+  <div class="moduleTitle">Add Ingredients</div>
+  <div>(click on the images to see the list of ingredients)</div>
   <div class="batchInfo">
     <label for="batchSize">Batch Size:</label>
     <input id="batchSize" type="number" ng-model="batchSize"/>
@@ -12,7 +15,6 @@
   </div>
   <div class="container">
     <div class="ingredientModule">
-      <!--.moduleTitle Add Ingredients-->
       <label class="grain">Grain
         <div ng-click="rotateGrain(); showGrainFunction()" class="grainBox">
           <div ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}" class="boxImage"></div>
