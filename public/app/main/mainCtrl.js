@@ -9,7 +9,6 @@ angular.module('personalProject')
     $scope.grainBoxToggle = {rotate: false};
     $scope.hopsBoxToggle = {rotate: false};
     $scope.yeastBoxToggle = {rotate: false};
-
     $scope.grainInDb = grain.data;
     $scope.hopsInDb = hops.data;
     $scope.yeastInDb = yeast.data;
