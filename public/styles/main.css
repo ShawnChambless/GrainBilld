@@ -206,7 +206,7 @@ input#batchSize, input#efficiency {
   input#batchSize:focus, input#efficiency:focus {
     border-radius: 4px;
     background: #3090C7;
-    color: #fff;
+    color: #E4D96F;
     font-weight: 400; }
 
 .ingredientModule {
