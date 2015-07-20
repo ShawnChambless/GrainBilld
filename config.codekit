@@ -28110,15 +28110,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/public\/app\/ingredientInfo\/ingredientInfoTmpl.html": {
-		"fileType": 8192,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/public\/app\/ingredientInfo\/ingredientInfoTmpl.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/public\/app\/ingredientInfo\/ingredientInfoTmpl.jade": {
 		"compileDebug": 1,
 		"fileType": 512,
@@ -28346,6 +28337,17 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0
 		},
+	"\/public\/assets\/close.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 472,
+		"inputAbbreviatedPath": "\/public\/assets\/close.png",
+		"outputAbbreviatedPath": "\/public\/assets\/close.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/public\/assets\/ingredientLogos\/grainSmall.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -28569,9 +28571,9 @@
 		"outputAbbreviatedPath": "\/public\/styles\/main.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
+		"outputStyle": 3,
 		"shouldRunAutoprefixer": 1,
-		"shouldRunBless": 0,
+		"shouldRunBless": 1,
 		"useLibsass": false
 		},
 	"\/public\/styles\/modules\/base\/base.sass": {
