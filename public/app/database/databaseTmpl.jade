@@ -1,7 +1,17 @@
-a(ng-href='/#/database')    
-    .title Grain Billd{{pageTitle}}
-a(ng-href='/#/NewBatch')
-    h3 New Batch
+.titleBar
+    a(ng-href='/#/database')    
+        .title Grain Billd{{pageTitle}}
+            span.mega-octicon.octicon-beer
+    a(ng-href='/#/NewBatch')
+        .link New Batch
+            span.mega-octicon.octicon-arrow-right
+    a(ng-href='/#/IngredientInfo')
+        .link Ingredient Information
+            span.octicon.octicon-arrow-right
+    a(ng-href='/#/MyRecipes')
+        .link My Recipes
+            span.octicon.octicon-arrow-right
+
 h1 Database Editor
 
 h1(ng-click='showGrain = !showGrain') Add Grain
@@ -55,9 +65,8 @@ form(ng-submit='addYeastToDb(addYeast)' ng-show='showYeast')
     input(type='submit' value='Add Yeast')
 h1(ng-click = 'showGrainInDb = !showGrainInDb') Grain in Database
 .databaseContainer
-
     h3(ng-repeat='item in grainsInDb' ng-show='showGrainInDb')
-        input(type='number' ng-model='updateSG' ng-submit='updateGrainSG(updateSG, item._id)' placeholder='Update SG')
+        input(type='number' ng-model='updateSG' autocomplete='on' placeholder='Update SG')
         input(type='submit' ng-click='updateGrainSG(updateSG, item._id)' value='Submit SG')
         span.itemName {{item.name}}:<br /> 
         span.item Malt type: 
