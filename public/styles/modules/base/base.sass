@@ -29,13 +29,36 @@ input[type="number"]
     width: 100px
 ::-webkit-scrollbar
     display: none
+.titleBar
+    display: flex
+    justify-content: space-around
+    align-items: center
+    background: $blue
+    width: 100%
+
+.title, .link
+    transition: color ease-in-out 100ms
 .title
     font-size: 3.5em
     font-family: Lobster
-    padding: 5px 50px
+    margin-left: -20px
+    padding: 5px 50px 5px 0
+    color: $straw
+    span.mega-octicon
+        margin-left: 15px
+        font-size: 1em
+    &:hover
+        color: #fff
+.link
+    font-size: 1.3em
+    transition: color ease-in-out 100ms
     color: #fff
-    width: 100vw
-    background: #3090C7
+    &:hover
+        color: $straw
+    .octicon
+        padding: 5px
+        font-size: 20px
+
 input
     border: none
     border-bottom: 1px solid #999
