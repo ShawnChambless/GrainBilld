@@ -1,9 +1,11 @@
-a(ng-href='/#/NewBatch')    
-    .title Grain Billd{{pageTitle}}
+.titleBar
+    a(ng-href='/#/IngredientInfo')    
+        .title Grain Billd{{pageTitle}}
+    a(ng-href='/#/NewBatch')
+        .link Back to New Batch
+    a(ng-href='/#/MyRecipes')
+        .link My Recipes
 .containerContainer
-    .ingredientInfoLink
-        a(ng-href='/#/NewBatch')
-            .moduleTitle Back to New Batch
     h1(ng-click = 'showGrainInDb = !showGrainInDb') Grain in Database
     input(ng-model='grainSearchText' ng-show='showGrainInDb' placeholder='Filter grain')
     .databaseContainer(ng-show='showGrainInDb')
