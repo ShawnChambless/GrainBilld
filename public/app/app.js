@@ -67,8 +67,9 @@ app.config(function($routeProvider) {
                 }
             }
         })
-        .otherwise('/database')
+        .otherwise('/NewBatch')
 });
 app.config(function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.latencyThreshold = 10;
+    cfpLoadingBarProvider.includeSpinner = false;
 });
