@@ -36,7 +36,7 @@
   -o-transition: width 350ms;
   transition: width 350ms;
 
-  background: #29d;
+  background: $straw;
   position: fixed;
   z-index: 10002;
   top: 80px;
@@ -69,16 +69,16 @@
   position: fixed;
   z-index: 10002;
   top: 25px;
-  left: 1px;
+  left: 2px;
 }
 
 #loading-bar-spinner .spinner-icon {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
 
   border:  solid 2px transparent;
-  border-top-color:  #00FFD3;
-  border-left-color: #00FFD3;
+  border-top-color:  $straw;
+  border-left-color: $straw;
   border-radius: 50%;
 
   -webkit-animation: loading-bar-spinner 400ms linear infinite;
