@@ -1,8 +1,8 @@
 
 <div class="titleBar"><a ng-href="/#/IngredientInfo">   
     <div class="title">Grain Billd{{pageTitle}}</div></a><a ng-href="/#/NewBatch">
-    <div class="link">Back to New Batch</div></a><a ng-href="/#/MyRecipes">
-    <div class="link">My Recipes</div></a></div>
+    <div class="link">New Batch<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/MyRecipes">
+    <div class="link">My Recipes<span class="octicon octicon-arrow-right"></span></div></a></div>
 <div class="containerContainer">
   <h1 ng-click="showGrainInDb = !showGrainInDb">Grain in Database</h1>
   <input ng-model="grainSearchText" ng-show="showGrainInDb" placeholder="Filter grain"/>

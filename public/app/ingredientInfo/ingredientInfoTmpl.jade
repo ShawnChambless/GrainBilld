@@ -2,9 +2,11 @@
     a(ng-href='/#/IngredientInfo')    
         .title Grain Billd{{pageTitle}}
     a(ng-href='/#/NewBatch')
-        .link Back to New Batch
+        .link New Batch
+            span.octicon.octicon-arrow-right
     a(ng-href='/#/MyRecipes')
         .link My Recipes
+            span.octicon.octicon-arrow-right
 .containerContainer
     h1(ng-click = 'showGrainInDb = !showGrainInDb') Grain in Database
     input(ng-model='grainSearchText' ng-show='showGrainInDb' placeholder='Filter grain')
