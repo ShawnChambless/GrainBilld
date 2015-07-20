@@ -28691,7 +28691,7 @@
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 2,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/public\/styles\/modules\/vars.sass",
 		"outputAbbreviatedPath": "\/public\/styles\/modules\/vars.css",
