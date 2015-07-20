@@ -1,6 +1,11 @@
 
-<div class="moduleTitle">Batch Info
-  <hr/>
+<div class="preBatchModule">
+  <div class="moduleTitle batch">Batch Info</div>
+  <div class="recipeInfoBox"><span ng-show="recipeSrm" class="item">
+       
+      {{recipeSrm}} SRM </span><span ng-show="IBU" class="item">{{IBU}} IBU</span><span ng-show="OG" class="item">{{OG}} OG</span><span ng-show="FG" class="item">{{FG}} FG</span><span ng-show="ABV" class="item">{{ABV}} ABV</span>
+    <div ng-show="recipeSrm" ng-controller="recipeCtrl" ng-click="saveRecipe()" class="add">Save!</div>
+  </div>
 </div>
 <div class="batchModule">
   <div class="recipeIngredientWrapper">
@@ -24,9 +29,6 @@
         <div class="recipe yeastName">{{yeast.name}}<span ng-click="toggleYeastInfo()" class="octicon octicon-question"></span></div>
         <div ng-show="showYeastInfo" class="yeastInfo">{{yeast.description}} <br /><span class="item">Flocculation: </span>{{yeast.flocculation}} <span class="item">Temp: </span>{{yeast.minimumTemperature}}° <span class="item">Max. Temp: </span>{{yeast.maximumTemperature}}° <span class="item">Min. Att.: </span>{{yeast.minimumAttenuation}}% <span class="item">Max. Att.: </span>{{yeast.maximumAttenuation}}%</div>
       </div>
-    </div>
-    <div class="recipeInfoBox"><span ng-show="recipeSrm" class="item">SRM: </span>{{recipeSrm}} <span ng-show="IBU" class="item">IBU: </span>{{IBU}} <span ng-show="FG" class="item">FG:</span>{{FG}} <span ng-show="OG" class="item">OG: </span>{{OG}} <span ng-show="ABV" class="item">ABV: </span>{{ABV}} 
-      <div ng-show="recipeSrm" ng-controller="recipeCtrl" ng-click="saveRecipe()" class="add">Save Recipe</div>
     </div>
   </div>
 </div>

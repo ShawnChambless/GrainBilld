@@ -1,5 +1,14 @@
-.moduleTitle Batch Info
-    hr
+.preBatchModule
+    .moduleTitle.batch Batch Info
+    .recipeInfoBox
+        span.item(ng-show='recipeSrm') 
+         {{recipeSrm}} SRM 
+        span.item(ng-show='IBU') {{IBU}} IBU
+        span.item(ng-show='OG') {{OG}} OG
+        span.item(ng-show='FG') {{FG}} FG
+        span.item(ng-show='ABV') {{ABV}} ABV
+        .add(ng-show='recipeSrm' ng-controller='recipeCtrl' ng-click='saveRecipe()') Save!
+                
 .batchModule
     .recipeIngredientWrapper
         .grainInRecipe
@@ -41,16 +50,3 @@
                     {{yeast.minimumAttenuation}}% 
                     span.item Max. Att.: 
                     {{yeast.maximumAttenuation}}%
-        .recipeInfoBox
-            span.item(ng-show='recipeSrm') SRM: 
-            {{recipeSrm}} 
-            span.item(ng-show='IBU') IBU: 
-            {{IBU}} 
-            span.item(ng-show='FG') FG:
-            {{FG}} 
-            span.item(ng-show='OG') OG: 
-            {{OG}} 
-            span.item(ng-show='ABV') ABV: 
-            {{ABV}} 
-            .add(ng-show='recipeSrm' ng-controller='recipeCtrl' ng-click='saveRecipe()') Save Recipe
-                
