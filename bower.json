@@ -21,7 +21,8 @@
     "angular-animate": "~1.4.2",
     "angular-grid": "~2.0.14",
     "normalize.css": "~3.0.3",
-    "modernizr": "~2.8.3"
+    "modernizr": "~2.8.3",
+    "octicons": "*"
   },
   "resolutions": {
     "angular": "1.4.3"
