@@ -1,6 +1,6 @@
 
 <div class="titleBar"><a ng-href="/#/NewBatch">   
-    <div class="title">Grain Billd{{pageTitle}}<span class="mega-octicon octicon-beer"></span></div></a><a ng-href="/#/IngredientInfo">
+    <div class="title">Grain Billd<span class="mega-octicon octicon-beer"></span></div></a><a ng-href="/#/IngredientInfo">
     <div class="link">Ingredient Information<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/MyRecipes">
     <div class="link">My Recipes<span class="octicon octicon-arrow-right"></span></div></a></div>
 <div class="containerContainer">
@@ -32,31 +32,37 @@
       </label>
     </div>
     <div class="searchResults"> 
-      <form ng-show="showGrainBox" class="grain">
-        <label class="grain">Grain <br /></label>
-        <input type="text" ng-model="grainSearchText" placeholder="Search grains..." class="grain"/>
-        <input type="number" ng-model="grainWeight" placeholder="Pounds" class="grain"/><span ng-click="addGrainToRecipe(grainSearchText)" class="add">Add!</span><span ng-click="showGrainFunction()" class="x">X</span>
-        <div ng-repeat="item in grainInDb | filter:grainSearchText" class="grainSearchResults">
-          <div ng-click="addToGrainSearchText(item)" class="grainName">{{item.name}} <hr /></div>
-        </div>
-      </form>
-      <form ng-show="showHopsBox" class="hops">
-        <label class="hops">Hops <br /></label><span class="inputLine">
-          <input type="text" ng-model="hopsSearchText" placeholder="Enter hops..." class="hops"/>
-          <input type="number" ng-model="hopWeight" placeholder="oz." class="hops"/>
-          <input type="number" ng-model="boilTime" placeholder="Boil time..." class="hops"/><span ng-click="addHopsToRecipe(hopsSearchText)" class="add">Add!</span></span><span ng-click="showHopsFunction()" class="x">X</span>
-        <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">
-          <div ng-click="addToHopsSearchText(item)" class="hopsName">{{item.name}} <hr /></div>
-        </div>
-      </form>
-      <form ng-show="showYeastBox" class="yeast">
-        <label class="yeast">Yeast <br /></label>
-        <input type="text" ng-model="yeastSearchText" placeholder="Enter yeast..." class="yeast"/><span ng-click="addYeastToRecipe(yeastSearchText)" class="add">Add!</span><span ng-click="showYeastFunction()" class="x">X</span>
-        <div ng-repeat="item in yeastInDb | filter:yeastSearchText" class="yeastSearchResults">
-          <div ng-click="addToYeastSearchText(item)" class="yeastName">{{item.name}} <hr /></div>
-        </div>
-      </form>
+      <div ng-show="showGrainBox" class="formWrapper"><span ng-click="showGrainFunction()" class="x">X</span>
+        <form class="grain">
+          <label class="grain">Grain <br /></label>
+          <input type="text" ng-model="grainSearchText" placeholder="Search grains..." class="grain"/>
+          <input type="number" ng-model="grainWeight" placeholder="Pounds" class="grain"/><span ng-click="addGrainToRecipe(grainSearchText)" class="add">Add!</span>
+          <div ng-repeat="item in grainInDb | filter:grainSearchText" class="grainSearchResults">
+            <div ng-click="addToGrainSearchText(item)" class="grainName">{{item.name}} <hr /></div>
+          </div>
+        </form>
+      </div>
+      <div ng-show="showHopsBox" class="formWrapper"><span ng-click="showHopsFunction()" class="x">X</span>
+        <form class="hops">
+          <label class="hops">Hops <br /></label><span class="inputLine">
+            <input type="text" ng-model="hopsSearchText" placeholder="Enter hops..." class="hops"/>
+            <input type="number" ng-model="hopWeight" placeholder="oz." class="hops"/>
+            <input type="number" ng-model="boilTime" placeholder="Boil time..." class="hops"/><span ng-click="addHopsToRecipe(hopsSearchText)" class="add">Add!</span></span>
+          <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">
+            <div ng-click="addToHopsSearchText(item)" class="hopsName">{{item.name}} <hr /></div>
+          </div>
+        </form>
+      </div>
+      <div ng-show="showYeastBox" class="formWrapper"><span ng-click="showYeastFunction()" class="x">X</span>
+        <form class="yeast">
+          <label class="yeast">Yeast <br /></label>
+          <input type="text" ng-model="yeastSearchText" placeholder="Enter yeast..." class="yeast"/><span ng-click="addYeastToRecipe(yeastSearchText)" class="add">Add!</span>
+          <div ng-repeat="item in yeastInDb | filter:yeastSearchText" class="yeastSearchResults">
+            <div ng-click="addToYeastSearchText(item)" class="yeastName">{{item.name}} <hr /></div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-  <ng-include src="'public/app/recipe/recipeTmpl.html'"></ng-include>
 </div>
+<ng-include src="'public/app/recipe/recipeTmpl.html'"></ng-include>

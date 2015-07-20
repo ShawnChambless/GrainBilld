@@ -1,6 +1,6 @@
 .titleBar
     a(ng-href='/#/NewBatch')    
-        .title Grain Billd{{pageTitle}}
+        .title Grain Billd
             span.mega-octicon.octicon-beer
     a(ng-href='/#/IngredientInfo')
         .link Ingredient Information
@@ -33,33 +33,34 @@
                     .boxImage(ng-class="{'yeastBoxRotate': yeastBoxToggle.rotate}") 
                 
         .searchResults  
-            form.grain(ng-show='showGrainBox')
-                label.grain Grain <br />
-                input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
-                input.grain(type='number' ng-model='grainWeight' placeholder='Pounds')
-                span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
+            .formWrapper(ng-show='showGrainBox')
                 span(class="x" ng-click='showGrainFunction()') X
-                .grainSearchResults(ng-repeat='item in grainInDb | filter:grainSearchText')
-                    .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
-                
-            form.hops(ng-show='showHopsBox')
-                label.hops Hops <br />
-                span.inputLine
-                    input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
-                    input.hops(type='number' ng-model='hopWeight' placeholder='oz.')
-                    input.hops(type='number' ng-model='boilTime' placeholder='Boil time...')
-                    span.add(ng-click='addHopsToRecipe(hopsSearchText)') Add!
+                form.grain
+                    label.grain Grain <br />
+                    input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
+                    input.grain(type='number' ng-model='grainWeight' placeholder='Pounds')
+                    span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
+                    .grainSearchResults(ng-repeat='item in grainInDb | filter:grainSearchText')
+                        .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
+            .formWrapper(ng-show='showHopsBox')
                 span(class="x" ng-click='showHopsFunction()') X
-                .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
-                    .hopsName(ng-click='addToHopsSearchText(item)') {{item.name}} <hr />
-            
-            form.yeast(ng-show='showYeastBox')
-                label.yeast Yeast <br />
-                input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
-                span.add(ng-click='addYeastToRecipe(yeastSearchText)') Add!
+                form.hops
+                    label.hops Hops <br />
+                    span.inputLine
+                        input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
+                        input.hops(type='number' ng-model='hopWeight' placeholder='oz.')
+                        input.hops(type='number' ng-model='boilTime' placeholder='Boil time...')
+                        span.add(ng-click='addHopsToRecipe(hopsSearchText)') Add!
+                    .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
+                        .hopsName(ng-click='addToHopsSearchText(item)') {{item.name}} <hr />
+            .formWrapper(ng-show='showYeastBox')
                 span(class="x" ng-click='showYeastFunction()') X
-                .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
-                    .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
+                form.yeast
+                    label.yeast Yeast <br />
+                    input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
+                    span.add(ng-click='addYeastToRecipe(yeastSearchText)') Add!
+                    .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
+                        .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
             
-    ng-include(src="'public/app/recipe/recipeTmpl.html'")
+ng-include(src="'public/app/recipe/recipeTmpl.html'")
     
