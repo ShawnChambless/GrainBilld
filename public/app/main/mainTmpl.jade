@@ -26,7 +26,7 @@
                 span(class="x" ng-click='showGrainFunction()') X
                 form.grain
                     label.grain Grain <br />
-                    input.grain(type='text' ng-model='grainSearchText' placeholder='Search grains...')
+                    input.grain(type='text' ng-model='grainSearchText' placeholder='Enter grain...')
                     input.grain(type='number' ng-model='grainWeight' placeholder='Pounds')
                     span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
                     .grainSearchResults(ng-repeat='item in grainInDb | filter:grainSearchText')
