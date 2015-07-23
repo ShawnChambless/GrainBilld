@@ -1,9 +1,14 @@
 var app = angular.module('personalProject');
 
-app.service('mainService',['$http', '$q', function($http, $q) {
+app.service('mainService',['$http', '$q', '$firebaseAuth', function($http, $q, $firebaseAuth) {
     this.grainInRecipe = [];
     this.hopsInRecipe = [];
     this.yeastInRecipe = [];
+
+    this.rootRef = 'https://grainbilld.firebaseio.com/';
+    this.ref = new Firebase(this.rootRef);
+    this.authObj = $firebaseAuth(this.ref);
+    this.authData = this.authObj.$getAuth();
 
     this.getGrainsInDb = function(grainName) {
         if (!grainName) {

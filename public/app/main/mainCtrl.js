@@ -1,5 +1,5 @@
 angular.module('personalProject')
-.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast) {
+.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', '$firebaseAuth', '$firebaseArray', '$firebaseObject', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast, $firebaseAuth, $firebaseArray, $firebaseObject) {
     $scope.pageTitle = $location.url()
     $scope.showHopsBox = false;
     $scope.showYeastBox = false;
@@ -12,6 +12,18 @@ angular.module('personalProject')
     $scope.grainInDb = grain.data;
     $scope.hopsInDb = hops.data;
     $scope.yeastInDb = yeast.data;
+
+
+    $scope.recipe = {
+        grain: $scope.grainInRecipe,
+        hops: $scope.hopsInRecipe,
+        yeast: $scope.yeastInRecipe,
+        srm: $scope.recipeSrm,
+        ibu: $scope.IBU,
+        og: $scope.OG,
+        fg: $scope.FG,
+        abv: $scope.ABV
+    };
 
     var srmArr = [];
 
@@ -193,5 +205,18 @@ angular.module('personalProject')
         $scope.showGrainInfo = false;
         $scope.showHopsInfo = false;
     };
+
+
+
+    $scope.saveRecipe = function() {
+        // recipe = $scope.recipe;
+        var ref = new Firebase(mainService.rootRef + 'users/' + mainService.authData.auth.uid + '/recipes');
+        var batch = $scope.recipe;
+
+        batch.$add({data: $scope.recipe}).then(function(resp) {
+            console.log(resp);
+
+        });
+    }
 
 }]);
