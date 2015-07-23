@@ -1,5 +1,5 @@
 angular.module('personalProject')
-.controller('indexCtrl', ['$scope', '$location', function($scope, $location) {
+.controller('indexCtrl', ['$scope', function($scope) {
 
     $scope.showNewBatch = false;
     $scope.showIngredientInfo = true;
