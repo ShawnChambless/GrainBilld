@@ -7,7 +7,7 @@
         span.item(ng-show='OG') {{OG}} OG
         span.item(ng-show='FG') {{FG}} FG
         span.item(ng-show='ABV') {{ABV}} ABV
-        .add(ng-show='recipeSrm' ng-controller='recipeCtrl' ng-click='saveRecipe()') Save!
+        .add(ng-show='recipeSrm' ng-click='saveRecipe($scope.recipeName, $scope.recipeSrm, $scope.IBU, $scope.OG, $scope.FG, $scope.ABV)') Save!
                 
 .batchModule
     .recipeIngredientWrapper
