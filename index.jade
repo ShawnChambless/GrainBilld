@@ -24,44 +24,28 @@ html
                 .link My Recipes
                     span.octicon.octicon-arrow-right
 
-        //- .loginWrapper(ng-controller='loginCtrl')
-        //-     //- div(ng-show='authData.facebook.displayName') {{authData.facebook.displayName}}
-        //-     //- div(ng-show='authData.twitter.displayName') {{authData.twitter.displayName}}
-        //-     //- div(ng-show='authData.google.displayName') {{authData.google.displayName}}
-        //-     {{displayName}}
-        //-     .signIn(ng-hide='showSignIn')
-        //-         input(type='email' ng-model='user.email' placeholder='Email...')
-        //-         input(type='password' ng-model='user.password' placeholder='Password...')
-        //-         input(type='submit' ng-click='login(user)' value='Sign In!')
-        //-         span(ng-click='showSignUp = !showSignUp; showSignIn = !showSignIn') Sign Up
-        //-     .signUp(ng-show='showSignUp')
-        //-         input(type='email' ng-model='newUser.email' placeholder='Email...')
-        //-         input(type='password' ng-model='newUser.password' placeholder='Password...')
-        //-         input(type='password' placeholder='Confirm password...')
-        //-         input(type='submit' ng-click='register(newUser)' value='Sign Up!')
-        //-         span(ng-click='showSignIn = !showSignIn; showSignUp = !showSignUp') Sign In
-        //-     //- a(ng-href='http://localhost:8081/auth/facebook')
-        //-     //-     image(ng-src='public/assets/social-logos/fbSmall.png')
-        //-     //- a(ng-href='http://localhost:8081/auth/twitter')
-        //-     //-     image(ng-src='public/assets/social-logos/twitterSmall.png' height='50')
-        //-     //- a(ng-href='http://localhost:8081/auth/google')
-        //-     //-     image(ng-src='public/assets/social-logos/googleSmall.png' height='50')
-        //-     a(ng-href='http://localhost:8081/logout')
-        //-         input(type='submit' value='Log Out') 
+        .loginBtn
+            a(ng-href='/#/login')
+                button Login/Register
+            {{authData}}
         
 
         ng-view
         
         script(src='bower_components/angular/angular.js')
+        script(src='bower_components/firebase/firebase.js')
+        script(src='bower_components/angularfire/dist/angularfire.js')
         script(src='bower_components/angular-route/angular-route.min.js')
         script(src='bower_components/angular-loading-bar/build/loading-bar.min.js')
         script(src='bower_components/angucomplete-alt/dist/angucomplete-alt.min.js')
         script(src='bower_components/angular-animate/angular-animate.min.js')
+        
+        
         script(src='public/app/app.js')
         script(src='public/app/min/mainService-min.js')
-        script(src='public/app/min/loginService-min.js')
+        script(src='public/app/login/loginService.js')
         script(src='public/app/min/recipeService-min.js')
-        script(src='public/app/min/loginCtrl-min.js')
+        script(src='public/app/login/loginCtrl.js')
         script(src='public/app/min/databaseCtrl-min.js')
         script(src='public/app/min/mainCtrl-min.js')
         script(src='public/app/min/recipeCtrl-min.js')
