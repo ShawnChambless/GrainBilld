@@ -1,0 +1,9 @@
+.loginWrapper
+    form.registerForm(ng-submit='register(newUser)')
+        input(type='email' ng-model='newUser.email' placeholder='Email...')
+        input(type='password' ng-model='newUser.password' placeholder='Password...')
+        input(type='submit' ng-click='register(newUser)' value='Register Submit')
+    form.loginForm(ng-submit='login(user)')
+        input(type='email' ng-model='user.email' placeholder='Email...')
+        input(type='password' ng-model='user.password' placeholder='Password...')
+        input(type='submit' ng-click='login(user.email, user.password)' value='Submit')

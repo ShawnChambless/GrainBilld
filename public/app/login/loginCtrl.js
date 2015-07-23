@@ -1,33 +1,17 @@
 var app = angular.module('personalProject')
     .controller('loginCtrl', ['$scope', '$http', 'loginService', function($scope, $http, loginService) {
 
-        $scope.login = function(user) {
-            return $http({
-                method: 'POST',
-                url: 'http://localhost:8081/auth/local',
-                data: {
-                    email: user.email,
-                    password: user.password
-                }
-            }).then(function(resp) {
-                console.log(resp);
-            });
-        };
+        $scope.authData = loginService.authData;
+        $scope.user = '';
+        $scope.newUser = '';
 
-        $scope.register = function(newUser) {
-            return $http({
-                method: 'POST',
-                url: 'http://localhost:8081/register/user',
-                data: {
-                    email: newUser.email,
-                    password: newUser.password
-                }
-            }).then(function(newUser, err) {
-                //$scope.login(newUser)
-                $scope.displayName = newUser.data.email
-                console.log(newUser)
-            });
-        };
+        $scope.login = function(email, password) {
+            loginService.login($scope.user.email, $scope.user.password)
+        }
+
+        $scope.register = function(email, password) {
+            loginService.register($scope.newUser.email, $scope.newUser.password)
+        }
 
 
     }]);
