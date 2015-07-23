@@ -20,18 +20,18 @@ html
             a(ng-href='/#/IngredientInfo')
                 .link Ingredient Info
                     span.octicon.octicon-arrow-right
-            a
+            a(ng-href='/#/NewBatch')
                 .link My Recipes
                     span.octicon.octicon-arrow-right
-
-        .loginBtn
-            a(ng-href='/#/login')
-                button Login/Register
-            {{authData}}
-        
-
-        ng-view
-        
+        .authWrapper(ng-controller='loginCtrl')
+            .authData
+                {{authData}}
+            .loginBtn
+                a(ng-show='showLogin' ng-href='/#/login')
+                    button Login/Register
+                button(ng-show='showLogOut' ng-click='logout()') Log Out
+        ng-view    
+                
         script(src='bower_components/angular/angular.js')
         script(src='bower_components/firebase/firebase.js')
         script(src='bower_components/angularfire/dist/angularfire.js')
@@ -47,7 +47,7 @@ html
         script(src='public/app/min/recipeService-min.js')
         script(src='public/app/login/loginCtrl.js')
         script(src='public/app/min/databaseCtrl-min.js')
-        script(src='public/app/min/mainCtrl-min.js')
+        script(src='public/app/main/mainCtrl.js')
         script(src='public/app/min/recipeCtrl-min.js')
         script(src='public/app/min/ingredientInfoCtrl-min.js')
         script(src='public/app/min/indexCtrl-min.js')
