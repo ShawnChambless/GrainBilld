@@ -30,5 +30,8 @@
     "passport-local": "^1.0.0",
     "passport-oauth2": "^1.1.2",
     "passport-twitter": "^1.0.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
   }
 }
