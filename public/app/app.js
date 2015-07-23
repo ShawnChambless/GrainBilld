@@ -1,9 +1,13 @@
-var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt', 'ngAnimate']);
+var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt', 'ngAnimate', 'firebase']);
 
 app.config(function($routeProvider) {
 
 
     $routeProvider
+        .when('/login', {
+            templateUrl: 'public/app/login/loginTmpl.html',
+            controller: 'loginCtrl'
+        })
         .when('/IngredientInfo', {
             templateUrl: 'public/app/ingredientInfo/ingredientInfoTmpl.html',
             controller: 'ingredientInfoCtrl',
