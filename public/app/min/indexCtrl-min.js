@@ -1,1 +1,1 @@
-angular.module("personalProject").controller("indexCtrl",["$scope","$location",function(o,e){o.showNewBatch=!1,o.showIngredientInfo=!0,o.showMyRecipes=!0}]);
+angular.module("personalProject").controller("indexCtrl",["$scope",function(e){e.showNewBatch=!1,e.showIngredientInfo=!0,e.showMyRecipes=!0}]);
