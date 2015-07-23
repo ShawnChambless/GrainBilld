@@ -1,0 +1,14 @@
+h1, .itemDescription, .itemName
+    user-select: none
+.itemName, h1
+    cursor: pointer
+.itemDescription, .description
+    cursor: initial
+.description
+    transition: all 200ms ease-in-out
+    perspective: 1000px
+    opacity: 1
+    transform-style: preserve-3d
+.description.ng-hide
+    transform: scale(.1)
+    opacity: 0

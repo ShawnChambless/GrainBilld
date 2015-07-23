@@ -1,0 +1,71 @@
+.searchResults
+    width: 100%
+    .formWrapper
+        width: 60%
+        position: absolute
+        width: 60%
+        font-size: 19px
+        height: 100%
+        max-height: 320px
+        max-width: 700px
+        padding: 1%
+        box-shadow: 0 0 3px 2px #999
+        border-radius: 6px
+        transition: margin-left ease .5s, opacity ease 1s
+        user-select: none
+        form
+            overflow: scroll
+            height: 100%
+            .inputLine
+                width: 100%
+                display: flex
+                justify-content: space-around
+                align-items: center
+            input
+                margin: 10px 0
+                padding: 0
+                outline: none
+                transition: all ease 70ms
+    .formWrapper.ng-hide
+        margin-left: -100%
+        opacity: 0
+.x
+    position: absolute
+    cursor: pointer
+    font-size: 30px
+    padding: .02% 1.4%
+    border: 2px solid $blue
+    border-radius: 50%
+    color: $blue
+    top: -18px
+    right: -18px
+    background: #fff
+    transition: border ease 90ms, background ease-in-out 50ms, color ease-in-out 50ms
+    &:hover
+        color: #297AA8
+        border: 2px solid #297AA8
+
+.grainSearchResults, .hopsSearchResults, .yeastSearchResults
+    margin: 10px 0
+    width: 100%
+
+label.grain, label.hops, label.yeast
+    padding: 10px 0
+    font-size: 1.4em
+    color: $blue
+
+.add
+    font-size: 1.2em
+    background: $blue
+    padding: .5% 2%
+    margin: 0 2%
+    white-space: nowrap
+    border: 1px solid $blue
+    color: #fff
+    cursor: pointer
+    border-radius: 5px
+    transition: border ease 30ms, background ease 70ms
+    &:hover
+        background: #297AA8
+    &:active
+        background: linear-gradient(#297AA8, #26719C, #297AA8)

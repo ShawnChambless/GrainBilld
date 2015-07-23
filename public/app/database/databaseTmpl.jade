@@ -1,10 +1,6 @@
-a(ng-href='/#/database')    
-    .title(ng-controller='mainCtrl') Grain Billd{{pageTitle}}
-a(ng-href='/#/NewBatch')
-    h3 New Batch
 h1 Database Editor
 
-h1(ng-click='toggleGrain()') Add Grain
+h1(ng-click='showGrain = !showGrain') Add Grain
 form(ng-submit='addGrainToDb(grain)' ng-show='showGrain')
     input(type='text' ng-model='grain.name' placeholder='Grain Name...' autofocus)
     input(type='text' ng-model='grain.type' placeholder='Grain Type...')
@@ -20,7 +16,7 @@ form(ng-submit='addGrainToDb(grain)' ng-show='showGrain')
     input(type='text' ng-model='grain.description' placeholder='Grain Description...')
     input(type='submit' value='Add Grain')
     
-h1(ng-click='toggleHops()') Add Hops
+h1(ng-click='showHops = !showHops') Add Hops
 form(ng-submit='addHopsToDb(addHops)' ng-show='showHops')
     input(type='text' ng-model='addHops.name' placeholder='Name...' autofocus)
     input(type='text' ng-model='addHops.origin' placeholder='Origin...')
@@ -39,7 +35,7 @@ form(ng-submit='addHopsToDb(addHops)' ng-show='showHops')
     input(type='text' ng-model='addHops.parentage' placeholder='Parentage...')
     input(type='text' ng-model='addHops.description' placeholder='Description...')
     input(type='submit' value='Add Hops')
-h1(ng-click='toggleYeast()') Add Yeast
+h1(ng-click='showYeast = !showYeast') Add Yeast
 form(ng-submit='addYeastToDb(addYeast)' ng-show='showYeast')
     input(type='text' ng-model='addYeast.name' placeholder='Name...' autofocus)
     input(type='text' ng-model='addYeast.brand' placeholder='Brand...')
@@ -53,11 +49,10 @@ form(ng-submit='addYeastToDb(addYeast)' ng-show='showYeast')
     input(type='text' ng-model='addYeast.maximumAttenuation' placeholder='Maximum attenuation...')
     input(type='text' ng-model='addYeast.description' placeholder='Description...')
     input(type='submit' value='Add Yeast')
-h1(ng-click = 'toggleGrainInDb()') Grain in Database
+h1(ng-click = 'showGrainInDb = !showGrainInDb') Grain in Database
 .databaseContainer
-
-    h3(ng-repeat='item in grains' ng-show='showGrainInDb')
-        input(type='number' ng-model='updateSG' ng-submit='updateGrainSG(updateSG, item._id)' placeholder='Update SG')
+    h3(ng-repeat='item in grainsInDb' ng-show='showGrainInDb')
+        input(type='number' ng-model='updateSG' autocomplete='on' placeholder='Update SG')
         input(type='submit' ng-click='updateGrainSG(updateSG, item._id)' value='Submit SG')
         span.itemName {{item.name}}:<br /> 
         span.item Malt type: 
@@ -85,9 +80,9 @@ h1(ng-click = 'toggleGrainInDb()') Grain in Database
         span.itemDescription(ng-click='toggleShowDescription()') Description: 
         span.description(ng-show='showDescription') {{item.description}} <br />
 
-h1(ng-click='toggleHopsInDb()') Hops in Database
+h1(ng-click='showHopsInDb = !showHopsInDb') Hops in Database
 .databaseContainer
-    h3(ng-repeat='item in hops' ng-show='showHopsInDb')
+    h3(ng-repeat='item in hopsInDb' ng-show='showHopsInDb')
         span.itemName {{item.name}}:<br />
         span.item Origin: 
         {{item.origin}}<br />
@@ -120,10 +115,10 @@ h1(ng-click='toggleHopsInDb()') Hops in Database
         span.item Parentage: 
         {{item.parentage}}<br />
 
-h1(ng-click='toggleYeastInDb()') Yeast in Database
+h1(ng-click='showYeastInDb = !showYeastInDb') Yeast in Database
 .databaseContainer
 
-    h3(ng-repeat='item in yeast' ng-show='showYeastInDb')
+    h3(ng-repeat='item in yeastInDb' ng-show='showYeastInDb')
         span.itemName 
         {{item.name}}:<br />
         span.item Format: 

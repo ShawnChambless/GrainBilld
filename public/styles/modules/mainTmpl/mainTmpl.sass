@@ -13,16 +13,21 @@
 header
     font-size: 1.5em
 
-input#batchSize
+label.grain, label.hops, label.yeast
+    color: #444
+    cursor: default
+input#batchSize, input#efficiency
+    margin: 10px -3px
     width: 40px
     text-align: center
-
-.moduleTitle
-    font-size: 2em
-    font-weight: 500
-    padding: 0 0 10px 0
-    color: #C76730
-
+    border-radius: 0
+    background: #fff
+    transition: all ease 70ms
+    &:focus
+        border-radius: 4px
+        background: $blue
+        color: $straw
+        font-weight: 400
 .ingredientModule
     width: 30%
     height: 100%
@@ -32,25 +37,6 @@ input#batchSize
 .grainName, .hopsName, .yeastName
     cursor: pointer
 
-.searchResults
-    width: 70%
-    form
-        position: absolute
-        width: 100%
-        font-size: 19px
-        height: 99%
-        max-height: 40%
-        max-width: 36%
-        overflow: scroll
-        padding: 1%
-        box-shadow: 0 0 3px #666, 0 0 3px #999
-        transition: margin-left ease .5s, opacity ease 1s
-        input
-            margin: 10px 0
-    form.ng-hide
-        margin-left: -100%
-        opacity: 0
-
 .ingredient
     display: flex
     flex-direction: column
@@ -59,6 +45,7 @@ input#batchSize
     height: calc(100%/3)
     width: 80%
     max-width: 180px
+
 .grainBox, .hopsBox, .yeastBox, .waterBox
     margin: 0 0 40% 0
     color: #fff
@@ -69,25 +56,26 @@ input#batchSize
     line-height: 125px
     cursor: pointer
     user-select: none
+
 .grainBox
     .boxImage
-        background: url(../assets/grainSmall.png) top center no-repeat
+        background: url(../assets/ingredientLogos/grainSmall.png) top center no-repeat
             size: contain
 
 .hopsBox
     .boxImage
-        background: url(../assets/hopsSmall.png) top center no-repeat
+        background: url(../assets/ingredientLogos/hopsSmall.png) top center no-repeat
             size: contain
 
 .yeastBox
     .boxImage
-        background: url(../assets/yeastSmall2.jpg)top center no-repeat
+        background: url(../assets/ingredientLogos/yeastSmall2.jpg)top center no-repeat
             size: contain
 
 
 .waterBox
     .boxImage
-        background: url(../assets/waterSmall.png) top center no-repeat
+        background: url(../assets/ingredientLogos/waterSmall.png) top center no-repeat
             size: contain
 .boxImage
     height: 50px
@@ -99,20 +87,10 @@ input#batchSize
 .grainBoxRotate, .hopsBoxRotate, .yeastBoxRotate
     transform: rotateY(360deg)
 
-.grainSearchResults, .hopsSearchResults, .yeastSearchResults
-    margin: 10px 0
-    width: 100%
+@media (min-width: 1280px)
+    .containerContainer
+        margin: 0 8%
 
-.x
-    position: absolute
-    cursor: pointer
-    font-size: 38px
-    color: #888
-    top: 0
-    right: 10px
-
-.octicon-plus
-    font-size: 36px
-    color: darken(lightgreen, 20%)
-    margin: 0 5%
-    cursor: pointer
+@media (max-width: 960px)
+    .containerContainer
+        margin: 0 5%

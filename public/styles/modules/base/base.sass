@@ -1,21 +1,73 @@
 html, body
-    height: 100%
+    height: 100vh
     margin: 0
     padding: 0
 body
     -webkit-font-smoothing: antialiased
     font-family: 'Helvetica Nue', Helvetica, Arial, sans-serif
-    font-weight: 200
+    font-weight: 300
     color: #444
+    //overflow-x: hidden
+*, *:before, *:after
+    box-sizing: border-box
 a
     text-decoration: none
     color: inherit
+label
+    font-size: 1.2em
+    color: #777
+    cursor: text
+    padding: 0 5px
+.moduleTitle
+    color: $blue
+    font-size: 2em
+    font-weight: 500
+hr
+    border: none
+    height: 1px
+    background: #999
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+    cursor: pointer
+input[type="number"]
+    width: 100px
+::-webkit-scrollbar
+    display: none
+.titleBar
+    display: flex
+    justify-content: space-around
+    align-items: center
+    background: $blue
+    width: 100%
+
+.title, .link
+    transition: all ease-in-out 100ms
 .title
     font-size: 3.5em
     font-family: Lobster
-    padding: 0 50px
-    color: #3090C7
+    margin-left: -10px
+    //padding: 5px 50px 5px 0
+    color: $straw
+    span.mega-octicon
+        margin-left: 15px
+        font-size: 1em
+    &:hover
+        color: #fff
+.link
+    font-size: 1.3em
+    transition: color ease-in-out 100ms
+    color: #fff
+    &:hover
+        color: $straw
+    .octicon
+        padding: 5px
+        font-size: 20px
 
+input
+    border: none
+    border-bottom: 1px solid #999
+    &:focus
+        outline: none
 .loginWrapper
     width: 100%
     display: flex
@@ -33,3 +85,34 @@ a
     span
         cursor: pointer
         border-bottom: 2px solid #888
+@media (min-width: 961px)
+    .titleBar
+        height: 100px
+        max-width: 1280px
+        margin: 0 auto
+    .title
+        font-size: 4em
+        margin-left: -5%
+        span.mega-octicon
+            margin-left: 15px
+            font-size: 1em
+        &:hover
+            color: #fff
+    .link
+        font-size: 25px
+
+@media (max-width: 960px)
+    .titleBar
+        //width: 100%
+        height: 100px
+    .title
+        font-size: 3.5em
+        font-family: Lobster
+        margin-left: -5%
+        width: 350px
+        color: $straw
+        span.mega-octicon
+            margin-left: 15px
+            font-size: 1em
+    .link
+        font-size: 20px

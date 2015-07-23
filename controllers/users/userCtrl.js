@@ -4,6 +4,7 @@ module.exports = {
     register: function(req, res) {
         var newUser = new User(req.body);
         newUser.save(function(err, user) {
+            user.displayName = user.email;
             if(err) return res.send(err);
             user.password = null;
          return res.send(user);
