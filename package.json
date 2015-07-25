@@ -32,6 +32,9 @@
     "passport-twitter": "^1.0.3"
   },
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-webserver": "^0.9.1"
   }
 }
