@@ -12,7 +12,7 @@
     <div ng-controller="indexCtrl" class="titleBar"><a ng-href="/#/NewBatch">   
         <div class="title">Grain Billd<span class="mega-octicon octicon-beer"></span></div></a><a ng-href="/#/NewBatch">
         <div class="link">New Batch<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/IngredientInfo">
-        <div class="link">Ingredient Info<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/NewBatch">
+        <div class="link">Ingredient Info<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/MyRecipes">
         <div class="link">My Recipes<span class="octicon octicon-arrow-right"></span></div></a></div>
     <div ng-controller="loginCtrl" class="authWrapper">
       <div class="authData">{{authData}}</div>
@@ -21,7 +21,9 @@
         <button ng-show="showLogOut" ng-click="logout()">Log Out</button>
       </div>
     </div>
-    <ng-view>   </ng-view>
+    <div class="container">
+      <ng-view>   </ng-view>
+    </div>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
@@ -33,11 +35,13 @@
     <script src="public/app/min/mainService-min.js"></script>
     <script src="public/app/login/loginService.js"></script>
     <script src="public/app/min/recipeService-min.js"></script>
+    <script src="public/app/myRecipes/myRecipesService.js"></script>
     <script src="public/app/login/loginCtrl.js"></script>
     <script src="public/app/min/databaseCtrl-min.js"></script>
     <script src="public/app/main/mainCtrl.js"></script>
     <script src="public/app/min/recipeCtrl-min.js"></script>
     <script src="public/app/min/ingredientInfoCtrl-min.js"></script>
     <script src="public/app/min/indexCtrl-min.js"></script>
+    <script src="public/app/myRecipes/myRecipesCtrl.js"></script>
   </body>
 </html>
