@@ -1,6 +1,6 @@
 angular.module('personalProject')
-.controller('recipeCtrl', ['$scope', function($scope) {
+.controller('recipeCtrl', ['$scope', 'recipeService', function($scope, recipeService) {
 
-    
+    $scope.recipes = recipeService.getRecipes();
 
 }]);
