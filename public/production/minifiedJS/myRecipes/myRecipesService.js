@@ -1,0 +1,1 @@
+angular.module("personalProject").service("recipeService",["$firebaseArray",function(e){}]);
