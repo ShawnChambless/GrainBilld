@@ -1,8 +1,7 @@
 .moduleTitle Saved Recipes
-
 .savedRecipesContainer
     .savedRecipesWrapper(ng-repeat='recipe in recipes')
-        .recipe.recipeName Name: &nbsp;
+        .recipeName
             .recipeItemName {{recipe.name}}
         .recipe.recipeGrain Grain: &nbsp;
             .recipeItemName(ng-repeat='grains in recipe.grain track by $index') {{grains.amount}}lbs {{grains.grain.name}}
