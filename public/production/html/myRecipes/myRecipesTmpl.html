@@ -1,0 +1,15 @@
+
+<div class="moduleTitle">Saved Recipes</div>
+<div class="savedRecipesContainer">
+  <div ng-repeat="recipe in recipes" class="savedRecipesWrapper">
+    <div class="recipeName">{{recipe.name}}</div>
+    <div ng-repeat="grains in recipe.grain" class="recipeGrain">{{grains.grain.name}}</div>
+    <div ng-repeat="hops in recipe.hops" class="recipeHops">{{hops.hop.name}}</div>
+    <div ng-repeat="yeast in recipe.yeast" class="recipeYeast">{{yeast.name}}</div>
+    <div class="recipeSRM">{{recipe.srm}}</div>
+    <div class="recipeIBU">{{recipe.ibu}}</div>
+    <div class="recipeOG">{{recipe.og}}</div>
+    <div class="recipeFG">{{recipe.fg}}</div>
+    <div class="recipeABV">{{recipe.abv}}</div>
+  </div>
+</div>
