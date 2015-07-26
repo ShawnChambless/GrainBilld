@@ -204,6 +204,7 @@ angular.module('personalProject')
             $scope.recipe = newRecipe;
             $scope.saveRecipe = function(recipe) {
                 newRecipe.$add({
+                    name: $scope.recipeName,
                     grain: $scope.grainInRecipe,
                     hops: $scope.hopsInRecipe,
                     yeast: $scope.yeastInRecipe,

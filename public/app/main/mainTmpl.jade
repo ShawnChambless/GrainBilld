@@ -1,10 +1,12 @@
 .moduleTitle Add Ingredients
 div (click on the images to see the list of ingredients)
 .batchInfo
+    label(for='recipeName') Recipe Name:
+    input#recipeName(type='text' ng-model='recipeName')
     label(for='batchSize') Batch Size:
     input#batchSize(type='number' ng-model='batchSize')
     label gal
-    label(for='efficiency') Efficiency
+    label(for='efficiency') Efficiency:
     input#efficiency(type='number' ng-model='efficiency')
 .ingredientModule
     label.grain Grain
