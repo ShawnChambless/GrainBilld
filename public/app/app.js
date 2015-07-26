@@ -5,8 +5,12 @@ app.config(function($routeProvider) {
 
     $routeProvider
         .when('/login', {
-            templateUrl: 'public/app/login/loginTmpl.html',
+            templateUrl: 'public/production/html/login/loginTmpl.html',
             controller: 'loginCtrl'
+        })
+        .when('/MyRecipes', {
+            templateUrl: 'public/production/html/myRecipes/myRecipesTmpl.html',
+            controller: 'recipeCtrl'
         })
         .when('/IngredientInfo', {
             templateUrl: 'public/app/ingredientInfo/ingredientInfoTmpl.html',
@@ -30,7 +34,7 @@ app.config(function($routeProvider) {
             }
         })
         .when('/NewBatch', {
-            templateUrl: 'public/app/main/mainTmpl.html',
+            templateUrl: 'public/production/html/main/mainTmpl.html',
             controller: 'mainCtrl',
             resolve:  {
                     grain: function(mainService) {
@@ -51,7 +55,7 @@ app.config(function($routeProvider) {
                 }
         })
         .when('/database', {
-            templateUrl: 'public/app/database/databaseTmpl.html',
+            templateUrl: 'public/production/html/database/databaseTmpl.html',
             controller: 'databaseCtrl',
             resolve: {
                 grain: function(mainService) {
