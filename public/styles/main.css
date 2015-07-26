@@ -8,8 +8,8 @@ html, body {
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: 'Helvetica Nue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
   color: #444;
   overflow-x: hidden;
 }
@@ -521,7 +521,17 @@ h1, .itemDescription, .itemName {
 
 .savedRecipesContainer {
   display: flex;
-  justify-content: space-around;
-  height: 100%;
+  flex-wrap: wrap;
+  height: 90%;
+  width: 90%;
   margin-top: 20px;
+}
+
+.savedRecipesWrapper {
+  width: calc(100%/3);
+  margin-top: 20px;
+}
+
+.recipe {
+  display: flex;
 }
