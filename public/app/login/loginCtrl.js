@@ -6,10 +6,8 @@ var app = angular.module('personalProject')
             authObj = $firebaseAuth(ref),
             authData = loginService.authData;
 
-
         if(authData) {
             $scope.authData = authData.password.email;
-                console.log(authData)
                 $scope.showLogOut = true;
                 $scope.showLogin = false;
         } else {
@@ -23,16 +21,15 @@ var app = angular.module('personalProject')
             loginService.login($scope.user.email, $scope.user.password)
             $scope.user = '';
             $scope.newUser = '';
-        }
+        };
 
         $scope.register = function(email, password) {
             loginService.register($scope.newUser.email, $scope.newUser.password);
             $scope.user = '';
             $scope.newUser = '';
-        }
+        };
 
         $scope.logout = function(authObj) {
             loginService.authObj.$unauth();
-        }
-
+        };
     }]);

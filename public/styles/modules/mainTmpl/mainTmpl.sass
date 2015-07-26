@@ -1,21 +1,11 @@
-.containerContainer
-    height: 60vh
-    min-height: 60vh
-    max-height: 60vh
-    margin: 0 2%
-    width: 100%
-.container
-    margin: 20px 0 0 20px
-    height: 80%
-    width: 100%
-    display: flex
-    align-items: space-between
 header
     font-size: 1.5em
-
+.mainModule
+    margin: 0 50px
 label.grain, label.hops, label.yeast
     color: #444
     cursor: default
+    height: calc(100%/4)
 input#batchSize, input#efficiency
     margin: 10px -3px
     width: 40px
@@ -29,11 +19,12 @@ input#batchSize, input#efficiency
         color: $straw
         font-weight: 400
 .ingredientModule
-    width: 30%
-    height: 100%
     display: flex
     flex-direction: column
     align-content: space-around
+    width: 30%
+    height: 100%
+    margin-bottom: -300px
 .grainName, .hopsName, .yeastName
     cursor: pointer
 
@@ -86,11 +77,3 @@ input#batchSize, input#efficiency
 
 .grainBoxRotate, .hopsBoxRotate, .yeastBoxRotate
     transform: rotateY(360deg)
-
-@media (min-width: 1280px)
-    .containerContainer
-        margin: 0 8%
-
-@media (max-width: 960px)
-    .containerContainer
-        margin: 0 5%

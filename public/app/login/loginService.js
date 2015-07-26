@@ -6,11 +6,11 @@ angular.module('personalProject')
     this.authObj = $firebaseAuth(ref);
     this.authData = this.authObj.$getAuth();
 
-    this.authObj.$onAuth(function(authData) {
+    this.redirect = function(authData) {
         if(authData) {
-            $location.url('/NewBatch');
+            $location.url('/MyRecipes');
         }
-    }).bind(this);
+    }
 
 
     this.register = function(email, password) {
@@ -20,6 +20,7 @@ angular.module('personalProject')
         }).then(function(userData) {
             console.log('Registered:', userData);
             this.login(email, password);
+            $location.url('/MyRecipes')
         }.bind(this));
     };
 
@@ -29,7 +30,8 @@ angular.module('personalProject')
             password: password
         }).then(function(err, userData) {
             console.log('Logged in:', userData, err);
-        })
-    }
+            $location.url('/MyRecipes')
+        });
+    };
 
 }]);

@@ -14,16 +14,7 @@ angular.module('personalProject')
     $scope.yeastInDb = yeast.data;
 
 
-    $scope.recipe = {
-        grain: $scope.grainInRecipe,
-        hops: $scope.hopsInRecipe,
-        yeast: $scope.yeastInRecipe,
-        srm: $scope.recipeSrm,
-        ibu: $scope.IBU,
-        og: $scope.OG,
-        fg: $scope.FG,
-        abv: $scope.ABV
-    };
+
 
     var srmArr = [];
 
@@ -206,17 +197,25 @@ angular.module('personalProject')
         $scope.showHopsInfo = false;
     };
 
+        if(mainService.authData) {
+            var authData = mainService.authData;
+            var recipeRef = new Firebase(mainService.rootRef + 'users/' + authData.uid +  '/recipes');
+            var newRecipe = $firebaseArray(recipeRef);
+            $scope.recipe = newRecipe;
+            $scope.saveRecipe = function(recipe) {
+                newRecipe.$add({
+                    grain: $scope.grainInRecipe,
+                    hops: $scope.hopsInRecipe,
+                    yeast: $scope.yeastInRecipe,
+                    srm: $scope.recipeSrm,
+                    ibu: $scope.IBU,
+                    og: $scope.OG,
+                    fg: $scope.FG,
+                    abv: $scope.ABV
+                })
+            }
+        }
 
 
-    $scope.saveRecipe = function() {
-        // recipe = $scope.recipe;
-        var ref = new Firebase(mainService.rootRef + 'users/' + mainService.authData.auth.uid + '/recipes');
-        var batch = $scope.recipe;
-
-        batch.$add({data: $scope.recipe}).then(function(resp) {
-            console.log(resp);
-
-        });
-    }
 
 }]);

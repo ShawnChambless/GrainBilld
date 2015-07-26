@@ -1,97 +1,96 @@
-.containerContainer
-    h1(ng-click = 'showGrainInDb = !showGrainInDb') Grain
-    input(ng-model='grainSearchText' ng-show='showGrainInDb' placeholder='Filter grain')
-    .databaseContainer(ng-show='showGrainInDb')
-        h3(ng-repeat='grain in grainInDb | filter:grainSearchText' ng-show='showGrainInDb')
-            span.itemName(ng-click='showDescription = !showDescription') {{grain.name}}<br /> 
-            .itemInfo(ng-show='showDescription')
-                span.item Malt type: 
-                {{grain.type}} malt<br />
-                span.item Origin: 
-                {{grain.origin}}<br /> 
-                span.item Alpha Amaylase: 
-                {{grain.alphaAmylase}}<br /> 
-                span.item Diastatic Power: 
-                {{grain.diastaticPower}}<br /> 
-                span.item Lovibond: 
-                {{grain.lovibond}}L<br /> 
-                span.item Extract %: 
-                {{grain.extractPercent}}%<br /> 
-                span.item Soluble Protein: 
-                {{grain.solubleProtein}}<br /> 
-                span.item Total Protein: 
-                {{grain.totalProtein}}<br /> 
-                span.item Usage %: 
-                {{grain.usage}}%<br /> 
-                span.item Moisture %: 
-                {{grain.moisture}}%<br /> 
-                span.item SG: 
-                {{grain.sg}}<br />
-                span.itemDescription Description: 
-                span.description {{grain.description}} <br />
+h1(ng-click = 'showGrainInDb = !showGrainInDb') Grain
+input(ng-model='grainSearchText' ng-show='showGrainInDb' placeholder='Filter grain')
+.databaseContainer(ng-show='showGrainInDb')
+    h3(ng-repeat='grain in grainInDb | filter:grainSearchText' ng-show='showGrainInDb')
+        span.itemName(ng-click='showDescription = !showDescription') {{grain.name}}<br /> 
+        .itemInfo(ng-show='showDescription')
+            span.item Malt type: 
+            {{grain.type}} malt<br />
+            span.item Origin: 
+            {{grain.origin}}<br /> 
+            span.item Alpha Amaylase: 
+            {{grain.alphaAmylase}}<br /> 
+            span.item Diastatic Power: 
+            {{grain.diastaticPower}}<br /> 
+            span.item Lovibond: 
+            {{grain.lovibond}}L<br /> 
+            span.item Extract %: 
+            {{grain.extractPercent}}%<br /> 
+            span.item Soluble Protein: 
+            {{grain.solubleProtein}}<br /> 
+            span.item Total Protein: 
+            {{grain.totalProtein}}<br /> 
+            span.item Usage %: 
+            {{grain.usage}}%<br /> 
+            span.item Moisture %: 
+            {{grain.moisture}}%<br /> 
+            span.item SG: 
+            {{grain.sg}}<br />
+            span.itemDescription Description: 
+            span.description {{grain.description}} <br />
 
-    h1(ng-click='showHopsInDb = !showHopsInDb') Hops
-    input(ng-model='hopsSearchText' ng-show='showHopsInDb' placeholder='Filter hops')
-    .databaseContainer(ng-show='showHopsInDb')
-        h3(ng-repeat='hop in hopsInDb | filter:hopsSearchText' ng-show='showHopsInDb')
-            span.itemName(ng-click='showDescription = !showDescription') {{hop.name}}<br />
-            .itemInfo(ng-show='showDescription')
-                span.item Origin: 
-                {{hop.origin}}<br />
-                span.item Type: 
-                {{hop.type}}<br />
-                span.item Form: 
-                {{hop.form}}<br />
-                span.item Alpha Acid: 
-                {{hop.alphaAcid}}%<br />
-                span.item Cohumulone: 
-                {{hop.cohumulone}}%<br />
-                span.item Colupulone: 
-                {{hop.colupulone}}%<br />
-                span.item Beta Acid: 
-                {{hop.betaAcid}}%<br />
-                span.item Total Oil: 
-                {{hop.totalOil}}mL/100g<br />
-                span.item Myrcene: 
-                {{hop.myrcene}}% of total oil<br />
-                span.item Humulene: 
-                {{hop.humulene}}% of total oil<br />
-                span.item Humulene Caryophyllene: 
-                {{hop.humuleneCaryophyllene}}% of total oil<br />
-                span.item Linalool: 
-                {{hop.linalool}}%<br />
-                span.item Flavor/Aroma: 
-                {{hop.flavor}}<br />
-                span.item Style: 
-                {{hop.style}}<br />
-                span.item Parentage: 
-                {{hop.parentage}}<br />
-                span.itemDescription Description: 
-                span.description {{hop.description}} <br />
+h1(ng-click='showHopsInDb = !showHopsInDb') Hops
+input(ng-model='hopsSearchText' ng-show='showHopsInDb' placeholder='Filter hops')
+.databaseContainer(ng-show='showHopsInDb')
+    h3(ng-repeat='hop in hopsInDb | filter:hopsSearchText' ng-show='showHopsInDb')
+        span.itemName(ng-click='showDescription = !showDescription') {{hop.name}}<br />
+        .itemInfo(ng-show='showDescription')
+            span.item Origin: 
+            {{hop.origin}}<br />
+            span.item Type: 
+            {{hop.type}}<br />
+            span.item Form: 
+            {{hop.form}}<br />
+            span.item Alpha Acid: 
+            {{hop.alphaAcid}}%<br />
+            span.item Cohumulone: 
+            {{hop.cohumulone}}%<br />
+            span.item Colupulone: 
+            {{hop.colupulone}}%<br />
+            span.item Beta Acid: 
+            {{hop.betaAcid}}%<br />
+            span.item Total Oil: 
+            {{hop.totalOil}}mL/100g<br />
+            span.item Myrcene: 
+            {{hop.myrcene}}% of total oil<br />
+            span.item Humulene: 
+            {{hop.humulene}}% of total oil<br />
+            span.item Humulene Caryophyllene: 
+            {{hop.humuleneCaryophyllene}}% of total oil<br />
+            span.item Linalool: 
+            {{hop.linalool}}%<br />
+            span.item Flavor/Aroma: 
+            {{hop.flavor}}<br />
+            span.item Style: 
+            {{hop.style}}<br />
+            span.item Parentage: 
+            {{hop.parentage}}<br />
+            span.itemDescription Description: 
+            span.description {{hop.description}} <br />
 
-    h1(ng-click='showYeastInDb = !showYeastInDb') Yeast
-    input(ng-model='yeastSearchText' ng-show='showYeastInDb' placeholder='Filter yeast')
-    .databaseContainer(ng-show='showYeastInDb')
-        h3(ng-repeat='item in yeastInDb | filter:yeastSearchText' ng-show='showYeastInDb')
-            span.itemName(ng-click='showDescription = !showDescription') {{item.name}}<br />
-            .itemInfo(ng-show='showDescription')
-                span.item Format: 
-                {{item.format}}<br />
-                span.item Type: 
-                {{item.type}}<br />
-                span.item Origin: 
-                {{item.origin}}<br /> 
-                span.item Minimum Temp: 
-                {{item.minimumTemperature}}°F<br />
-                span.item Maximum Temp: 
-                {{item.maximumTemperature}}°F<br />
-                span.item Flocculation: 
-                {{item.flocculation}}%<br />
-                span.item Minimum Attenuation: 
-                {{item.minimumAttenuation}}%<br />
-                span.item Maximum Attenuation: 
-                {{item.maximumAttenuation}}%<br />
-                span.item Description: 
-                {{item.description}}<br />
-                span.itemDescription Description: 
-                span.description {{item.description}} <br />
+h1(ng-click='showYeastInDb = !showYeastInDb') Yeast
+input(ng-model='yeastSearchText' ng-show='showYeastInDb' placeholder='Filter yeast')
+.databaseContainer(ng-show='showYeastInDb')
+    h3(ng-repeat='item in yeastInDb | filter:yeastSearchText' ng-show='showYeastInDb')
+        span.itemName(ng-click='showDescription = !showDescription') {{item.name}}<br />
+        .itemInfo(ng-show='showDescription')
+            span.item Format: 
+            {{item.format}}<br />
+            span.item Type: 
+            {{item.type}}<br />
+            span.item Origin: 
+            {{item.origin}}<br /> 
+            span.item Minimum Temp: 
+            {{item.minimumTemperature}}°F<br />
+            span.item Maximum Temp: 
+            {{item.maximumTemperature}}°F<br />
+            span.item Flocculation: 
+            {{item.flocculation}}%<br />
+            span.item Minimum Attenuation: 
+            {{item.minimumAttenuation}}%<br />
+            span.item Maximum Attenuation: 
+            {{item.maximumAttenuation}}%<br />
+            span.item Description: 
+            {{item.description}}<br />
+            span.itemDescription Description: 
+            span.description {{item.description}} <br />

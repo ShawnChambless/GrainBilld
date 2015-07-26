@@ -13,7 +13,7 @@
     .recipeIngredientWrapper
         .grainInRecipe
             span.recipeLabel(ng-show='grainInRecipe') Grain
-            div(ng-repeat='grain in grainInRecipe')
+            div(ng-repeat='grain in grainInRecipe' ng-model='grainInRecipe' ng-change='recipe.$save()')
                 .recipe.grainName {{grain.amount}}lbs - {{grain.grain.name}}
                     span(class='octicon octicon-question' ng-click='toggleGrainInfo()')
                 .grainInfo(ng-show='showGrainInfo')
