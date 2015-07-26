@@ -5,15 +5,16 @@ var gulp =      require('gulp'),
     watch =     require('gulp-watch'),
     webserver = require('gulp-webserver'),
     bulkSass =  require('gulp-cssimport'),
+    plumber =   require('gulp-plumber'),
     paths = {
                 jade: ['public/app/**/*.jade'],
                 sass: ['public/styles/main.sass'],
                 scripts: ['public/app/**/*.js']
     };
 
-
 gulp.task('jade', function() {
     return gulp.src(paths.jade)
+        .pipe(plumber())
         .pipe(jade({
             pretty: true
         }))
@@ -22,6 +23,7 @@ gulp.task('jade', function() {
 
 gulp.task('jadeIndex', function() {
     return gulp.src('./*.jade')
+        .pipe(plumber())
         .pipe(jade({
             pretty: true
         }))
@@ -30,6 +32,7 @@ gulp.task('jadeIndex', function() {
 
 gulp.task('sass', function() {
     return gulp.src(paths.sass)
+        .pipe(plumber())
         .pipe(bulkSass())
         .pipe(sass({
             outputStyle: 'expanded'
@@ -39,6 +42,7 @@ gulp.task('sass', function() {
 
 gulp.task('compress', function() {
     return gulp.src(paths.scripts)
+        .pipe(plumber())
         .pipe(uglify())
         .pipe(gulp.dest('./public/production/minifiedJS'));
 });
