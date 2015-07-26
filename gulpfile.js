@@ -57,7 +57,7 @@ gulp.task('webserver', function() {
 gulp.task('watch', function() {
     gulp.watch(paths.jade, ['jade']);
     gulp.watch('index.jade', ['jadeIndex']);
-    gulp.watch(paths.sass, ['sass']);
+    gulp.watch('./public/styles/modules/**/*.sass', ['sass']);
     gulp.watch(paths.scripts, ['compress']);
     console.log('Watching')
 });
