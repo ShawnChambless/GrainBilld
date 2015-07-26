@@ -11,6 +11,7 @@ angular.module('personalProject')
 
 
     this.getRecipes = function() {
+        console.log($firebaseArray(recipeRef.ref()))
          return $firebaseArray(recipeRef.ref());
     };
 

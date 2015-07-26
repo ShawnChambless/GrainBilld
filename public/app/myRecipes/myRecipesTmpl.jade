@@ -2,12 +2,21 @@
 
 .savedRecipesContainer
     .savedRecipesWrapper(ng-repeat='recipe in recipes')
-        .recipeName {{recipe.name}}
-        .recipeGrain(ng-repeat='grains in recipe.grain') {{grains.grain.name}}
-        .recipeHops(ng-repeat='hops in recipe.hops') {{hops.hop.name}}
-        .recipeYeast(ng-repeat='yeast in recipe.yeast') {{yeast.name}}
-        .recipeSRM {{recipe.srm}}
-        .recipeIBU {{recipe.ibu}}
-        .recipeOG {{recipe.og}}
-        .recipeFG {{recipe.fg}}
-        .recipeABV {{recipe.abv}}
+        .recipe.recipeName Name: &nbsp;
+            .recipeItemName {{recipe.name}}
+        .recipe.recipeGrain Grain: &nbsp;
+            .recipeItemName(ng-repeat='grains in recipe.grain track by $index') {{grains.amount}}lbs {{grains.grain.name}}
+        .recipe.recipeHops Hops: &nbsp;
+            .recipeItemName(ng-repeat='hops in recipe.hops track by $index') {{hops.boil}}mins. {{hops.amount}}oz.  {{hops.hop.name}}
+        .recipe.recipeYeast Yeast: &nbsp;
+            .recipeItemName(ng-repeat='yeast in recipe.yeast') {{yeast.name}}
+        .recipe.recipeSRM SRM: &nbsp;
+            .recipeItemName {{recipe.srm}}°L
+        .recipe.recipeIBU IBU: &nbsp;
+            .recipeItemName {{recipe.ibu}}
+        .recipe.recipeOG OG: &nbsp;
+            .recipeItemName {{recipe.og}}
+        .recipe.recipeFG FG: &nbsp;
+            .recipeItemName {{recipe.fg}}
+        .recipe.recipeABV ABV: &nbsp;
+            .recipeItemName {{recipe.abv}}%
