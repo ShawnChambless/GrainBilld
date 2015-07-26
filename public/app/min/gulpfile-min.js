@@ -1,1 +1,0 @@
-var gulp=require("gulp"),webserver=require("gulp-webserver");gulp.task("webserver",function(){gulp.src("app").pipe(webserver({livereload:!0,directoryListing:!0,open:!0,port:1337}))});
