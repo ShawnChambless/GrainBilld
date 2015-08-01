@@ -1,0 +1,30 @@
+{
+  "name": "personalProject",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ShawnChambless/personal-project",
+  "authors": [
+    "Shawn Chambless <smcweb3@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angucomplete-alt": "~1.0.4",
+    "angular-loading-bar": "~0.8.0",
+    "angular-route": "~1.4.3",
+    "jquery": "~2.1.4",
+    "angular": "~1.4.2",
+    "angular-animate": "~1.4.2",
+    "angular-grid": "~2.0.14",
+    "normalize.css": "~3.0.3",
+    "modernizr": "~2.8.3",
+    "octicons": "*"
+  },
+  "resolutions": {
+    "angular": "1.4.3"
+  }
+}
