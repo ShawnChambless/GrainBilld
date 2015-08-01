@@ -136,7 +136,7 @@ input:focus {
 
 @media (min-width: 961px) {
   .titleBar {
-    height: 100px;
+    height: 80px;
     margin: 0 auto;
   }
   .title {
@@ -157,7 +157,7 @@ input:focus {
 
 @media (max-width: 960px) {
   .titleBar {
-    height: 100px;
+    height: 80px;
   }
   .title {
     font-size: 3.5em;
@@ -270,21 +270,8 @@ input#batchSize:focus, input#efficiency:focus {
 }
 
 .ingredientModule {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-align-content: space-around;
-      -ms-flex-line-pack: distribute;
-          align-content: space-around;
-  width: 30%;
-  height: 100%;
-  margin-bottom: -300px;
+  width: 10%;
+  height: 50%;
 }
 
 .grainName, .hopsName, .yeastName {
@@ -313,7 +300,7 @@ input#batchSize:focus, input#efficiency:focus {
 }
 
 .grainBox, .hopsBox, .yeastBox, .waterBox {
-  margin: 0 0 40% 0;
+  margin: 0 0 50% 0;
   color: #fff;
   font-weight: 500;
   font-size: 2em;
@@ -368,12 +355,12 @@ input#batchSize:focus, input#efficiency:focus {
 
 .searchResults .formWrapper {
   width: 60%;
-  top: 230px;
+  top: 225px;
   margin-left: 20%;
   position: absolute;
   width: 60%;
   font-size: 19px;
-  height: 60%;
+  height: 50%;
   max-width: 700px;
   padding: 1%;
   box-shadow: 0 0 3px 2px #999;
@@ -486,11 +473,6 @@ label.grain, label.hops, label.yeast {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 2px solid #3090C7;
-  margin: 20px 0;
-  padding: 0 0 10px 0;
-  width: 100%;
-  max-width: 1200px;
 }
 
 .moduleTitle.batch {
@@ -579,18 +561,6 @@ span.recipeLabel {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
   opacity: 0;
-}
-
-@media (min-width: 1280px) {
-  .preBatchModule {
-    margin: 20px 7%;
-  }
-}
-
-@media (max-width: 960px) {
-  .preBatchModule {
-    margin: 20px 4%;
-  }
 }
 
 h1, .itemDescription, .itemName {
