@@ -19,7 +19,7 @@ gulp.task('jade', function() {
         .pipe(jade({
             pretty: true
         }))
-        .pipe(gulp.dest('./public/production/html'))
+        .pipe(gulp.dest('./public/production/html'));
 });
 
 gulp.task('jadeIndex', function() {
@@ -28,7 +28,7 @@ gulp.task('jadeIndex', function() {
         .pipe(jade({
             pretty: true
         }))
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('sass', function() {
@@ -39,7 +39,7 @@ gulp.task('sass', function() {
             outputStyle: 'expanded'
         }))
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-        .pipe(gulp.dest('./public/styles'))
+        .pipe(gulp.dest('./public/styles'));
 });
 
 gulp.task('compress', function() {
@@ -54,7 +54,7 @@ gulp.task('webserver', function() {
     gulp.src('./')
     .pipe(webserver({
         livereload: true,
-        open: true,
+        open: false,
         port: 1337,
         fallback: 'index.html'
     }));
@@ -65,7 +65,7 @@ gulp.task('watch', function() {
     gulp.watch('index.jade', ['jadeIndex']);
     gulp.watch('./public/styles/modules/**/*.sass', ['sass']);
     gulp.watch(paths.scripts, ['compress']);
-    console.log('Watching')
+    console.log('Watching');
 });
 
 
