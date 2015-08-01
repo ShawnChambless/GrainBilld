@@ -1,10 +1,15 @@
 var app = angular.module('personalProject');
 
-app.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', 'grain', 'hops', 'yeast', function($scope, $http, $q, mainService, grain, hops, yeast) {
+app.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', 'grain', 'hops', 'yeast', '$firebaseAuth', '$firebaseArray', function($scope, $http, $q, mainService, grain, hops, yeast, $firebaseAuth, $firebaseArray) {
 
     $scope.grainsInDb = grain.data;
     $scope.hopsInDb = hops.data;
     $scope.yeastInDb = yeast.data;
+
+    var rootRef = 'https://grainbilld.firebaseio.com/';
+    var ref = new Firebase(rootRef);
+    var authObj = $firebaseAuth(ref);
+    var authData = authObj.$getAuth();
 
     $scope.updateGrainSG = function(updateSG, itemId) {
         mainService.updateSG(updateSG, itemId).then(function(resp) {
@@ -42,6 +47,12 @@ app.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', 'grain', 
         }).then(function(resp) {
             console.log('Added yeast to DB', resp, resp.data);
             $scope.addYeast = '';
-        })
-    }
+        });
+    };
+
+    // $scope.sendToFirebase = function(yeastInDb) {
+    //     var ingredientRef = new Firebase(rootRef + 'ingredients/yeast');
+    //     var newIngredient = $firebaseArray(ingredientRef);
+    //     newIngredient.$add(yeastInDb);
+    // };
 }]);
