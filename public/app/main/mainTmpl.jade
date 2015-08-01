@@ -9,17 +9,14 @@ div (click on the images to see the list of ingredients)
     label(for='efficiency') Efficiency:
     input#efficiency(type='number' ng-model='efficiency')
 .ingredientModule
-    label.grain Grain
-        .grainBox(ng-click= 'rotateGrain(); showGrainFunction()')
-            .boxImage(ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}")
+    .grainBox(ng-click= 'rotateGrain(); showGrainFunction()')
+        .boxImage(ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}")
                     
-    label.hops Hops
-        .hopsBox(ng-click='rotateHops(); showHopsFunction()')
-            .boxImage(ng-class="{'hopsBoxRotate': hopsBoxToggle.rotate}")
+    .hopsBox(ng-click='rotateHops(); showHopsFunction()')
+        .boxImage(ng-class="{'hopsBoxRotate': hopsBoxToggle.rotate}")
         
-    label.yeast  Yeast
-        .yeastBox(ng-click='rotateYeast(); showYeastFunction()')
-            .boxImage(ng-class="{'yeastBoxRotate': yeastBoxToggle.rotate}") 
+    .yeastBox(ng-click='rotateYeast(); showYeastFunction()')
+        .boxImage(ng-class="{'yeastBoxRotate': yeastBoxToggle.rotate}") 
         
 .searchResults  
     .formWrapper(ng-show='showGrainBox')
