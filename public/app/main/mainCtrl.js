@@ -1,6 +1,6 @@
 angular.module('personalProject')
 .controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', '$firebaseAuth', '$firebaseArray', '$firebaseObject', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast, $firebaseAuth, $firebaseArray, $firebaseObject) {
-    $scope.pageTitle = $location.url()
+    $scope.pageTitle = $location.url();
     $scope.showHopsBox = false;
     $scope.showYeastBox = false;
     $scope.showGrainInfo = false;
@@ -12,9 +12,6 @@ angular.module('personalProject')
     $scope.grainInDb = grain.data;
     $scope.hopsInDb = hops.data;
     $scope.yeastInDb = yeast.data;
-
-
-
 
     var srmArr = [];
 
@@ -48,7 +45,7 @@ angular.module('personalProject')
     $scope.showGrainFunction = function() {
         $scope.showGrainBox = !$scope.showGrainBox;
         $scope.showHopsBox = false;
-        $scope.showYeastBox = false
+        $scope.showYeastBox = false;
     };
     $scope.showHopsFunction = function() {
         $scope.showHopsBox = !$scope.showHopsBox;
@@ -83,7 +80,7 @@ angular.module('personalProject')
             mainService.grainInRecipe.push({grain: resp.data[0], amount: $scope.grainWeight});
             $scope.grainSearchText = '';
             $scope.grainInRecipe = mainService.grainInRecipe;
-            console.log(mainService.grainInRecipe)
+            console.log(mainService.grainInRecipe);
             /*===================================================
             =====================================================
                                 Calculate GP
@@ -108,7 +105,7 @@ angular.module('personalProject')
 
             var MCU = (parseFloat((resp.data[0].lovibond * $scope.grainWeight)/$scope.batchSize));
             $scope.recipeSrm = (1.4922*(Math.pow(MCU, 0.6859))).toFixed(1);
-            $scope.OG = ((gpOfGrain * .75 / $scope.batchSize)/1000 + 1).toFixed(3);
+            $scope.OG = ((gpOfGrain * 0.75 / $scope.batchSize)/1000 + 1).toFixed(3);
         });
     };
 
@@ -131,22 +128,22 @@ angular.module('personalProject')
                 if($scope.boilTime === 0) {
                     hopUtilization = 0;
                 } else if ($scope.boilTime > 0 && $scope.boilTime <= 9) {
-                    hopUtilization = .05;
+                    hopUtilization = 0.05;
                 } else if ($scope.boilTime > 9 && $scope.boilTime <= 19) {
-                    hopUtilization = .12;
+                    hopUtilization = 0.12;
                 } else if ($scope.boilTime > 19 && $scope.boilTime <= 29) {
-                    hopUtilization = .15;
+                    hopUtilization = 0.15;
                 } else if ($scope.boilTime > 29 && $scope.boilTime <= 44) {
-                    hopUtilization = .19;
+                    hopUtilization = 0.19;
                 } else if ($scope.boilTime > 44 && $scope.boilTime <= 59) {
-                    hopUtilization = .22;
+                    hopUtilization = 0.22;
                 } else if ($scope.boilTime > 59 && $scope.boilTime <= 74) {
-                    hopUtilization = .24;
+                    hopUtilization = 0.24;
                 } else if ($scope.boilTime > 74) {
-                    hopUtilization = .27;
+                    hopUtilization = 0.27;
                 }
 
-                var AAU = $scope.hopWeight * (resp.data[0].alphaAcid)
+                var AAU = $scope.hopWeight * (resp.data[0].alphaAcid);
 
                 if (!hopsItemToAdd) {
                     IBUOfGrain = AAU * hopUtilization * 74.89 / $scope.batchSize;
@@ -175,7 +172,7 @@ angular.module('personalProject')
             =====================================================*/
 
             $scope.FG = ($scope.OG / ($scope.yeastInRecipe[0].maximumAttenuation/100)/1000 + 1).toFixed(3);
-            $scope.ABV = ((76.08) * ($scope.OG - $scope.FG) / (1.775 - $scope.OG) * ($scope.FG / 0.794)).toFixed(2)
+            $scope.ABV = ((76.08) * ($scope.OG - $scope.FG) / (1.775 - $scope.OG) * ($scope.FG / 0.794)).toFixed(2);
 
         });
     };
@@ -213,8 +210,8 @@ angular.module('personalProject')
                     og: $scope.OG,
                     fg: $scope.FG,
                     abv: $scope.ABV
-                })
-            }
+                });
+            };
         }
 
 
