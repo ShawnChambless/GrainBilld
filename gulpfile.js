@@ -23,12 +23,12 @@ gulp.task('jade', function() {
 });
 
 gulp.task('jadeIndex', function() {
-    return gulp.src('./*.jade')
+    return gulp.src('./public/index.jade')
         .pipe(plumber())
         .pipe(jade({
             pretty: true
         }))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('./public'));
 });
 
 gulp.task('sass', function() {
@@ -51,7 +51,7 @@ gulp.task('compress', function() {
 
 
 gulp.task('webserver', function() {
-    gulp.src('./')
+    gulp.src('./public')
     .pipe(webserver({
         livereload: true,
         open: false,
@@ -62,7 +62,7 @@ gulp.task('webserver', function() {
 
 gulp.task('watch', function() {
     gulp.watch(paths.jade, ['jade']);
-    gulp.watch('index.jade', ['jadeIndex']);
+    gulp.watch('./public/index.jade', ['jadeIndex']);
     gulp.watch('./public/styles/modules/**/*.sass', ['sass']);
     gulp.watch(paths.scripts, ['compress']);
     console.log('Watching');
