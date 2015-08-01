@@ -38,21 +38,22 @@ app.config(function($routeProvider) {
             controller: 'mainCtrl',
             resolve:  {
                     grain: function(mainService) {
-                        return mainService.getGrainsInDb().then(function(grains){
-                            return grains;
+                        return mainService.getGrainsInDb().then(function(resp) {
+                            return resp;
                         });
                     },
                     hops: function(mainService) {
-                        return mainService.getHopsInDb().then(function(hops){
-                            return hops;
+                        return mainService.getHopsInDb().then(function(resp){
+                            return resp;
                         });
                     },
                     yeast: function(mainService) {
-                        return mainService.getYeastInDb().then(function(yeast){
-                            return yeast;
+                        return mainService.getYeastInDb().then(function(resp){
+                            return resp;
                         });
                     }
                 }
+
         })
         .when('/database', {
             templateUrl: 'public/production/html/database/databaseTmpl.html',

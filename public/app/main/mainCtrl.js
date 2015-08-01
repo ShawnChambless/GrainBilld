@@ -1,5 +1,5 @@
 angular.module('personalProject')
-.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', '$firebaseAuth', '$firebaseArray', '$firebaseObject', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast, $firebaseAuth, $firebaseArray, $firebaseObject) {
+.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', '$firebaseAuth', '$firebaseArray', '$firebaseObject', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, $firebaseAuth, $firebaseArray, $firebaseObject, grain, hops, yeast) {
     $scope.pageTitle = $location.url();
     $scope.showHopsBox = false;
     $scope.showYeastBox = false;
@@ -9,9 +9,10 @@ angular.module('personalProject')
     $scope.grainBoxToggle = {rotate: false};
     $scope.hopsBoxToggle = {rotate: false};
     $scope.yeastBoxToggle = {rotate: false};
-    $scope.grainInDb = grain.data;
-    $scope.hopsInDb = hops.data;
-    $scope.yeastInDb = yeast.data;
+    $scope.grainInDb = grain;
+    $scope.hopsInDb = hops;
+    $scope.yeastInDb = yeast;
+
 
     var srmArr = [];
 
@@ -91,7 +92,7 @@ angular.module('personalProject')
                 itemToAdd = ((resp.data[0].sg - 1)*1000 * $scope.grainWeight);
                 gpOfGrain = itemToAdd;
                 console.log('item to add === 0', gpOfGrain, itemToAdd);
-            }else {
+            } else {
                 gpOfGrain = (itemToAdd + ((parseFloat(resp.data[0].sg) - 1)*1000) * $scope.grainWeight);
                 itemToAdd = gpOfGrain;
                 console.log('item to add > 0', gpOfGrain, itemToAdd);

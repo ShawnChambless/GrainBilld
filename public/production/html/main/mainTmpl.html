@@ -28,7 +28,7 @@
       <input type="text" ng-model="grainSearchText" placeholder="Enter grain..." class="grain"/>
       <input type="number" ng-model="grainWeight" placeholder="Pounds" class="grain"/><span ng-click="addGrainToRecipe(grainSearchText)" class="add">Add!</span>
       <div ng-repeat="item in grainInDb | filter:grainSearchText" class="grainSearchResults">
-        <div ng-click="addToGrainSearchText(item)" class="grainName">{{item.name}} <hr /></div>
+        <div ng-click="addToGrainSearchText(grain)" ng-repeat="grain in item" class="grainName">{{grain.name}} <hr /></div>
       </div>
     </form>
   </div>
@@ -39,7 +39,7 @@
         <input type="number" ng-model="hopWeight" placeholder="oz." class="hops"/>
         <input type="number" ng-model="boilTime" placeholder="Boil time..." class="hops"/><span ng-click="addHopsToRecipe(hopsSearchText)" class="add">Add!</span></span>
       <div ng-repeat="item in hopsInDb | filter:hopsSearchText" class="hopsSearchResults">
-        <div ng-click="addToHopsSearchText(item)" class="hopsName">{{item.name}} <hr /></div>
+        <div ng-click="addToHopsSearchText(hops)" ng-repeat="hops in item" class="hopsName">{{hops.name}} <hr /></div>
       </div>
     </form>
   </div>
@@ -48,7 +48,7 @@
       <label class="yeast">Yeast <br /></label>
       <input type="text" ng-model="yeastSearchText" placeholder="Enter yeast..." class="yeast"/><span ng-click="addYeastToRecipe(yeastSearchText)" class="add">Add!</span>
       <div ng-repeat="item in yeastInDb | filter:yeastSearchText" class="yeastSearchResults">
-        <div ng-click="addToYeastSearchText(item)" class="yeastName">{{item.name}} <hr /></div>
+        <div ng-click="addToYeastSearchText(yeast)" ng-repeat="yeast in item" class="yeastName">{{yeast.name}} <hr /></div>
       </div>
     </form>
   </div>
