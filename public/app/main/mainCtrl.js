@@ -1,5 +1,5 @@
 angular.module('personalProject')
-.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', '$firebaseAuth', '$firebaseArray', '$firebaseObject', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, $firebaseAuth, $firebaseArray, $firebaseObject, grain, hops, yeast) {
+.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast) {
     $scope.pageTitle = $location.url();
     $scope.showHopsBox = false;
     $scope.showYeastBox = false;
@@ -9,9 +9,10 @@ angular.module('personalProject')
     $scope.grainBoxToggle = {rotate: false};
     $scope.hopsBoxToggle = {rotate: false};
     $scope.yeastBoxToggle = {rotate: false};
-    $scope.grainInDb = grain;
-    $scope.hopsInDb = hops;
-    $scope.yeastInDb = yeast;
+    
+    $scope.grainInDb = grain.data;
+    $scope.hopsInDb = hops.data;
+    $scope.yeastInDb = yeast.data;
 
 
     var srmArr = [];
