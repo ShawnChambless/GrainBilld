@@ -66,3 +66,4 @@
 <div class="databaseContainer">
   <h3 ng-repeat="item in yeastInDb" ng-show="showYeastInDb"><span class="itemName"> </span>{{item.name}}:<br /><span class="item">Format: </span>{{item.format}}<br /><span class="item">Type: </span>{{item.type}}<br /><span class="item">Origin: </span>{{item.origin}}<br /> <span class="item">Minimum Temp: </span>{{item.minimumTemperature}}°F<br /><span class="item">Maximum Temp: </span>{{item.maximumTemperature}}°F<br /><span class="item">Flocculation: </span>{{item.flocculation}}%<br /><span class="item">Minimum Attenuation: </span>{{item.minimumAttenuation}}%<br /><span class="item">Maximum Attenuation: </span>{{item.maximumAttenuation}}%<br /><span class="item">Description: </span>{{item.description}}<br /></h3>
 </div>
+<button ng-click="sendToFirebase(grainsInDb)">SEND IT</button>
