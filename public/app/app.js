@@ -1,19 +1,18 @@
-var app = angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt', 'ngAnimate', 'firebase']);
-
-app.config(function($routeProvider) {
+angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt', 'ngAnimate'])
+.config(['$routeProvider', function($routeProvider) {
 
 
     $routeProvider
         .when('/login', {
-            templateUrl: 'public/production/html/login/loginTmpl.html',
+            templateUrl: 'production/html/login/loginTmpl.html',
             controller: 'loginCtrl'
         })
         .when('/MyRecipes', {
-            templateUrl: 'public/production/html/myRecipes/myRecipesTmpl.html',
+            templateUrl: 'production/html/myRecipes/myRecipesTmpl.html',
             controller: 'recipeCtrl'
         })
         .when('/IngredientInfo', {
-            templateUrl: 'public/app/ingredientInfo/ingredientInfoTmpl.html',
+            templateUrl: 'production/html/ingredientInfo/ingredientInfoTmpl.html',
             controller: 'ingredientInfoCtrl',
             resolve: {
                 grain: function(mainService) {
@@ -34,7 +33,7 @@ app.config(function($routeProvider) {
             }
         })
         .when('/NewBatch', {
-            templateUrl: 'public/production/html/main/mainTmpl.html',
+            templateUrl: 'production/html/main/mainTmpl.html',
             controller: 'mainCtrl',
             resolve:  {
                     grain: function(mainService) {
@@ -56,7 +55,7 @@ app.config(function($routeProvider) {
 
         })
         .when('/database', {
-            templateUrl: 'public/production/html/database/databaseTmpl.html',
+            templateUrl: 'production/html/database/databaseTmpl.html',
             controller: 'databaseCtrl',
             resolve: {
                 grain: function(mainService) {
@@ -76,9 +75,9 @@ app.config(function($routeProvider) {
                 }
             }
         })
-        .otherwise('/NewBatch')
-});
-app.config(function(cfpLoadingBarProvider) {
+        .otherwise('/NewBatch');
+}])
+.config(function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.latencyThreshold = 10;
     cfpLoadingBarProvider.includeSpinner = false;
 });
