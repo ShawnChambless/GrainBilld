@@ -1,13 +1,16 @@
 
-<div ng-controller="loginCtrl" class="loginWrapper">
-  <form ng-submit="register(newUser)" class="registerForm">
-    <input type="email" ng-model="newUser.email" placeholder="Email..."/>
-    <input type="password" ng-model="newUser.password" placeholder="Password..."/>
-    <input type="submit" ng-click="register(newUser); redirect()" value="Register Submit"/>
+<div class="loginWrapper">
+  <form class="loginForm">
+    <input type="email" ng-model="email" placeholder="Email..."/>
+    <input type="password" ng-model="password" placeholder="Password..."/>
+    <input type="submit" ng-click="login(email, password)" value="Submit"/>
   </form>
-  <form ng-submit="login(user)" class="loginForm">
-    <input type="email" ng-model="user.email" placeholder="Email..."/>
-    <input type="password" ng-model="user.password" placeholder="Password..."/>
-    <input type="submit" ng-click="login(user.email, user.password); redirect()" value="Submit"/>
+  <form class="registerForm">
+    <input type="text" ng-model="firstName" placeholder="FIRST NAME..."/>
+    <input type="text" ng-model="lastName" placeholder="LAST NAME..."/>
+    <input type="email" ng-model="email" placeholder="Email..."/>
+    <input type="password" ng-model="password" placeholder="Password..."/>
+    <input type="password" ng-model="passwordConfirm" placeholder="Password..."/>
+    <input type="submit" ng-click="register(firstName, lastName, email, password, passwordConfirm)" value="Submit"/>
   </form>
 </div>
