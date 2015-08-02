@@ -50,15 +50,15 @@ gulp.task('compress', function() {
 });
 
 
-gulp.task('webserver', function() {
-    gulp.src('./public')
-    .pipe(webserver({
-        livereload: true,
-        open: false,
-        port: 1337,
-        fallback: 'index.html'
-    }));
-});
+// gulp.task('webserver', function() {
+//     gulp.src('./public')
+//     .pipe(webserver({
+//         livereload: true,
+//         open: false,
+//         port: 1337,
+//         fallback: 'index.html'
+//     }));
+// });
 
 gulp.task('watch', function() {
     gulp.watch(paths.jade, ['jade']);
@@ -69,4 +69,4 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', ['jade', 'jadeIndex', 'sass', 'compress', 'watch', 'webserver']);
+gulp.task('default', ['jade', 'jadeIndex', 'sass', 'compress', 'watch']);
