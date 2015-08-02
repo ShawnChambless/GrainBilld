@@ -1,7 +1,7 @@
 var express =       require('express'),
     session =       require('express-session'),
     mongoose =      require('mongoose'),
-    passport =      require('passport'),
+    passport =      require('./api/services/passport.js'),
     userCtrl =      require('./api/controllers/users/userCtrl'),
     recipeCtrl =    require('./api/controllers/recipes/recipesCtrl'),
     bodyParser =    require('body-parser'),
