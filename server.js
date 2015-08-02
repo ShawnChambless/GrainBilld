@@ -1,15 +1,17 @@
 var express =       require('express'),
-    app = express(),
     session =       require('express-session'),
     mongoose =      require('mongoose'),
     passport =      require('passport'),
-    UserCtrl =      require('./api/controllers/users/userCtrl'),
-    port = 8081,
+    userCtrl =      require('./api/controllers/users/userCtrl'),
+    recipeCtrl =    require('./api/controllers/recipes/recipesCtrl'),
     bodyParser =    require('body-parser'),
     grainCtrl =     require('./api/controllers/database/grainCtrl'),
     hopsCtrl =      require('./api/controllers/database/hopsCtrl'),
     yeastCtrl =     require('./api/controllers/database/yeastCtrl'),
-    cors =          require('cors');
+    cors =          require('cors'),
+    port = 8081,
+    app = express();
+
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -30,23 +32,29 @@ app.use(passport.session());
       return res.send('logged out');
     });
 
-    // app.post(   '/api/users',          userCtrl.create );
-    // app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
-    // app.get(    '/api/user/',          userCtrl.getCurrentUser);
-    // app.put(    '/api/users/:user_id', userCtrl.update );
-    // app.delete( '/api/users/:user_id', userCtrl.remove );
+    //User endpoints
 
+    app.post(   '/api/users',          userCtrl.create );
+    app.get(    '/api/user/',          userCtrl.getCurrentUser);
+    app.put(    '/api/users/:user_id', userCtrl.update );
+    app.delete( '/api/users/:user_id', userCtrl.remove );
 
+    //Recipe endpoints
 
-    app.get('/database/ingredients/grain', grainCtrl.getGrain);
-    app.post('/database/ingredients/grain', grainCtrl.addGrain);
-    app.put('/database/ingredients/grain/:_id', grainCtrl.updateGrain);
+    app.post(   '/api/recipes',   recipeCtrl.addRecipe);
+    app.get(    '/api/recipes',   recipeCtrl.retrieveRecipes);
+    app.put(    'api/recipes',    recipeCtrl.editRecipe);
+    app.delete( '/api/recipes',   recipeCtrl.removeRecipe);
 
-    app.get('/database/ingredients/hops', hopsCtrl.getHops);
-    app.post('/database/ingredients/hops', hopsCtrl.addHops);
+    //Database endpoints
 
-    app.get('/database/ingredients/yeast', yeastCtrl.getYeast);
-    app.post('/database/ingredients/yeast', yeastCtrl.addYeast);
+    app.get(    '/database/ingredients/grain',      grainCtrl.getGrain);
+    app.post(   '/database/ingredients/grain',      grainCtrl.addGrain);
+    app.put(    '/database/ingredients/grain/:_id', grainCtrl.updateGrain);
+    app.get(    '/database/ingredients/hops',       hopsCtrl.getHops);
+    app.post(   '/database/ingredients/hops',       hopsCtrl.addHops);
+    app.get(    '/database/ingredients/yeast',      yeastCtrl.getYeast);
+    app.post(   '/database/ingredients/yeast',      yeastCtrl.addYeast);
 
 
 app.listen(port, function() {
