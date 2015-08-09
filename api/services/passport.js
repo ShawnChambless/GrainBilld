@@ -1,43 +1,52 @@
 var passport          = require( 'passport' ) ,
     LocalStrategy     = require( 'passport-local' ).Strategy ,
-    userCtrl          = require( '../controllers/users/userCtrl.js' ) ;
-    // mongoose          = require( 'mongoose' ) ,
-    // User              = mongoose.model('User', require('../models/userSchema.js')) ;
+    userCtrl          = require( '../controllers/users/userCtrl.js' ) ,
+    mongoose          = require( 'mongoose' ) ,
+    User              = mongoose.model('User', require('../models/users/userModel.js')) ,
+    bcrypt            = require( 'bcryptjs' ) ,
+    createHash        = function(password){ return bcrypt.hashSync(password); } ,
+    checkHash         = function(password, hash){ return bcrypt.compareSync(password, hash); } ;
 
 // Passport Session Serialization
-passport.serializeUser(   function(user, done) { done(null, user); });
-passport.deserializeUser( function(obj, done)  { done(null, obj); });
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+passport.deserializeUser(function(_id, done) {
+  User.findById(_id, function(err, user) {
+    done(err, user);
+  });
+});
 
 // Passport Strategies
-// Creation of req.qpromise in both of these strategies is for 'q' promise functionality in userCtrl.js
 passport.use('local-signup', new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
   passReqToCallback : true
 }, function(req, email, password, done) {
   // FIND OR CREATE USER BY EMAIL AND PASSWORD
-  req.qpromise = true;
-  userCtrl.retrieveOne(req).then(function(user, err) {
-    console.log('user: ', user);
-    console.log('err: ', err);
-    if (err){
-      console.log('Error in SignUp: ' + err);
-      return done(err);
-    }
+  User.findOne({ "email": email })
+  .exec(function(err, user){
+    if (err) { return done(err); }
     else if (user) {
       console.log('User already exists with email: ' + email);
       return done(null, 'User already exists with email: ' + email);
-      // return done(null, false, req.flash('message','User Already Exists'));
-    } else {
-      userCtrl.create(req).then(
-        function(newUser){
-          console.log('User Registration succesful');
-          return done(null, newUser);
-        }, function(createErr){
+    }
+    else {
+      var newUser = new User();
+      newUser.firstName = req.body.firstName;
+      newUser.lastName  = req.body.lastName;
+      newUser.email     = req.body.email;
+      newUser.password  = createHash(req.body.password);
+      newUser.save(function(createErr, createdUser) {
+        if (createErr) {
           console.log('Error in Saving user: ' + createErr);
           return done(createErr);
+          // else {return res.status(500).json(err);}
         }
-      );
+        console.log('User Registration succesful');
+        return done(null, createdUser);
+        // else {return res.status(200).json(createdUser);}
+      });
     }
   });
 }));
@@ -46,15 +55,13 @@ passport.use('local-login', new LocalStrategy({
   passwordField: 'password',
   passReqToCallback : true
 }, function(req, email, password, done) {
-  req.qpromise = true;
-  console.log(req.body);
-  userCtrl.retrieveOne(req).then(
-    function(user) {
-      return done(null, user);
-    }, function(retrieveError) {
-      return done(retrieveError);
-    }
-  );
+  User.findOne({ "email": email })
+  .exec(function(err, user) {
+    if (err) return done(err);
+    else if (!user) return done(null, false);
+    else if (checkHash(password, user.password)) return done(null, user);
+    return done(null, 'Invalid Password');
+  });
 }));
 
 module.exports = passport;

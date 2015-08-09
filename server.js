@@ -12,11 +12,14 @@ var express =       require('express'),
     port = 8081,
     app = express();
 
-
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
-
+app.use(session({
+    secret: 'JESUS-MakEs-really-good-beer',
+    resave: 'false',
+    saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -29,7 +32,6 @@ app.use(passport.session());
     app.get('/auth/logout', function(req, res){
       req.logout();
       res.redirect('/');
-      return res.send('logged out');
     });
 
     //User endpoints
