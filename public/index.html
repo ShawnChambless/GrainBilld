@@ -13,7 +13,8 @@
         <div class="title">Grain Billd<span class="mega-octicon octicon-beer"></span></div></a><a ng-href="/#/NewBatch">
         <div class="link">New Batch<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/IngredientInfo">
         <div class="link">Ingredient Info<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/MyRecipes">
-        <div class="link">My Recipes<span class="octicon octicon-arrow-right"></span></div></a></div>
+        <div class="link">My Recipes<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/auth/logout">
+        <div class="link">Logout</div></a></div>
     <div ng-controller="loginCtrl" class="authWrapper">
       <div class="authData">{{authData}}</div>
       <div class="loginBtn"><a ng-show="showLogin" ng-href="/#/login">
@@ -22,10 +23,10 @@
       </div>
     </div>
     <div class="container">
-      <ng-view>   </ng-view>
+      <ui-view>   </ui-view>
     </div>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
     <script src="bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>

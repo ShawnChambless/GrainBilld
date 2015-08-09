@@ -1,8 +1,26 @@
 angular.module('personalProject')
-.service('loginService', ['$location', '$http', function($location, $http) {
+.service('loginService', ['$http', '$q', function($http, $q) {
+
+    var currUser = null;
+    this.currentUser = function(){ return currUser; };
+
+    this.getCurrentUser = function() {
+        var dfd = $q.defer();
+        $http({
+            method: 'GET',
+            url:    '/api/user/'
+        }).success(function(user) {
+            currUser = user;
+            dfd.resolve(user);
+        }).error(function(err) {
+            dfd.reject(err);
+        });
+        return dfd.promise;
+    };
 
     this.register = function(firstName, lastName, email, password) {
-        return $http({
+        var dfd = $q.defer();
+        $http({
             method: 'POST',
             url:    '/auth/local/signup',
             data: {
@@ -12,14 +30,15 @@ angular.module('personalProject')
                 password:   password
             }
         }).then(function(resp) {
-            this.login(email, password);
-            console.log(resp.data);
-            return resp.data;
-        }.bind(this));
+            console.log('Registered from sevice', resp.data);
+            dfd.resolve(resp.data);
+        });
+        return dfd.promise;
     };
 
     this.login = function(email, password) {
-        return $http({
+        var dfd = $q.defer();
+        $http({
             method: 'POST',
             url: '/auth/local/login',
             data: {
@@ -27,19 +46,12 @@ angular.module('personalProject')
                 password:   password
             }
         }).then(function(resp) {
-            console.log(resp.data);
-            return resp.data;
+            currUser = resp.data;
+            dfd.resolve(resp.data);
+        }, function(err) {
+            dfd.reject(err);
         });
-    };
-
-    this.getCurrentUser = function() {
-        return $http({
-            method: 'GET',
-            url:    '/api/user'
-        }).then(function(resp) {
-            console.log(resp.data);
-            return resp.data;
-        });
+        return dfd.promise;
     };
 
 }]);

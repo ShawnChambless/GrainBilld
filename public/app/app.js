@@ -1,20 +1,41 @@
-angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomplete-alt', 'ngAnimate'])
-.config(['$routeProvider', function($routeProvider) {
+angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomplete-alt', 'ngAnimate'])
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
+    var isLoggedIn = function(loginService, $state) {
+        return loginService.getCurrentUser().then(function(user) {
+            if(!loginService.currentUser()) $state.go('login');
+            return user;
+        });
+    };
 
-    $routeProvider
-        .when('/login', {
+    $stateProvider
+        .state('login', {
+            url: '/login',
             templateUrl: 'production/html/login/loginTmpl.html',
-            controller: 'loginCtrl'
+            controller: 'loginCtrl',
+            resolve: {
+                sessionLogin: function(loginService, $state) {
+                    loginService.getCurrentUser().then(function(user) {
+                        if(loginService.currentUser()) $state.go('NewBatch');
+                        return user;
+                    });
+                }
+            }
         })
-        .when('/MyRecipes', {
+        .state('MyRecipes', {
+            url: '/MyRecipes',
             templateUrl: 'production/html/myRecipes/myRecipesTmpl.html',
-            controller: 'recipeCtrl'
+            controller: 'recipeCtrl',
+            resolve: {
+                currentUser: isLoggedIn
+            }
         })
-        .when('/IngredientInfo', {
+        .state('IngredientInfo', {
+            url: '/IngredientInfo',
             templateUrl: 'production/html/ingredientInfo/ingredientInfoTmpl.html',
             controller: 'ingredientInfoCtrl',
             resolve: {
+                currentUser: isLoggedIn,
                 grain: function(mainService) {
                     return mainService.getGrainsInDb().then(function(grains){
                         return grains;
@@ -32,10 +53,12 @@ angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomple
                 }
             }
         })
-        .when('/NewBatch', {
+        .state('NewBatch', {
+            url: '/NewBatch',
             templateUrl: 'production/html/main/mainTmpl.html',
             controller: 'mainCtrl',
             resolve:  {
+                currentUser: isLoggedIn,
                     grain: function(mainService) {
                         return mainService.getGrainsInDb().then(function(resp) {
                             return resp;
@@ -54,7 +77,8 @@ angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomple
                 }
 
         })
-        .when('/database', {
+        .state('database', {
+            url: '/database',
             templateUrl: 'production/html/database/databaseTmpl.html',
             controller: 'databaseCtrl',
             resolve: {
@@ -74,10 +98,11 @@ angular.module('personalProject', ['angular-loading-bar', 'ngRoute', 'angucomple
                     });
                 }
             }
-        })
-        .otherwise('/NewBatch');
+        });
+
+        $urlRouterProvider.otherwise('/login');
 }])
-.config(function(cfpLoadingBarProvider) {
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.latencyThreshold = 10;
     cfpLoadingBarProvider.includeSpinner = false;
-});
+}]);
