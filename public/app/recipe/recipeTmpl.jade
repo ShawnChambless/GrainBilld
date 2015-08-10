@@ -7,13 +7,13 @@
         span.item(ng-show='OG') {{OG}} OG
         span.item(ng-show='FG') {{FG}} FG
         span.item(ng-show='ABV') {{ABV}} ABV
-        .add(ng-show='recipeSrm' ng-click='saveRecipe($scope.recipeName, $scope.recipeSrm, $scope.IBU, $scope.OG, $scope.FG, $scope.ABV)') Save!
+        .add(ng-show='ABV' ng-click='saveRecipe(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm)') Save!
                 
 .batchModule
     .recipeIngredientWrapper
         .grainInRecipe
             span.recipeLabel(ng-show='grainInRecipe') Grain
-            div(ng-repeat='grain in grainInRecipe' ng-model='grainInRecipe' ng-change='recipe.$save()')
+            div(ng-repeat='grain in grainInRecipe')
                 .recipe.grainName {{grain.amount}}lbs - {{grain.grain.name}}
                     span(class='octicon octicon-question' ng-click='toggleGrainInfo()')
                 .grainInfo(ng-show='showGrainInfo')
