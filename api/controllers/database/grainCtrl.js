@@ -1,4 +1,5 @@
-var Grain = require('../../models/database/grainModel');
+var mongoose = require('mongoose'),
+    Grain = mongoose.model('Grain', require('../../models/database/grainModel'));
 
 module.exports = {
     addGrain: function(req, res) {
@@ -23,4 +24,4 @@ module.exports = {
                 return res.send(resp);
         });
     }
-}
+};

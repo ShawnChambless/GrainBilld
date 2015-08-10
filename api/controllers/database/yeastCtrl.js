@@ -1,4 +1,5 @@
-var Yeast = require('../../models/database/yeastModel');
+var mongoose = require('mongoose'),
+    Yeast = mongoose.model('Yeast', require('../../models/database/yeastModel'));
 
 module.exports = {
     addYeast: function(req, res) {

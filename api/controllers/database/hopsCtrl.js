@@ -1,4 +1,5 @@
-var Hops = require('../../models/database/hopsModel');
+var mongoose = require('mongoose'),
+    Hops = mongoose.model('Hops', require('../../models/database/hopsModel'));
 
 module.exports = {
     addHops: function(req, res) {
@@ -16,4 +17,4 @@ module.exports = {
                 return res.send(resp);
         });
     }
-}
+};
