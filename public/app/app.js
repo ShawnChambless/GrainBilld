@@ -27,7 +27,12 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
             templateUrl: 'production/html/myRecipes/myRecipesTmpl.html',
             controller: 'recipeCtrl',
             resolve: {
-                currentUser: isLoggedIn
+                currentUser: isLoggedIn,
+                retrieveRecipes: function(recipeService) {
+                    return recipeService.getRecipes().then(function(resp) {
+                        return resp.data;
+                    });
+                }
             }
         })
         .state('IngredientInfo', {
