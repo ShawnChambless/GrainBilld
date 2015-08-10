@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var yeastSchema = new mongoose.Schema({
+var yeastSchema = {
     name:               {type: String, required: true},
     brand:              {type: String, required: true},
     format:             {type: String, required: true},
@@ -12,6 +12,6 @@ var yeastSchema = new mongoose.Schema({
     minimumAttenuation: {type: Number},
     maximumAttenuation: {type: Number},
     description:        {type: String}
-});
+};
 
-module.exports = mongoose.model('yeast', yeastSchema);
+module.exports = new mongoose.Schema( yeastSchema );

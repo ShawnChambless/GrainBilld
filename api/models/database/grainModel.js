@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var grainSchema = new mongoose.Schema({
+var grainSchema = {
     name:           {type: String, minlength: 1, required: true},
     type:           {type: String, minlength: 1, required: true},
     origin:         {type: String, default: 'N/A'},
@@ -14,6 +14,6 @@ var grainSchema = new mongoose.Schema({
     moisture:       {type: String, default: 0},
     sg:             {type: Number, default: 0},
     description:    {type: String, default: 'N/A'}
-});
+};
 
-module.exports = mongoose.model('grain', grainSchema);
+module.exports = new mongoose.Schema( grainSchema );

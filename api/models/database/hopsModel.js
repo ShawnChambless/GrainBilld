@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var hopsSchema = new mongoose.Schema({
+var hopsSchema = {
     name:                   {type: String, required: true},
     origin:                 {type: String, required: true},
     type:                   {type: String, default: 'N/A'},
@@ -16,6 +16,6 @@ var hopsSchema = new mongoose.Schema({
     style:                  {type: String, default: 'N/A'},
     parentage:              {type: String, default: 'N/A'},
     description:            {type: String, default: 'N/A'}
-});
+};
 
-module.exports = mongoose.model('hops', hopsSchema);
+module.exports = new mongoose.Schema( hopsSchema );
