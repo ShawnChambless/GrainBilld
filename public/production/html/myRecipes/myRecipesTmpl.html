@@ -6,10 +6,13 @@
       <div class="recipeItemName">{{recipe.name}}</div>
     </div>
     <div class="recipe recipeGrain">Grain: &nbsp;
-      <div ng-repeat="grains in recipe.grain track by $index" class="recipeItemName">{{grains.amount}}lbs {{grains.grain.name}}</div>
+      <div ng-repeat="weight in recipe.grainAmount" class="recipeItemName">{{weight}}lbs &nbsp;</div>
+      <div ng-repeat="grains in recipe.grain" class="recipeItemName">{{grains.name}}</div>
     </div>
     <div class="recipe recipeHops">Hops: &nbsp;
-      <div ng-repeat="hops in recipe.hops track by $index" class="recipeItemName">{{hops.boil}}mins. {{hops.amount}}oz.  {{hops.hop.name}}</div>
+      <div ng-repeat="time in recipe.boilTime" class="recipeItemName">{{time}}mins. &nbsp;</div>
+      <div ng-repeat="weight in recipe.hopsAmount" class="recipeItemName">{{weight}}oz. &nbsp;</div>
+      <div ng-repeat="hops in recipe.hops" class="recipeItemName">{{hops.name}}</div>
     </div>
     <div class="recipe recipeYeast">Yeast: &nbsp;
       <div ng-repeat="yeast in recipe.yeast" class="recipeItemName">{{yeast.name}}</div>

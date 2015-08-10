@@ -4,13 +4,13 @@
   <div class="recipeInfoBox"><span ng-show="recipeSrm" class="item">
        
       {{recipeSrm}} SRM </span><span ng-show="IBU" class="item">{{IBU}} IBU</span><span ng-show="OG" class="item">{{OG}} OG</span><span ng-show="FG" class="item">{{FG}} FG</span><span ng-show="ABV" class="item">{{ABV}} ABV</span>
-    <div ng-show="recipeSrm" ng-click="saveRecipe($scope.recipeName, $scope.recipeSrm, $scope.IBU, $scope.OG, $scope.FG, $scope.ABV)" class="add">Save!</div>
+    <div ng-show="ABV" ng-click="saveRecipe(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm)" class="add">Save!</div>
   </div>
 </div>
 <div class="batchModule">
   <div class="recipeIngredientWrapper">
     <div class="grainInRecipe"><span ng-show="grainInRecipe" class="recipeLabel">Grain</span>
-      <div ng-repeat="grain in grainInRecipe" ng-model="grainInRecipe" ng-change="recipe.$save()">
+      <div ng-repeat="grain in grainInRecipe">
         <div class="recipe grainName">{{grain.amount}}lbs - {{grain.grain.name}}<span ng-click="toggleGrainInfo()" class="octicon octicon-question"></span></div>
         <div ng-show="showGrainInfo" class="grainInfo">{{grain.grain.description}} <br /><span class="item">Type: </span>{{grain.grain.type}} <span class="item">SRM: </span>{{grain.grain.lovibond}}°L</div>
       </div>

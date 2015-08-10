@@ -1,1 +1,1 @@
-angular.module("personalProject").service("recipeService",["$firebaseArray","$firebaseAuth",function(e,t){this.rootRef="https://grainbilld.firebaseio.com/",this.ref=new Firebase(this.rootRef),this.authObj=t(this.ref),this.authData=this.authObj.$getAuth();var i=this.authData,r=new Firebase(this.rootRef+"users/"+i.uid+"/recipes");this.getRecipes=function(){return console.log(e(r.ref())),e(r.ref())}}]);
+angular.module("personalProject").service("recipeService",["$http",function(e){this.getRecipes=function(){return e({method:"GET",url:"http://localhost:8081/api/recipes"})}}]);
