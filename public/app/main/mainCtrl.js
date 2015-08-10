@@ -1,19 +1,22 @@
 angular.module('personalProject')
-.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast) {
+.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', 'currentUser', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast, currentUser) {
     $scope.pageTitle = $location.url();
-    $scope.showHopsBox = false;
-    $scope.showYeastBox = false;
-    $scope.showGrainInfo = false;
-    $scope.showHopsInfo = false;
-    $scope.showYeastInfo = false;
-    $scope.grainBoxToggle = {rotate: false};
-    $scope.hopsBoxToggle = {rotate: false};
-    $scope.yeastBoxToggle = {rotate: false};
-    
-    $scope.grainInDb = grain.data;
-    $scope.hopsInDb = hops.data;
-    $scope.yeastInDb = yeast.data;
+    $scope.showHopsBox      = false;
+    $scope.showYeastBox     = false;
+    $scope.showGrainInfo    = false;
+    $scope.showHopsInfo     = false;
+    $scope.showYeastInfo    = false;
+    $scope.grainBoxToggle   = {rotate: false};
+    $scope.hopsBoxToggle    = {rotate: false};
+    $scope.yeastBoxToggle   = {rotate: false};
 
+    $scope.grainInDb    = grain.data;
+    $scope.hopsInDb     = hops.data;
+    $scope.yeastInDb    = yeast.data;
+
+    $scope.grainInRecipe    = [];
+    $scope.hopsInRecipe     = [];
+    $scope.yeastInRecipe    = [];
 
     var srmArr = [];
 
@@ -79,10 +82,11 @@ angular.module('personalProject')
             $scope.OG = 1.000;
         }
         mainService.getGrainsInDb(grainSearchText).then(function(resp) {
-            mainService.grainInRecipe.push({grain: resp.data[0], amount: $scope.grainWeight});
+            mainService.grainInRecipe.push(resp.data[0]._id);
+            mainService.grainAmount.push($scope.grainWeight);
             $scope.grainSearchText = '';
-            $scope.grainInRecipe = mainService.grainInRecipe;
-            console.log(mainService.grainInRecipe);
+            $scope.grainInRecipe.push({grain: resp.data[0], amount: $scope.grainWeight});
+            console.log(resp, $scope.grainInRecipe, mainService.grainInRecipe);
             /*===================================================
             =====================================================
                                 Calculate GP
@@ -92,11 +96,9 @@ angular.module('personalProject')
             if (!itemToAdd) {
                 itemToAdd = ((resp.data[0].sg - 1)*1000 * $scope.grainWeight);
                 gpOfGrain = itemToAdd;
-                console.log('item to add === 0', gpOfGrain, itemToAdd);
             } else {
                 gpOfGrain = (itemToAdd + ((parseFloat(resp.data[0].sg) - 1)*1000) * $scope.grainWeight);
                 itemToAdd = gpOfGrain;
-                console.log('item to add > 0', gpOfGrain, itemToAdd);
             }
 
             /*===================================================
@@ -115,10 +117,11 @@ angular.module('personalProject')
     var hopsItemToAdd;
     $scope.addHopsToRecipe = function(hopsSearchText) {
         mainService.getHopsInDb(hopsSearchText).then(function(resp) {
-            mainService.hopsInRecipe.push({hop: resp.data[0], amount: $scope.hopWeight, boil: $scope.boilTime});
-            console.log('Added Hops', mainService.hopsInRecipe);
+            mainService.hopsInRecipe.push(resp.data[0]._id);
+            mainService.hopsAmount.push($scope.hopWeight);
+            mainService.boilTime.push($scope.boilTime);
             $scope.hopsSearchText = '';
-            $scope.hopsInRecipe = mainService.hopsInRecipe;
+            $scope.hopsInRecipe.push({hop: resp.data[0], amount: $scope.hopWeight, boil: $scope.boilTime});
 
             /*==================================================
             ====================================================
@@ -162,10 +165,10 @@ angular.module('personalProject')
 
     $scope.addYeastToRecipe = function(yeastSearchText) {
         mainService.getYeastInDb(yeastSearchText).then(function(resp) {
-            mainService.yeastInRecipe.push(resp.data[0]);
-            console.log('Added yeast', resp);
+            mainService.yeastInRecipe.push(resp.data[0]._id);
+            console.log(mainService.grainInRecipe, mainService.hopsInRecipe, mainService.yeastInRecipe, mainService.hopsAmount, mainService.grainAmount);
             $scope.yeastSearchText = '';
-            $scope.yeastInRecipe = mainService.yeastInRecipe;
+            $scope.yeastInRecipe.push(resp.data[0]);
 
             /*===================================================
             =====================================================
@@ -196,26 +199,26 @@ angular.module('personalProject')
         $scope.showHopsInfo = false;
     };
 
-        if(mainService.authData) {
-            var authData = mainService.authData;
-            var recipeRef = new Firebase(mainService.rootRef + 'users/' + authData.uid +  '/recipes');
-            var newRecipe = $firebaseArray(recipeRef);
-            $scope.recipe = newRecipe;
-            $scope.saveRecipe = function(recipe) {
-                newRecipe.$add({
-                    name: $scope.recipeName,
-                    grain: $scope.grainInRecipe,
-                    hops: $scope.hopsInRecipe,
-                    yeast: $scope.yeastInRecipe,
-                    srm: $scope.recipeSrm,
-                    ibu: $scope.IBU,
-                    og: $scope.OG,
-                    fg: $scope.FG,
-                    abv: $scope.ABV
-                });
-            };
-        }
-
+    $scope.saveRecipe = function(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm) {
+        // for (var prop in $scope.grainInRecipe.data) {
+        //     for(var val in prop) {
+        //         grain = val._id;
+        //     }
+        // }
+        // for (var prop2 in $scope.hopsInRecipe.data) {
+        //     for(var val2 in prop) {
+        //         hops = val2._id;
+        //     }
+        // }
+        // for (var prop3 in $scope.yeastInRecipe.data) {
+        //     for(var val3 in prop) {
+        //         yeast = val3._id;
+        //     }
+        // }
+        mainService.saveRecipe(grain, hops, yeast, $scope.recipeName, $scope.batchSize, $scope.efficiency, $scope.IBU, $scope.OG, $scope.FG, $scope.ABV, $scope.recipeSrm, currentUser).then(function(resp) {
+            console.log(resp);
+        });
+    };
 
 
 }]);

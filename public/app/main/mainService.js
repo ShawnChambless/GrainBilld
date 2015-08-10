@@ -1,9 +1,12 @@
 var app = angular.module('personalProject');
 
 app.service('mainService',['$http', '$q', function($http, $q) {
-    this.grainInRecipe = [];
-    this.hopsInRecipe = [];
-    this.yeastInRecipe = [];
+    this.grainInRecipe  = [];
+    this.hopsInRecipe   = [];
+    this.yeastInRecipe  = [];
+    this.grainAmount    = [];
+    this.hopsAmount     = [];
+    this.boilTime       = [];
 
     this.getGrainsInDb = function(grainName) {
         if (!grainName) {
@@ -60,6 +63,30 @@ app.service('mainService',['$http', '$q', function($http, $q) {
             url: 'http://localhost:8081/database/ingredients/grain/' + itemId,
             data: {
                 "sg": updateSG
+            }
+        });
+    };
+
+    this.saveRecipe = function(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm, currentUser) {
+        return $http({
+            method: 'POST',
+            url: 'http://localhost:8081/api/recipes',
+            data: {
+                grain:          this.grainInRecipe,
+                hops:           this.hopsInRecipe,
+                yeast:          this.yeastInRecipe,
+                grainAmount:    this.grainAmount,
+                hopsAmount:     this.hopsAmount,
+                boilTime:       this.boilTime,
+                name:           recipeName,
+                batchSize:      batchSize,
+                efficiency:     efficiency,
+                ibu:            IBU,
+                og:             OG,
+                fg:             FG,
+                abv:            ABV,
+                srm:            recipeSrm,
+                user:           currentUser
             }
         });
     };
