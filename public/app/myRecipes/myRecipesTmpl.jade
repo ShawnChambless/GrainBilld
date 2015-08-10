@@ -4,9 +4,12 @@
         .recipeName
             .recipeItemName {{recipe.name}}
         .recipe.recipeGrain Grain: &nbsp;
-            .recipeItemName(ng-repeat='grains in recipe.grain track by $index') {{grains.amount}}lbs {{grains.grain.name}}
+            .recipeItemName(ng-repeat='weight in recipe.grainAmount') {{weight}}lbs &nbsp;
+            .recipeItemName(ng-repeat='grains in recipe.grain') {{grains.name}}
         .recipe.recipeHops Hops: &nbsp;
-            .recipeItemName(ng-repeat='hops in recipe.hops track by $index') {{hops.boil}}mins. {{hops.amount}}oz.  {{hops.hop.name}}
+            .recipeItemName(ng-repeat='time in recipe.boilTime') {{time}}mins. &nbsp;
+            .recipeItemName(ng-repeat='weight in recipe.hopsAmount') {{weight}}oz. &nbsp;
+            .recipeItemName(ng-repeat='hops in recipe.hops') {{hops.name}}
         .recipe.recipeYeast Yeast: &nbsp;
             .recipeItemName(ng-repeat='yeast in recipe.yeast') {{yeast.name}}
         .recipe.recipeSRM SRM: &nbsp;
