@@ -1,4 +1,5 @@
 var express =       require('express'),
+    app     =       express(),
     session =       require('express-session'),
     mongoose =      require('mongoose'),
     passport =      require('./api/services/passport.js'),
@@ -9,12 +10,14 @@ var express =       require('express'),
     hopsCtrl =      require('./api/controllers/database/hopsCtrl'),
     yeastCtrl =     require('./api/controllers/database/yeastCtrl'),
     cors =          require('cors'),
-    port = 8081,
-    app = express();
+    http        = require('http'),
+    httpServer  = http.createServer(app),
+    port = 8081;
 
+
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(__dirname + '/public'));
 app.use(session({
     secret: 'JESUS-MakEs-really-good-beer',
     resave: 'false',
@@ -45,7 +48,7 @@ app.use(passport.session());
 
     app.post(   '/api/recipes',   recipeCtrl.addRecipe);
     app.get(    '/api/recipes',   recipeCtrl.retrieveRecipes);
-    app.put(    'api/recipes',    recipeCtrl.editRecipe);
+    app.put(    '/api/recipes',    recipeCtrl.editRecipe);
     app.delete( '/api/recipes',   recipeCtrl.removeRecipe);
 
     //Database endpoints
@@ -59,9 +62,9 @@ app.use(passport.session());
     app.post(   '/database/ingredients/yeast',      yeastCtrl.addYeast);
 
 
-app.listen(port, function() {
-    console.log('Listening on', port);
-});
 mongoose.connect('mongodb://localhost:27017/brewabatch', function(err, response) {
     console.log(err, 'Mongo is also Listening');
+});
+httpServer.listen(port, function() {
+    console.log('Listening with httpServer on', port);
 });
