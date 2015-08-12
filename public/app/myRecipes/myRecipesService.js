@@ -4,7 +4,7 @@ angular.module('personalProject')
     this.getRecipes = function() {
         return $http({
             method: 'GET',
-            url:    'http://grainbilld.com/api/recipes'
+            url:    'http://grainbilld.com:80/api/recipes'
         });
     };
 

@@ -1,1 +1,1 @@
-angular.module("personalProject").service("recipeService",["$http",function(e){this.getRecipes=function(){return e({method:"GET",url:"http://grainbilld.com/api/recipes"})}}]);
+angular.module("personalProject").service("recipeService",["$http",function(e){this.getRecipes=function(){return e({method:"GET",url:"http://grainbilld.com:80/api/recipes"})}}]);
