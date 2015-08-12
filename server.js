@@ -64,7 +64,7 @@ app.use(passport.session());
     app.post(   '/database/ingredients/yeast',      yeastCtrl.addYeast);
 
 
-mongoose.connect('mongodb://localhost:27017/brewabatch', function(err, response) {
+mongoose.connect('mongodb://grainbilld.com:27017/brewabatch', function(err, response) {
     console.log(err, 'Mongo is also Listening');
 });
 httpServer.listen(port, function() {
