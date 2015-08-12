@@ -9,6 +9,7 @@ var express =       require('express'),
     grainCtrl =     require('./api/controllers/database/grainCtrl'),
     hopsCtrl =      require('./api/controllers/database/hopsCtrl'),
     yeastCtrl =     require('./api/controllers/database/yeastCtrl'),
+    favicon   =     require('serve-favicon'),
     cors =          require('cors'),
     http        = require('http'),
     httpServer  = http.createServer(app),
@@ -16,6 +17,7 @@ var express =       require('express'),
 
 
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
