@@ -109,5 +109,5 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
 }])
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.latencyThreshold = 10;
-    cfpLoadingBarProvider.includeSpinner = false;
+    // cfpLoadingBarProvider.includeSpinner = false;
 }]);
