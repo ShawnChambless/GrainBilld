@@ -65,8 +65,8 @@ app.use(passport.session());
 
 
 
-mongoose.connect('mongodb://grainbilld.com:27017/grainbilld', function(err, response) {
-    console.log(err, 'Mongo is also Listening');
+mongoose.connect('mongodb://admin:admin@mongo.grainbilld.com:27017/grainbilld', function(err, response) {
+    console.log(err, 'Mongo is also Listening', response);
 });
 httpServer.listen(port, function() {
     console.log('Listening with httpServer on', port);
