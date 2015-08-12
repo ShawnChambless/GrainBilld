@@ -16,7 +16,7 @@ app.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', 'grain', 
     $scope.addGrainToDb = function(grain) {
         return $http({
             method: 'POST',
-            url: 'http://localhost:8080/database/ingredients/grain',
+            url: 'http://grainbilld.com/database/ingredients/grain',
             data: grain
         }).then(function(resp) {
             console.log('Added grain to DB', resp);
@@ -27,7 +27,7 @@ app.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', 'grain', 
     $scope.addHopsToDb = function(hops) {
         return $http({
             method: 'POST',
-            url: 'http://localhost:8080/database/ingredients/hops',
+            url: 'http://grainbilld.com/database/ingredients/hops',
             data: hops
         }).then(function(resp) {
             console.log('Added hops to DB', resp);
@@ -37,7 +37,7 @@ app.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', 'grain', 
     $scope.addYeastToDb = function(yeast) {
         return $http({
             method: 'POST',
-            url: 'http://localhost:8080/database/ingredients/yeast',
+            url: 'http://grainbilld.com/database/ingredients/yeast',
             data: yeast
         }).then(function(resp) {
             console.log('Added yeast to DB', resp, resp.data);
