@@ -1,9 +1,13 @@
 .loginWrapper
-    form.loginForm
+    form.loginForm(ng-show='showLogin')
+        header Login
+        p.option(ng-click='showRegister = true; showLogin = false') Need an account?
         input(type='email' ng-model='email' placeholder='Email...')
         input(type='password' ng-model='password' placeholder='Password...')
         input(type='submit' ng-click='login(email, password)' value='Submit')
-    form.registerForm
+    form.registerForm(ng-show='showRegister')
+        header Register
+        p.option(ng-click='showLogin = true; showRegister = false') Already have an account?
         input(type='text' ng-model='firstName' placeholder='FIRST NAME...')
         input(type='text' ng-model='lastName' placeholder='LAST NAME...')
         input(type='email' ng-model='email' placeholder='Email...')
@@ -11,3 +15,9 @@
         input(type='password' ng-model='passwordConfirm' placeholder='Password...')
         input(type='submit' ng-click='register(firstName, lastName, email, password, passwordConfirm)' value='Submit')
         {{user}}
+.flash-error(ng-show='showError')
+      span Sorry, your login information was incorrect.
+      br
+      span Please try again or create an account!
+.flash-success(ng-show='showSuccess')
+    span Success!!!

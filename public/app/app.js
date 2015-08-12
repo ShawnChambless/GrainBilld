@@ -28,11 +28,11 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
             controller: 'recipeCtrl',
             resolve: {
                 currentUser: isLoggedIn,
-                retrieveRecipes: function(recipeService) {
-                    return recipeService.getRecipes().then(function(resp) {
-                        return resp.data;
-                    });
-                }
+                // retrieveRecipes: function(recipeService) {
+                //     return recipeService.getRecipes().then(function(resp) {
+                //         return resp.data;
+                //     });
+                // }
             }
         })
         .state('IngredientInfo', {
@@ -41,21 +41,21 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
             controller: 'ingredientInfoCtrl',
             resolve: {
                 currentUser: isLoggedIn,
-                grain: function(mainService) {
-                    return mainService.getGrainsInDb().then(function(grains){
-                        return grains;
-                    });
-                },
-                hops: function(mainService) {
-                    return mainService.getHopsInDb().then(function(hops){
-                        return hops;
-                    });
-                },
-                yeast: function(mainService) {
-                    return mainService.getYeastInDb().then(function(yeast){
-                        return yeast;
-                    });
-                }
+                // grain: function(mainService) {
+                //     return mainService.getGrainsInDb().then(function(grains){
+                //         return grains;
+                //     });
+                // },
+                // hops: function(mainService) {
+                //     return mainService.getHopsInDb().then(function(hops){
+                //         return hops;
+                //     });
+                // },
+                // yeast: function(mainService) {
+                //     return mainService.getYeastInDb().then(function(yeast){
+                //         return yeast;
+                //     });
+                // }
             }
         })
         .state('NewBatch', {
@@ -64,21 +64,21 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
             controller: 'mainCtrl',
             resolve:  {
                 currentUser: isLoggedIn,
-                    grain: function(mainService) {
-                        return mainService.getGrainsInDb().then(function(resp) {
-                            return resp;
-                        });
-                    },
-                    hops: function(mainService) {
-                        return mainService.getHopsInDb().then(function(resp){
-                            return resp;
-                        });
-                    },
-                    yeast: function(mainService) {
-                        return mainService.getYeastInDb().then(function(resp){
-                            return resp;
-                        });
-                    }
+                    // grain: function(mainService) {
+                    //     return mainService.getGrainsInDb().then(function(resp) {
+                    //         return resp;
+                    //     });
+                    // },
+                    // hops: function(mainService) {
+                    //     return mainService.getHopsInDb().then(function(resp){
+                    //         return resp;
+                    //     });
+                    // },
+                    // yeast: function(mainService) {
+                    //     return mainService.getYeastInDb().then(function(resp){
+                    //         return resp;
+                    //     });
+                    // }
                 }
 
         })
@@ -87,21 +87,21 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
             templateUrl: 'production/html/database/databaseTmpl.html',
             controller: 'databaseCtrl',
             resolve: {
-                grain: function(mainService) {
-                    return mainService.getGrainsInDb().then(function(grains){
-                        return grains;
-                    });
-                },
-                hops: function(mainService) {
-                    return mainService.getHopsInDb().then(function(hops){
-                        return hops;
-                    });
-                },
-                yeast: function(mainService) {
-                    return mainService.getYeastInDb().then(function(yeast){
-                        return yeast;
-                    });
-                }
+                // grain: function(mainService) {
+                //     return mainService.getGrainsInDb().then(function(grains){
+                //         return grains;
+                //     });
+                // },
+                // hops: function(mainService) {
+                //     return mainService.getHopsInDb().then(function(hops){
+                //         return hops;
+                //     });
+                // },
+                // yeast: function(mainService) {
+                //     return mainService.getYeastInDb().then(function(yeast){
+                //         return yeast;
+                //     });
+                // }
             }
         });
 

@@ -63,7 +63,7 @@ gulp.task('compress', function() {
 gulp.task('watch', function() {
     gulp.watch(paths.jade, ['jade']);
     gulp.watch('./public/index.jade', ['jadeIndex']);
-    gulp.watch('./public/styles/modules/**/*.sass', ['sass']);
+    gulp.watch(['./public/styles/modules/**/*.sass','./public/styles/modules/**/*.scss' ], ['sass']);
     gulp.watch(paths.scripts, ['compress']);
     console.log('Watching');
 });

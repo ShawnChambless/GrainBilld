@@ -23,6 +23,7 @@ module.exports = {
         newRecipe.batchSize     = req.body.batchSize;
         newRecipe.efficiency    = req.body.efficiency;
         newRecipe.user          = req.body.user;
+        newRecipe.srm           = req.body.srm;
         newRecipe.save(function(err, recipe) {
             console.log(err);
             if(err) return res.status(500).json(err);
@@ -32,7 +33,7 @@ module.exports = {
 
     retrieveRecipes: function(req, res) {
         Recipe.find({})
-        .populate('grain hops yeast')
+        .populate('grain.name hops.name yeast')
         .exec().then(function(recipes, err) {
             if(err) return res.status(500).json(err);
             return res.status(200).json(recipes);

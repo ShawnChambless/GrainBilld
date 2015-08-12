@@ -1,19 +1,22 @@
 
-<h1 ng-click="showGrainInDb = !showGrainInDb">Grain</h1>
+<header>
+  <h2 class="header">Need to do some research? You've come to the right place!</h2>
+</header>
+<h2 ng-click="showGrainInDb = !showGrainInDb; showHopsInDb = false; showYeastInDb = false" class="ingredientInfo">Grain</h2>
 <input ng-model="grainSearchText" ng-show="showGrainInDb" placeholder="Filter grain"/>
 <div ng-show="showGrainInDb" class="databaseContainer">
   <h3 ng-repeat="grain in grainInDb | filter:grainSearchText" ng-show="showGrainInDb"><span ng-click="showDescription = !showDescription" class="itemName">{{grain.name}}<br /> </span>
     <div ng-show="showDescription" class="itemInfo"><span class="item">Malt type: </span>{{grain.type}} malt<br /><span class="item">Origin: </span>{{grain.origin}}<br /> <span class="item">Alpha Amaylase: </span>{{grain.alphaAmylase}}<br /> <span class="item">Diastatic Power: </span>{{grain.diastaticPower}}<br /> <span class="item">Lovibond: </span>{{grain.lovibond}}L<br /> <span class="item">Extract %: </span>{{grain.extractPercent}}%<br /> <span class="item">Soluble Protein: </span>{{grain.solubleProtein}}<br /> <span class="item">Total Protein: </span>{{grain.totalProtein}}<br /> <span class="item">Usage %: </span>{{grain.usage}}%<br /> <span class="item">Moisture %: </span>{{grain.moisture}}%<br /> <span class="item">SG: </span>{{grain.sg}}<br /><span class="itemDescription">Description: </span><span class="description">{{grain.description}} <br /></span></div>
   </h3>
 </div>
-<h1 ng-click="showHopsInDb = !showHopsInDb">Hops</h1>
+<h2 ng-click="showHopsInDb = !showHopsInDb; showGrainInDb = false; showYeastInDb = false" class="ingredientInfo">Hops</h2>
 <input ng-model="hopsSearchText" ng-show="showHopsInDb" placeholder="Filter hops"/>
 <div ng-show="showHopsInDb" class="databaseContainer">
   <h3 ng-repeat="hop in hopsInDb | filter:hopsSearchText" ng-show="showHopsInDb"><span ng-click="showDescription = !showDescription" class="itemName">{{hop.name}}<br /></span>
     <div ng-show="showDescription" class="itemInfo"><span class="item">Origin: </span>{{hop.origin}}<br /><span class="item">Type: </span>{{hop.type}}<br /><span class="item">Form: </span>{{hop.form}}<br /><span class="item">Alpha Acid: </span>{{hop.alphaAcid}}%<br /><span class="item">Cohumulone: </span>{{hop.cohumulone}}%<br /><span class="item">Colupulone: </span>{{hop.colupulone}}%<br /><span class="item">Beta Acid: </span>{{hop.betaAcid}}%<br /><span class="item">Total Oil: </span>{{hop.totalOil}}mL/100g<br /><span class="item">Myrcene: </span>{{hop.myrcene}}% of total oil<br /><span class="item">Humulene: </span>{{hop.humulene}}% of total oil<br /><span class="item">Humulene Caryophyllene: </span>{{hop.humuleneCaryophyllene}}% of total oil<br /><span class="item">Linalool: </span>{{hop.linalool}}%<br /><span class="item">Flavor/Aroma: </span>{{hop.flavor}}<br /><span class="item">Style: </span>{{hop.style}}<br /><span class="item">Parentage: </span>{{hop.parentage}}<br /><span class="itemDescription">Description: </span><span class="description">{{hop.description}} <br /></span></div>
   </h3>
 </div>
-<h1 ng-click="showYeastInDb = !showYeastInDb">Yeast</h1>
+<h2 ng-click="showYeastInDb = !showYeastInDb; showGrainInDb = false; showHopsInDb = false" class="ingredientInfo">Yeast</h2>
 <input ng-model="yeastSearchText" ng-show="showYeastInDb" placeholder="Filter yeast"/>
 <div ng-show="showYeastInDb" class="databaseContainer">
   <h3 ng-repeat="item in yeastInDb | filter:yeastSearchText" ng-show="showYeastInDb"><span ng-click="showDescription = !showDescription" class="itemName">{{item.name}}<br /></span>

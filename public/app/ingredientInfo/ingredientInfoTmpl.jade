@@ -1,4 +1,6 @@
-h1(ng-click = 'showGrainInDb = !showGrainInDb') Grain
+header
+    h2.header Need to do some research? You've come to the right place!
+h2.ingredientInfo(ng-click = 'showGrainInDb = !showGrainInDb; showHopsInDb = false; showYeastInDb = false') Grain
 input(ng-model='grainSearchText' ng-show='showGrainInDb' placeholder='Filter grain')
 .databaseContainer(ng-show='showGrainInDb')
     h3(ng-repeat='grain in grainInDb | filter:grainSearchText' ng-show='showGrainInDb')
@@ -29,7 +31,7 @@ input(ng-model='grainSearchText' ng-show='showGrainInDb' placeholder='Filter gra
             span.itemDescription Description: 
             span.description {{grain.description}} <br />
 
-h1(ng-click='showHopsInDb = !showHopsInDb') Hops
+h2.ingredientInfo(ng-click='showHopsInDb = !showHopsInDb; showGrainInDb = false; showYeastInDb = false') Hops
 input(ng-model='hopsSearchText' ng-show='showHopsInDb' placeholder='Filter hops')
 .databaseContainer(ng-show='showHopsInDb')
     h3(ng-repeat='hop in hopsInDb | filter:hopsSearchText' ng-show='showHopsInDb')
@@ -68,7 +70,7 @@ input(ng-model='hopsSearchText' ng-show='showHopsInDb' placeholder='Filter hops'
             span.itemDescription Description: 
             span.description {{hop.description}} <br />
 
-h1(ng-click='showYeastInDb = !showYeastInDb') Yeast
+h2.ingredientInfo(ng-click='showYeastInDb = !showYeastInDb; showGrainInDb = false; showHopsInDb = false') Yeast
 input(ng-model='yeastSearchText' ng-show='showYeastInDb' placeholder='Filter yeast')
 .databaseContainer(ng-show='showYeastInDb')
     h3(ng-repeat='item in yeastInDb | filter:yeastSearchText' ng-show='showYeastInDb')

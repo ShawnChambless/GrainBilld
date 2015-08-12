@@ -2,12 +2,16 @@ var mongoose    = require( 'mongoose' ) ;
 
 var recipeSchema = {
     name:           { type: String, required: true },
-    grain:          [{ type: mongoose.Schema.Types.ObjectId, ref: 'Grain'}],
-    hops:           [{ type: mongoose.Schema.Types.ObjectId, ref: 'Hops' }],
+    grain:          [{
+                        name: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Grain'}],
+                        amount: []
+                    }],
+    hops:           [{
+                        name: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Hops' }],
+                        amount: [],
+                        boilTime: [],
+                    }],
     yeast:          [{ type: mongoose.Schema.Types.ObjectId, ref: 'Yeast' }],
-    grainAmount:    [{ type: Number }],
-    hopsAmount:     [{ type: Number }],
-    boilTime:       [{ type: Number }],
     abv:            { type: Number },
     og:             { type: Number },
     fg:             { type: Number },

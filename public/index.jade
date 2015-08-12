@@ -25,13 +25,6 @@ html
                     span.octicon.octicon-arrow-right
             a(ng-href='/auth/logout')
                 .link Logout
-        .authWrapper(ng-controller='loginCtrl')
-            .authData
-                {{authData}}
-            .loginBtn
-                a(ng-show='showLogin' ng-href='/#/login')
-                    button Login/Register
-                button(ng-show='showLogOut' ng-click='logout()') Log Out
         .container
             ui-view    
                 

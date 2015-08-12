@@ -17,7 +17,7 @@ angular.module('personalProject')
     $scope.grainInRecipe    = [];
     $scope.hopsInRecipe     = [];
     $scope.yeastInRecipe    = [];
-
+    
     var srmArr = [];
 
     if(!$scope.batchSize) {

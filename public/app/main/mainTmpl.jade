@@ -2,12 +2,13 @@
 div (click on the images to see the list of ingredients)
 .batchInfo
     label(for='recipeName') Recipe Name:
-    input#recipeName(type='text' ng-model='recipeName')
+    input#recipeName(type='text' ng-model='recipeName' placeholder='Required' autofocus)
     label(for='batchSize') Batch Size:
     input#batchSize(type='number' ng-model='batchSize')
-    label gal
+    label(for='batchSize') gal
     label(for='efficiency') Efficiency:
     input#efficiency(type='number' ng-model='efficiency')
+    label(for='efficiency') %
 .ingredientModule
     .grainBox(ng-click= 'rotateGrain(); showGrainFunction()')
         .boxImage(ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}")
@@ -23,9 +24,10 @@ div (click on the images to see the list of ingredients)
         span(class="x" ng-click='showGrainFunction()') X
         form.grain
             label.grain Grain <br />
-            input.grain(type='text' ng-model='grainSearchText' placeholder='Enter grain...')
-            input.grain(type='number' ng-model='grainWeight' placeholder='Pounds')
-            span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
+            span.inputLine
+                input.grain(type='text' ng-model='grainSearchText' placeholder='Enter grain...')
+                input.grain(type='number' ng-model='grainWeight' placeholder='Pounds')
+                span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
             .grainSearchResults(ng-repeat='item in grainInDb | filter:grainSearchText')
                 .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
     .formWrapper(ng-show='showHopsBox')
@@ -43,8 +45,9 @@ div (click on the images to see the list of ingredients)
         span(class="x" ng-click='showYeastFunction()') X
         form.yeast
             label.yeast Yeast <br />
-            input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
-            span.add(ng-click='addYeastToRecipe(yeastSearchText)') Add!
+            span.inputLine
+                input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
+                span.add(ng-click='addYeastToRecipe(yeastSearchText)') Add!
             .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
                 .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
         

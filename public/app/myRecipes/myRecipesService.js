@@ -4,7 +4,7 @@ angular.module('personalProject')
     this.getRecipes = function() {
         return $http({
             method: 'GET',
-            url:    'http://localhost:8081/api/recipes'
+            url:    'http://localhost:8080/api/recipes'
         });
     };
 

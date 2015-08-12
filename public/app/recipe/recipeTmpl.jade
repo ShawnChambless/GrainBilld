@@ -7,7 +7,7 @@
         span.item(ng-show='OG') {{OG}} OG
         span.item(ng-show='FG') {{FG}} FG
         span.item(ng-show='ABV') {{ABV}} ABV
-        .add(ng-show='ABV' ng-click='saveRecipe(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm)') Save!
+        input(type='submit' ng-show='ABV' value='Save!' ng-click='saveRecipe(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm)')
                 
 .batchModule
     .recipeIngredientWrapper

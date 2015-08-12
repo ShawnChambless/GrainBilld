@@ -4,7 +4,7 @@
   <div class="recipeInfoBox"><span ng-show="recipeSrm" class="item">
        
       {{recipeSrm}} SRM </span><span ng-show="IBU" class="item">{{IBU}} IBU</span><span ng-show="OG" class="item">{{OG}} OG</span><span ng-show="FG" class="item">{{FG}} FG</span><span ng-show="ABV" class="item">{{ABV}} ABV</span>
-    <div ng-show="ABV" ng-click="saveRecipe(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm)" class="add">Save!</div>
+    <input type="submit" ng-show="ABV" value="Save!" ng-click="saveRecipe(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm)"/>
   </div>
 </div>
 <div class="batchModule">

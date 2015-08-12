@@ -15,13 +15,6 @@
         <div class="link">Ingredient Info<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/#/MyRecipes">
         <div class="link">My Recipes<span class="octicon octicon-arrow-right"></span></div></a><a ng-href="/auth/logout">
         <div class="link">Logout</div></a></div>
-    <div ng-controller="loginCtrl" class="authWrapper">
-      <div class="authData">{{authData}}</div>
-      <div class="loginBtn"><a ng-show="showLogin" ng-href="/#/login">
-          <button>Login/Register</button></a>
-        <button ng-show="showLogOut" ng-click="logout()">Log Out</button>
-      </div>
-    </div>
     <div class="container">
       <ui-view>   </ui-view>
     </div>
