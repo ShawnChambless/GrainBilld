@@ -605,6 +605,7 @@ input#batchSize:focus, input#efficiency:focus {
 
 .searchResults {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .searchResults .formWrapper {
