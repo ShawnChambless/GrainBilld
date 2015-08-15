@@ -92,6 +92,11 @@ app.service('mainService',['$http', '$q', function($http, $q) {
                 srm:            recipeSrm,
                 user:           currentUser
             }
+        }).then(function(resp) {
+            return $http({
+                method: 'PUT',
+                url:    '/api/users/' + resp.data.user + '/' + resp.data._id
+            });
         });
     };
 

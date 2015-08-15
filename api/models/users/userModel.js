@@ -1,4 +1,5 @@
-var mongoose    = require( 'mongoose' ) ;
+var mongoose    = require( 'mongoose' ),
+    Recipe      = require('../recipes/recipeModel');
 
 var userSchema = {
   firstName:  { type: String, required: true },
