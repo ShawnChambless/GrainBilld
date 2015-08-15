@@ -86,7 +86,6 @@ angular.module('personalProject')
             mainService.grainAmount.push($scope.grainWeight);
             $scope.grainSearchText = '';
             $scope.grainInRecipe.push({grain: resp.data[0], amount: $scope.grainWeight});
-            console.log(resp, $scope.grainInRecipe, mainService.grainInRecipe);
             /*===================================================
             =====================================================
                                 Calculate GP
@@ -166,7 +165,6 @@ angular.module('personalProject')
     $scope.addYeastToRecipe = function(yeastSearchText) {
         mainService.getYeastInDb(yeastSearchText).then(function(resp) {
             mainService.yeastInRecipe.push(resp.data[0]._id);
-            console.log(mainService.grainInRecipe, mainService.hopsInRecipe, mainService.yeastInRecipe, mainService.hopsAmount, mainService.grainAmount);
             $scope.yeastSearchText = '';
             $scope.yeastInRecipe.push(resp.data[0]);
 
@@ -176,7 +174,6 @@ angular.module('personalProject')
             =======================================================
             =====================================================*/
             var attenuation = ($scope.yeastInRecipe[0].maximumAttenuation + $scope.yeastInRecipe[0].minimumAttenuation)/2;
-            console.log(attenuation);
             $scope.FG = (1+($scope.OG / (attenuation))).toFixed(3);
             $scope.ABV = ((76.08) * ($scope.OG - $scope.FG) / (1.775 - $scope.OG) * ($scope.FG / 0.794)).toFixed(2);
 
@@ -217,7 +214,6 @@ angular.module('personalProject')
         //     }
         // }
         mainService.saveRecipe(grain, hops, yeast, $scope.recipeName, $scope.batchSize, $scope.efficiency, $scope.IBU, $scope.OG, $scope.FG, $scope.ABV, $scope.recipeSrm, currentUser).then(function(resp) {
-            console.log(resp);
         });
     };
 

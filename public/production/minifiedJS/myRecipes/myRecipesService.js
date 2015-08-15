@@ -1,1 +1,1 @@
-angular.module("personalProject").service("recipeService",["$http",function(e){this.user={},this.getRecipes=function(t){return console.log(t),e({method:"GET",url:"http://localhost:8080/api/recipes/"+t})}}]);
+angular.module("personalProject").service("recipeService",["$http",function(e){this.user={},this.getRecipes=function(t){return e({method:"GET",url:"http://localhost:8080/api/recipes/"+t})}}]);
