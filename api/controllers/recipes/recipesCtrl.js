@@ -40,6 +40,15 @@ module.exports = {
         });
     },
 
+    retrieveUserRecipes: function(req, res) {
+        Recipe.find({})
+        .where('user').equals(req.params.user_id)
+        .exec().then(function(recipes, err) {
+            if(err) return res.status(500).json(err);
+            return res.status(200).json(recipes);
+        });
+    },
+
     editRecipe: function(req, res) {
         Recipe.findByIdAndUpdate(req.params.recipe_id, req.body, {new: true}, function(err, updatedRecipe) {
             if(err) return res.status(500).json(err);

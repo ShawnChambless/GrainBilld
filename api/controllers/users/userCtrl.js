@@ -20,7 +20,7 @@ module.exports = {
     if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
     User.findOne(query)
-    .populate('favorites watchLater bounties posts')
+    .populate('favorites recipes')
     .exec().then(function(user, err){
       if (err) {
         console.log(err);
@@ -42,23 +42,23 @@ module.exports = {
     return res.status(200).json(req.user);
   },
 
+  updateRecipes: function(req, res) {
+      User.findById(req.params.user_id, function(err, user) {
+          if(err) return res.status(500).json(err);
+          user.recipes.push(new mongoose.Types.ObjectId(req.params.recipe_id));
+          user.save(function(err, updatedUser) {
+              if(err) return res.status(500).json(err);
+              return res.json(updatedUser);
+          });
+      });
+  },
+
   update: function(req, res){
     User.findByIdAndUpdate(req.params.user_id, req.body, {new: true}, function(err, updatedUser){
       if (err) return res.status(500).json(err);
       return res.status(200).json(updatedUser);
     });
   } ,
-
-  updateRecipes: function(req, res){
-      User.findById(req.params.user_id, function(err, user){
-          if(err) return res.status(500).json(err);
-          user.posts.push(new mongoose.Types.ObjectId(req.params.post_id));
-          user.save(function(error, updatedUser){
-              if(error) return res.status(500).json(error);
-              return res.json(updatedUser);
-          });
-      });
-  },
 
   updateFavorites: function(req, res){
       User.findById(req.params.user_id, function(err, user){

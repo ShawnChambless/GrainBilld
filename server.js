@@ -41,15 +41,17 @@ app.use(passport.session());
 
     //User endpoints
 
-    app.post(   '/api/users',          userCtrl.create );
-    app.get(    '/api/user/',          userCtrl.getCurrentUser);
-    app.put(    '/api/users/:user_id', userCtrl.update );
-    app.delete( '/api/users/:user_id', userCtrl.remove );
+    app.post(   '/api/users',                       userCtrl.create );
+    app.get(    '/api/user/',                       userCtrl.getCurrentUser);
+    app.put(    '/api/users/:user_id',              userCtrl.update );
+    app.put(    '/api/users/:user_id/:recipe_id',   userCtrl.updateRecipes);
+    app.delete( '/api/users/:user_id',              userCtrl.remove );
 
     //Recipe endpoints
 
     app.post(   '/api/recipes',   recipeCtrl.addRecipe);
     app.get(    '/api/recipes',   recipeCtrl.retrieveRecipes);
+    app.get(    '/api/recipes/:user_id', recipeCtrl.retrieveUserRecipes);
     app.put(    '/api/recipes',    recipeCtrl.editRecipe);
     app.delete( '/api/recipes',   recipeCtrl.removeRecipe);
 
