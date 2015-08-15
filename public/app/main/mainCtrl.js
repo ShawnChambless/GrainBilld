@@ -17,7 +17,7 @@ angular.module('personalProject')
     $scope.grainInRecipe    = [];
     $scope.hopsInRecipe     = [];
     $scope.yeastInRecipe    = [];
-    
+
     var srmArr = [];
 
     if(!$scope.batchSize) {
@@ -175,8 +175,9 @@ angular.module('personalProject')
                                 Calculate FG
             =======================================================
             =====================================================*/
-
-            $scope.FG = ($scope.OG / ($scope.yeastInRecipe[0].maximumAttenuation/100)/1000 + 1).toFixed(3);
+            var attenuation = ($scope.yeastInRecipe[0].maximumAttenuation + $scope.yeastInRecipe[0].minimumAttenuation)/2;
+            console.log(attenuation);
+            $scope.FG = (1+($scope.OG / (attenuation))).toFixed(3);
             $scope.ABV = ((76.08) * ($scope.OG - $scope.FG) / (1.775 - $scope.OG) * ($scope.FG / 0.794)).toFixed(2);
 
         });
