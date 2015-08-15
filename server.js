@@ -13,7 +13,7 @@ var express =       require('express'),
     cors =          require('cors'),
     http        = require('http'),
     httpServer  = http.createServer(app),
-    port = 8080;
+    port = 80;
 
 
 app.use(express.static(__dirname + '/public'));
