@@ -30,7 +30,6 @@ angular.module('personalProject')
                 password:   password
             }
         }).then(function(resp) {
-            console.log('Registered from sevice', resp.data);
             dfd.resolve(resp.data);
         });
         return dfd.promise;
