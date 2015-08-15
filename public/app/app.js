@@ -28,9 +28,16 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
             controller: 'recipeCtrl',
             resolve: {
                 currentUser: isLoggedIn,
-                retrieveRecipes: function(recipeService) {
-                    return recipeService.getRecipes().then(function(resp) {
-                        return resp.data;
+                retrieveRecipes: function(recipeService, loginService, $state) {
+                    return loginService.getCurrentUser().then(function() {
+                        if(!loginService.currentUser())
+                        $state.go('login');
+                        else {
+                            return recipeService.getRecipes(loginService.currentUser()._id).then(function(resp) {
+                                recipeService.user = resp.data;
+                                return resp.data;
+                            });
+                        }
                     });
                 }
             }

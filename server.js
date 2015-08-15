@@ -51,6 +51,7 @@ app.use(passport.session());
 
     app.post(   '/api/recipes',   recipeCtrl.addRecipe);
     app.get(    '/api/recipes',   recipeCtrl.retrieveRecipes);
+    app.get(    '/api/recipes/:user_id', recipeCtrl.retrieveUserRecipes);
     app.put(    '/api/recipes',    recipeCtrl.editRecipe);
     app.delete( '/api/recipes',   recipeCtrl.removeRecipe);
 
