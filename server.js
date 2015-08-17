@@ -66,8 +66,9 @@ app.use(passport.session());
     app.post(   '/database/ingredients/yeast',      yeastCtrl.addYeast);
 
 
+
 mongoose.connect('mongodb://localhost:27017/brewabatch', function(err, response) {
-    console.log(err, 'Mongo is also Listening');
+    console.log(err, 'Mongo is also Listening', response);
 });
 httpServer.listen(port, function() {
     console.log('Listening with httpServer on', port);

@@ -8,7 +8,7 @@ angular.module('personalProject')
         var dfd = $q.defer();
         $http({
             method: 'GET',
-            url:    '/api/user/'
+            url:    'http://localhost:8080/api/user/'
         }).success(function(user) {
             currUser = user;
             dfd.resolve(user);
@@ -22,7 +22,7 @@ angular.module('personalProject')
         var dfd = $q.defer();
         $http({
             method: 'POST',
-            url:    '/auth/local/signup',
+            url:    'http://localhost:8080/auth/local/signup',
             data: {
                 firstName:  firstName,
                 lastName:   lastName,
@@ -41,7 +41,7 @@ angular.module('personalProject')
         var dfd = $q.defer();
         $http({
             method: 'POST',
-            url: '/auth/local/login',
+            url: 'http://localhost:8080/auth/local/login',
             data: {
                 email:      email,
                 password:   password
