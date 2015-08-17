@@ -31,6 +31,8 @@ angular.module('personalProject')
             }
         }).then(function(resp) {
             dfd.resolve(resp.data);
+        }, function(err) {
+            dfd.reject(err);
         });
         return dfd.promise;
     };
