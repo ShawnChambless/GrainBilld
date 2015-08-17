@@ -1,1 +1,0 @@
-angular.module("personalProject").controller("ingredientInfoCtrl",["$scope","mainService","grain","hops","yeast","$location",function(a,n,e,o,t,r){a.pageTitle=r.url(),a.grainInDb=e.data,a.hopsInDb=o.data,a.yeastInDb=t.data}]);

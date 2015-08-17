@@ -1,1 +1,0 @@
-angular.module("personalProject").controller("recipeCtrl",["$scope","recipeService","retrieveRecipes",function(e,r,c){e.recipes=c}]);
