@@ -13,9 +13,10 @@ var express =       require('express'),
     cors =          require('cors'),
     http        = require('http'),
     httpServer  = http.createServer(app),
+    compress    = require('compression'),
     port = 8080;
 
-
+app.use(compress());
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());

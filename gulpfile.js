@@ -51,11 +51,11 @@ gulp.task('sass', function() {
         .pipe(sass({
             outputStyle: 'expanded'
         }))
+        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
         .pipe(uglifyCss({
             expandVars: true,
             uglyComments: true
         }))
-        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
         .pipe(gulp.dest('./public/styles'));
 });
 
