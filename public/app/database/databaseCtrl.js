@@ -1,6 +1,5 @@
-var app = angular.module('personalProject');
-
-app.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', 'grain', 'hops', 'yeast', function($scope, $http, $q, mainService, grain, hops, yeast) {
+angular.module('personalProject')
+.controller('databaseCtrl',['$scope', '$http', '$q', 'mainService', 'grain', 'hops', 'yeast', function($scope, $http, $q, mainService, grain, hops, yeast) {
 
     $scope.grainsInDb = grain.data;
     $scope.hopsInDb = hops.data;
