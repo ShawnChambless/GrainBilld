@@ -11,7 +11,7 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
     $stateProvider
         .state('login', {
             url: '/login',
-            templateUrl: 'production/html/login/loginTmpl.html',
+            templateUrl: 'app/login/loginTmpl.html',
             controller: 'loginCtrl',
             resolve: {
                 sessionLogin: function(loginService, $state) {
@@ -24,7 +24,7 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
         })
         .state('MyRecipes', {
             url: '/MyRecipes',
-            templateUrl: 'production/html/myRecipes/myRecipesTmpl.html',
+            templateUrl: 'app/myRecipes/myRecipesTmpl.html',
             controller: 'recipeCtrl',
             resolve: {
                 currentUser: isLoggedIn,
@@ -44,7 +44,7 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
         })
         .state('IngredientInfo', {
             url: '/IngredientInfo',
-            templateUrl: 'production/html/ingredientInfo/ingredientInfoTmpl.html',
+            templateUrl: 'app/ingredientInfo/ingredientInfoTmpl.html',
             controller: 'ingredientInfoCtrl',
             resolve: {
                 currentUser: isLoggedIn,
@@ -67,7 +67,7 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
         })
         .state('NewBatch', {
             url: '/NewBatch',
-            templateUrl: 'production/html/main/mainTmpl.html',
+            templateUrl: 'app/main/mainTmpl.html',
             controller: 'mainCtrl',
             resolve:  {
                 currentUser: isLoggedIn,
@@ -91,7 +91,7 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
         })
         .state('database', {
             url: '/database',
-            templateUrl: 'production/html/database/databaseTmpl.html',
+            templateUrl: 'app/database/databaseTmpl.html',
             controller: 'databaseCtrl',
             resolve: {
                 grain: function(mainService) {

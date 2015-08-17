@@ -51,4 +51,4 @@ div (click on the images to see the list of ingredients)
             .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
                 .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
         
-ng-include(src="'production/html/recipe/recipeTmpl.html'")
+ng-include(src="'app/recipe/recipeTmpl.html'")

@@ -1,6 +1,7 @@
 doctype html
-html
+html(lang='en')
     head
+        meta(name='description' content="Grain Billd - The one-stop shop for homebrewers. Want to do some research? Calculate a new recipe? Save a recipe for later use? You've come to the right place!")
         title Grain Billd
         
         link(href='bower_components/angular-grid/ng-grid.min.css' rel='stylesheet')
@@ -33,22 +34,7 @@ html
         script(src='bower_components/angular-loading-bar/build/loading-bar.min.js')
         script(src='bower_components/angucomplete-alt/dist/angucomplete-alt.min.js')
         script(src='bower_components/angular-animate/angular-animate.min.js')
-        script(src='app/app.js')
-        script(src='production/minifiedJS/main/mainService.js')
-        script(src='production/minifiedJS/login/loginService.js')
-        script(src='production/minifiedJS/myRecipes/myRecipesService.js')
-        script(src='production/minifiedJS/login/loginCtrl.js')
-        script(src='production/minifiedJS/database/databaseCtrl.js')
-        script(src='production/minifiedJS/main/mainCtrl.js')
-        script(src='production/minifiedJS/ingredientInfo/ingredientInfoCtrl.js')
-        script(src='production/minifiedJS/index/indexCtrl.js')
-        script(src='production/minifiedJS/myRecipes/myRecipesCtrl.js')
-        
-        //- script(src='bower_components/angular/angular.min.js')
-        //- script(src='bower_components/angular-ui-router/release/angular-ui-router.min.js')
-        //- script(src='bower_components/angular-loading-bar/build/loading-bar.min.js')
-        //- script(src='bower_components/angucomplete-alt/dist/angucomplete-alt.min.js')
-        //- script(src='bower_components/angular-animate/angular-animate.min.js')
+        script(src='production/scripts.min.js')
         //- script(src='app/app.js')
         //- script(src='app/main/mainService.js')
         //- script(src='app/login/loginService.js')
