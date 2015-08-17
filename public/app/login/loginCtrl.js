@@ -4,7 +4,10 @@ var app = angular.module('personalProject')
     $scope.showLogin = true;
     $scope.register = function(firstName, lastName, email, password) {
         loginService.register(firstName, lastName, email, password).then(function(resp) {
+            $scope.showSuccess = true;
             $state.go('NewBatch');
+        }).catch(function(err) {
+            $scope.showError = true;
         });
     };
 

@@ -860,10 +860,56 @@ h2.ingredientInfo, .itemDescription, .itemName {
 }
 
 .loginWrapper {
+  height: 80%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loginWrapper header, .loginWrapper p.option {
+  color: #f7f7f7;
+}
+
+.loginWrapper p.option {
+  cursor: pointer;
+}
+
+.loginWrapper form {
+  text-align: center;
+  background: #3090C7;
+  width: 380px;
+  border-radius: 3px;
+  padding: 1%;
+}
+
+.loginWrapper form input {
+  width: 100%;
+  margin: 15px auto;
+}
+
+.flashWrapper {
+  margin-top: -70px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flashWrapper .flash-error, .flashWrapper .flash-success {
+  width: 380px;
 }
 
 .savedRecipesContainer {
