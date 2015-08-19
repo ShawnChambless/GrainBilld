@@ -12,7 +12,7 @@
         input(type='text' ng-model='lastName' placeholder='Last name...')
         input(type='email' ng-model='email' placeholder='Email...')
         input(type='password' ng-model='password' placeholder='Password...')
-        input(type='submit' ng-click='register(firstName, lastName, email, password, passwordConfirm)' value='Submit')
+        input(type='submit' ng-click='register(firstName, lastName, email, password)' value='Submit')
         {{user}}
 .flashWrapper
     .flash-error(ng-show='showError')
