@@ -12,13 +12,13 @@ app.service('mainService',['$http', '$q', function($http, $q) {
         if (!grainName) {
             return $http({
                 method: 'GET',
-                url: 'http://grainbilld.com/database/ingredients/grain/'
+                url: 'http://localhost:8080/database/ingredients/grain/'
             });
         }
         else {
             return $http({
                 method: 'GET',
-                url: 'http://grainbilld.com/database/ingredients/grain/?name=' + grainName
+                url: 'http://localhost:8080/database/ingredients/grain/?name=' + grainName
             });
         }
     };
@@ -27,13 +27,13 @@ app.service('mainService',['$http', '$q', function($http, $q) {
         if(!hopsName) {
             return $http({
                 method: 'GET',
-                url: 'http://grainbilld.com/database/ingredients/hops/'
+                url: 'http://localhost:8080/database/ingredients/hops/'
             });
         }
         else {
             return $http({
                 method: 'GET',
-                url: 'http://grainbilld.com/database/ingredients/hops/?name=' + hopsName
+                url: 'http://localhost:8080/database/ingredients/hops/?name=' + hopsName
             });
         }
 
@@ -43,7 +43,7 @@ app.service('mainService',['$http', '$q', function($http, $q) {
         if(!yeastName) {
                 return $http({
                 method: 'GET',
-                url: 'http://grainbilld.com/database/ingredients/yeast/'
+                url: 'http://localhost:8080/database/ingredients/yeast/'
             }).then(function(resp) {
                 return resp;
             });
@@ -51,7 +51,7 @@ app.service('mainService',['$http', '$q', function($http, $q) {
         else {
             return $http({
             method: 'GET',
-            url: 'http://grainbilld.com/database/ingredients/yeast/?name=' + yeastName
+            url: 'http://localhost:8080/database/ingredients/yeast/?name=' + yeastName
         });
         }
 
@@ -60,7 +60,7 @@ app.service('mainService',['$http', '$q', function($http, $q) {
     this.updateSG = function(updateSG, itemId) {
         return $http({
             method: 'PUT',
-            url: 'http://grainbilld.com/database/ingredients/grain/' + itemId,
+            url: 'http://localhost:8080/database/ingredients/grain/' + itemId,
             data: {
                 "sg": updateSG
             }
@@ -70,7 +70,7 @@ app.service('mainService',['$http', '$q', function($http, $q) {
     this.saveRecipe = function(grainInRecipe, hopsInRecipe, yeastInRecipe, recipeName, batchSize, efficiency, IBU, OG, FG, ABV, recipeSrm, currentUser) {
         return $http({
             method: 'POST',
-            url: 'http://grainbilld.com/api/recipes',
+            url: 'http://localhost:8080/api/recipes',
             data: {
                 grain: [{
                             name: this.grainInRecipe,

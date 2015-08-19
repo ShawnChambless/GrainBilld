@@ -14,7 +14,7 @@ angular.module('personalProject')
     $scope.addGrainToDb = function(grain) {
         return $http({
             method: 'POST',
-            url: 'http://grainbilld.com/database/ingredients/grain',
+            url: 'http://localhost:8080/database/ingredients/grain',
             data: grain
         }).then(function(resp) {
             $scope.grain = '';
@@ -24,7 +24,7 @@ angular.module('personalProject')
     $scope.addHopsToDb = function(hops) {
         return $http({
             method: 'POST',
-            url: 'http://grainbilld.com/database/ingredients/hops',
+            url: 'http://localhost:8080/database/ingredients/hops',
             data: hops
         }).then(function(resp) {
             $scope.addHops = '';
@@ -33,7 +33,7 @@ angular.module('personalProject')
     $scope.addYeastToDb = function(yeast) {
         return $http({
             method: 'POST',
-            url: 'http://grainbilld.com/database/ingredients/yeast',
+            url: 'http://localhost:8080/database/ingredients/yeast',
             data: yeast
         }).then(function(resp) {
             $scope.addYeast = '';
