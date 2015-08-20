@@ -19,7 +19,9 @@ html(lang='en')
                 .link My Recipes
                     span.octicon.octicon-arrow-right
             a(ng-href='/auth/logout')
-                .link Logout
+                .link Log In/Log Out
+            //- a(ng-hide='isLoggedIn' ng-href='#/login')
+            //-     .link Log In
         ui-view    
                 
         script(src='bower_components/angular/angular.min.js')

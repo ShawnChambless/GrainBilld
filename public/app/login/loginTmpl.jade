@@ -1,4 +1,3 @@
-
 section.login
     form.loginForm(ng-show='showLogin')
         header Log In
@@ -6,6 +5,9 @@ section.login
         input(type='email' ng-model='email' placeholder='Email...')
         input(type='password' ng-model='password' placeholder='Password...')
         input(type='submit' ng-click='login(email, password)' value='Log In')
+        a(ng-href='#/NewBatch')
+            input(type='submit' value='Continue as a guest')
+            p If you continue as a guest you will not be able to save recipes, navigate to the My Recipes page.
     form.registerForm(ng-show='showRegister')
         header Register
         p(ng-click='showLogin = true; showRegister = false') Already have an account?
