@@ -47,7 +47,6 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
             templateUrl: 'app/ingredientInfo/ingredientInfoTmpl.html',
             controller: 'ingredientInfoCtrl',
             resolve: {
-                currentUser: isLoggedIn,
                 grain: function(mainService) {
                     return mainService.getGrainsInDb().then(function(grains){
                         return grains;
@@ -70,7 +69,6 @@ angular.module('personalProject', ['angular-loading-bar', 'ui.router', 'angucomp
             templateUrl: 'app/main/mainTmpl.html',
             controller: 'mainCtrl',
             resolve:  {
-                currentUser: isLoggedIn,
                     grain: function(mainService) {
                         return mainService.getGrainsInDb().then(function(resp) {
                             return resp;

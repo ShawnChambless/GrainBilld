@@ -1,54 +1,55 @@
-.moduleTitle Add Ingredients
-div (click on the images to see the list of ingredients)
-.batchInfo
-    label(for='recipeName') Recipe Name:
-    input#recipeName(type='text' ng-model='recipeName' placeholder='Required' autofocus)
-    label(for='batchSize') Batch Size:
-    input#batchSize(type='number' ng-model='batchSize')
-    label(for='batchSize') gal
-    label(for='efficiency') Efficiency:
-    input#efficiency(type='number' ng-model='efficiency')
-    label(for='efficiency') %
-.ingredientModule
-    .grainBox(ng-click= 'rotateGrain(); showGrainFunction()')
-        .boxImage(ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}")
-                    
-    .hopsBox(ng-click='rotateHops(); showHopsFunction()')
-        .boxImage(ng-class="{'hopsBoxRotate': hopsBoxToggle.rotate}")
-        
-    .yeastBox(ng-click='rotateYeast(); showYeastFunction()')
-        .boxImage(ng-class="{'yeastBoxRotate': yeastBoxToggle.rotate}") 
-        
-.searchResults  
-    .formWrapper(ng-show='showGrainBox')
-        span(class="x" ng-click='showGrainFunction()') X
-        form.grain
-            label.grain Grain <br />
-            span.inputLine
-                input.grain(type='text' ng-model='grainSearchText' placeholder='Enter grain...')
-                input.grain(type='number' ng-model='grainWeight' placeholder='Pounds')
-                span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
-            .grainSearchResults(ng-repeat='item in grainInDb | filter:grainSearchText')
-                .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
-    .formWrapper(ng-show='showHopsBox')
-        span(class="x" ng-click='showHopsFunction()') X
-        form.hops
-            label.hops Hops <br />
-            span.inputLine
-                input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
-                input.hops(type='number' ng-model='hopWeight' placeholder='oz.')
-                input.hops(type='number' ng-model='boilTime' placeholder='Boil time...')
-                span.add(ng-click='addHopsToRecipe(hopsSearchText)') Add!
-            .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
-                .hopsName(ng-click='addToHopsSearchText(item)') {{item.name}} <hr />
-    .formWrapper(ng-show='showYeastBox')
-        span(class="x" ng-click='showYeastFunction()') X
-        form.yeast
-            label.yeast Yeast <br />
-            span.inputLine
-                input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
-                span.add(ng-click='addYeastToRecipe(yeastSearchText)') Add!
-            .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
-                .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
-        
-ng-include(src="'app/recipe/recipeTmpl.html'")
+.container
+    .moduleTitle Add Ingredients
+    div (click on the images to see the list of ingredients)
+    .batchInfo
+        label(for='recipeName') Recipe Name:
+        input#recipeName(type='text' ng-model='recipeName' placeholder='Required' autofocus)
+        label(for='batchSize') Batch Size:
+        input#batchSize(type='number' ng-model='batchSize')
+        label(for='batchSize') gal
+        label(for='efficiency') Efficiency:
+        input#efficiency(type='number' ng-model='efficiency')
+        label(for='efficiency') %
+    .ingredientModule
+        .grainBox(ng-click= 'rotateGrain(); showGrainFunction()')
+            .boxImage(ng-class="{'grainBoxRotate' : grainBoxToggle.rotate}")
+                        
+        .hopsBox(ng-click='rotateHops(); showHopsFunction()')
+            .boxImage(ng-class="{'hopsBoxRotate': hopsBoxToggle.rotate}")
+            
+        .yeastBox(ng-click='rotateYeast(); showYeastFunction()')
+            .boxImage(ng-class="{'yeastBoxRotate': yeastBoxToggle.rotate}") 
+            
+    .searchResults  
+        .formWrapper(ng-show='showGrainBox')
+            span(class="x" ng-click='showGrainFunction()') X
+            form.grain
+                label.grain Grain <br />
+                span.inputLine
+                    input.grain(type='text' ng-model='grainSearchText' placeholder='Enter grain...')
+                    input.grain(type='number' ng-model='grainWeight' placeholder='Pounds')
+                    span.add(ng-click='addGrainToRecipe(grainSearchText)') Add!
+                .grainSearchResults(ng-repeat='item in grainInDb | filter:grainSearchText')
+                    .grainName(ng-click='addToGrainSearchText(item)') {{item.name}} <hr />
+        .formWrapper(ng-show='showHopsBox')
+            span(class="x" ng-click='showHopsFunction()') X
+            form.hops
+                label.hops Hops <br />
+                span.inputLine
+                    input.hops(type='text' ng-model='hopsSearchText' placeholder='Enter hops...')
+                    input.hops(type='number' ng-model='hopWeight' placeholder='oz.')
+                    input.hops(type='number' ng-model='boilTime' placeholder='Boil time...')
+                    span.add(ng-click='addHopsToRecipe(hopsSearchText)') Add!
+                .hopsSearchResults(ng-repeat='item in hopsInDb | filter:hopsSearchText')
+                    .hopsName(ng-click='addToHopsSearchText(item)') {{item.name}} <hr />
+        .formWrapper(ng-show='showYeastBox')
+            span(class="x" ng-click='showYeastFunction()') X
+            form.yeast
+                label.yeast Yeast <br />
+                span.inputLine
+                    input.yeast(type='text' ng-model='yeastSearchText' placeholder='Enter yeast...')
+                    span.add(ng-click='addYeastToRecipe(yeastSearchText)') Add!
+                .yeastSearchResults(ng-repeat='item in yeastInDb | filter:yeastSearchText')
+                    .yeastName(ng-click='addToYeastSearchText(item)') {{item.name}} <hr />
+            
+    ng-include(src="'app/recipe/recipeTmpl.html'")

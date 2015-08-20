@@ -1,24 +1,38 @@
-.loginWrapper
-    height: 80%
+section.login, section.flashMessages
+    max-width: 470px
+    min-width: 450px
+section.flashMessages
+    margin: 0 auto
+section.login
     display: flex
+    flex-direction: column
     justify-content: center
-    align-items: center
-    header, p.option
+    margin: 10% auto 0 auto
+    padding: 30px
+    width: 40%
+    background: $blue
+    border-radius: 3px
+    input
+        margin: 10px 0
+    header, p
         color: #f7f7f7
-    p.option
-        cursor: pointer
-    form
         text-align: center
-        background: $blue
-        width: 380px
-        border-radius: 3px
-        padding: 1%
-        input
-            width: 100%
-            margin: 15px auto
-.flashWrapper
-    margin-top: -70px
-    display: flex
-    justify-content: center
-    .flash-error, .flash-success
-        width: 380px
+        user-select: none
+    p
+        cursor: pointer
+        margin-bottom: 20px
+    header
+        margin: -20px auto auto auto
+        font-size: 1.8em
+    input[type='submit']
+        width: 100%
+        background: darken($blue, 20%)
+        transition: all 90ms ease-in-out
+        &:hover
+            background: lighten($blue, 10%)
+        &:focus
+            border: none
+            outline: none
+            box-shadow: 0 0 5px #333
+.flash-error, .flash-success
+    border-radius: 3px

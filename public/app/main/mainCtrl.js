@@ -1,5 +1,5 @@
 angular.module('personalProject')
-.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', 'currentUser', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast, currentUser) {
+.controller('mainCtrl', ['$scope', '$timeout', '$location', '$q', '$http', 'mainService', 'grain', 'hops', 'yeast', function($scope, $timeout, $location, $q, $http, mainService, grain, hops, yeast) {
     $scope.pageTitle = $location.url();
     $scope.showHopsBox      = false;
     $scope.showYeastBox     = false;

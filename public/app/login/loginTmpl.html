@@ -1,23 +1,23 @@
 
-<div class="loginWrapper">
+<section class="login">
   <form ng-show="showLogin" class="loginForm">
-    <header>Login</header>
-    <p ng-click="showRegister = true; showLogin = false" class="option">Need an account?</p>
+    <header>Log In</header>
+    <p ng-click="showRegister = true; showLogin = false">Need an account?</p>
     <input type="email" ng-model="email" placeholder="Email..."/>
     <input type="password" ng-model="password" placeholder="Password..."/>
-    <input type="submit" ng-click="login(email, password)" value="Submit"/>
+    <input type="submit" ng-click="login(email, password)" value="Log In"/>
   </form>
   <form ng-show="showRegister" class="registerForm">
     <header>Register</header>
-    <p ng-click="showLogin = true; showRegister = false" class="option">Already have an account?</p>
+    <p ng-click="showLogin = true; showRegister = false">Already have an account?</p>
     <input type="text" ng-model="firstName" placeholder="First name..."/>
     <input type="text" ng-model="lastName" placeholder="Last name..."/>
     <input type="email" ng-model="email" placeholder="Email..."/>
     <input type="password" ng-model="password" placeholder="Password..."/>
-    <input type="submit" ng-click="register(firstName, lastName, email, password)" value="Submit"/>{{user}}
+    <input type="submit" ng-click="register(firstName, lastName, email, password)" value="Register"/>
   </form>
-</div>
-<div class="flashWrapper">
+</section>
+<section class="flashMessages">
   <div ng-show="showError" class="flash-error"><span>Sorry, your login information was incorrect.</span><br/><span>Please try again or create an account!</span></div>
   <div ng-show="showSuccess" class="flash-success"><span>Success!!!</span></div>
-</div>
+</section>
