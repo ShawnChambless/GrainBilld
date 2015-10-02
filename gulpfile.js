@@ -20,8 +20,8 @@ gulp.task('concat', function(done) {
     gulp.src(paths.scripts)
         .pipe(plumber())
         .pipe(annotate())
-        .pipe(uglify())
         .pipe(concat('scripts.min.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./public/production/'))
         .on('end', done);
 });

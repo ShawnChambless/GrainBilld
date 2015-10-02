@@ -1,6 +1,5 @@
-var app = angular.module('personalProject');
-
-app.service('mainService',['$http', '$q', function($http, $q) {
+angular.module('personalProject')
+.service('mainService',['$http', '$q', function($http, $q) {
     this.grainInRecipe  = [];
     this.hopsInRecipe   = [];
     this.yeastInRecipe  = [];
