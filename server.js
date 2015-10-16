@@ -20,7 +20,6 @@ app.use(compress());
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
-app.use(cors());
 app.use(session({
     secret: 'JESUS-MakEs-really-good-beer',
     resave: 'false',
